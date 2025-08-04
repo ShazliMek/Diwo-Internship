@@ -1,0 +1,794 @@
+{% extends "base.html" %}
+
+{% block title %}Reports & Analytics - MCP Audit Management System{% endblock %}
+
+{% block breadcrumb %}
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb mb-4">
+        <li class="breadcrumb-item">
+            <a href="{{ url_for('index') }}">Dashboard</a>
+        </li>
+        <li class="breadcrumb-item active">Reports & Analytics</li>
+    </ol>
+</nav>
+{% endblock %}
+
+{% block content %}
+<div class="row mb-4">
+    <div class="col-12">
+        <h1 class="h2 mb-0">
+            <i class="bi bi-graph-up"></i> Reports & Analytics
+        </h1>
+        <p class="text-muted">Comprehensive audit reporting and performance analytics</p>
+    </div>
+</div>
+
+<!-- Quick Stats -->
+<div class="row mb-4">
+    <div class="col-md-3">
+        <div class="card bg-primary text-white">
+            <div class="card-body">
+                <div class="d-flex align-items-center">
+                    <div class="flex-grow-1">
+                        <h3 class="mb-0">24</h3>
+                        <small>Total Audits</small>
+                    </div>
+                    <i class="bi bi-clipboard-data" style="font-size: 2rem;"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card bg-success text-white">
+            <div class="card-body">
+                <div class="d-flex align-items-center">
+                    <div class="flex-grow-1">
+                        <h3 class="mb-0">18</h3>
+                        <small>Completed</small>
+                    </div>
+                    <i class="bi bi-check-circle" style="font-size: 2rem;"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card bg-warning text-white">
+            <div class="card-body">
+                <div class="d-flex align-items-center">
+                    <div class="flex-grow-1">
+                        <h3 class="mb-0">4</h3>
+                        <small>In Progress</small>
+                    </div>
+                    <i class="bi bi-clock" style="font-size: 2rem;"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card bg-danger text-white">
+            <div class="card-body">
+                <div class="d-flex align-items-center">
+                    <div class="flex-grow-1">
+                        <h3 class="mb-0">2</h3>
+                        <small>Overdue</small>
+                    </div>
+                    <i class="bi bi-exclamation-triangle" style="font-size: 2rem;"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <!-- Report Generation -->
+    <div class="col-lg-8">
+        <div class="card mb-4">
+            <div class="card-header">
+                <ul class="nav nav-tabs card-header-tabs" id="reportTabs" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" id="overview-tab" data-bs-toggle="tab" 
+                                data-bs-target="#overview" type="button" role="tab">
+                            <i class="bi bi-bar-chart"></i> Overview
+                        </button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="performance-tab" data-bs-toggle="tab" 
+                                data-bs-target="#performance" type="button" role="tab">
+                            <i class="bi bi-speedometer2"></i> Performance
+                        </button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="trends-tab" data-bs-toggle="tab" 
+                                data-bs-target="#trends" type="button" role="tab">
+                            <i class="bi bi-graph-up-arrow"></i> Trends
+                        </button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="compliance-tab" data-bs-toggle="tab" 
+                                data-bs-target="#compliance" type="button" role="tab">
+                            <i class="bi bi-shield-check"></i> Compliance
+                        </button>
+                    </li>
+                </ul>
+            </div>
+            <div class="card-body">
+                <div class="tab-content" id="reportTabsContent">
+                    <!-- Overview Tab -->
+                    <div class="tab-pane fade show active" id="overview" role="tabpanel">
+                        <div class="row mb-4">
+                            <div class="col-md-6">
+                                <h5><i class="bi bi-pie-chart"></i> Audit Status Distribution</h5>
+                                <canvas id="statusChart" width="400" height="300"></canvas>
+                            </div>
+                            <div class="col-md-6">
+                                <h5><i class="bi bi-people"></i> Auditor Workload</h5>
+                                <canvas id="auditorChart" width="400" height="300"></canvas>
+                            </div>
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col-12">
+                                <h5><i class="bi bi-calendar3"></i> Monthly Audit Volume</h5>
+                                <canvas id="monthlyChart" width="800" height="300"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Performance Tab -->
+                    <div class="tab-pane fade" id="performance" role="tabpanel">
+                        <div class="row mb-4">
+                            <div class="col-md-4">
+                                <div class="card border-0 bg-light">
+                                    <div class="card-body text-center">
+                                        <h3 class="text-success">95%</h3>
+                                        <small class="text-muted">Completion Rate</small>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="card border-0 bg-light">
+                                    <div class="card-body text-center">
+                                        <h3 class="text-primary">12.5</h3>
+                                        <small class="text-muted">Avg Days to Complete</small>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="card border-0 bg-light">
+                                    <div class="card-body text-center">
+                                        <h3 class="text-warning">8%</h3>
+                                        <small class="text-muted">Overdue Rate</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Performance Metrics Table -->
+                        <div class="table-responsive">
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>Auditor</th>
+                                        <th>Total Audits</th>
+                                        <th>Completed</th>
+                                        <th>Avg Time (Days)</th>
+                                        <th>Performance Score</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>John Smith</td>
+                                        <td>8</td>
+                                        <td>7</td>
+                                        <td>11.2</td>
+                                        <td>
+                                            <div class="progress" style="width: 100px;">
+                                                <div class="progress-bar bg-success" style="width: 92%">92%</div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Jane Doe</td>
+                                        <td>6</td>
+                                        <td>6</td>
+                                        <td>9.8</td>
+                                        <td>
+                                            <div class="progress" style="width: 100px;">
+                                                <div class="progress-bar bg-success" style="width: 98%">98%</div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Bob Johnson</td>
+                                        <td>5</td>
+                                        <td>3</td>
+                                        <td>15.4</td>
+                                        <td>
+                                            <div class="progress" style="width: 100px;">
+                                                <div class="progress-bar bg-warning" style="width: 75%">75%</div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Sarah Wilson</td>
+                                        <td>5</td>
+                                        <td>2</td>
+                                        <td>18.2</td>
+                                        <td>
+                                            <div class="progress" style="width: 100px;">
+                                                <div class="progress-bar bg-danger" style="width: 62%">62%</div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    
+                    <!-- Trends Tab -->
+                    <div class="tab-pane fade" id="trends" role="tabpanel">
+                        <div class="row mb-4">
+                            <div class="col-12">
+                                <h5><i class="bi bi-graph-up"></i> Audit Volume Trends</h5>
+                                <canvas id="trendsChart" width="800" height="400"></canvas>
+                            </div>
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h5><i class="bi bi-arrow-up-circle"></i> Key Insights</h5>
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item d-flex justify-content-between">
+                                        <span>Audit volume increased 23% this quarter</span>
+                                        <span class="badge bg-success">+23%</span>
+                                    </li>
+                                    <li class="list-group-item d-flex justify-content-between">
+                                        <span>Average completion time improved</span>
+                                        <span class="badge bg-success">-2.1 days</span>
+                                    </li>
+                                    <li class="list-group-item d-flex justify-content-between">
+                                        <span>IT audits show highest growth</span>
+                                        <span class="badge bg-info">+45%</span>
+                                    </li>
+                                    <li class="list-group-item d-flex justify-content-between">
+                                        <span>Compliance audits remain stable</span>
+                                        <span class="badge bg-secondary">0%</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <h5><i class="bi bi-exclamation-triangle"></i> Areas of Concern</h5>
+                                <div class="alert alert-warning">
+                                    <strong>Overdue Audits:</strong> 2 audits are past their due date, primarily in the Finance department.
+                                </div>
+                                <div class="alert alert-info">
+                                    <strong>Resource Allocation:</strong> Consider redistributing workload as some auditors are approaching capacity.
+                                </div>
+                                <div class="alert alert-success">
+                                    <strong>Quality Improvement:</strong> Overall audit quality scores have improved by 12% this quarter.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Compliance Tab -->
+                    <div class="tab-pane fade" id="compliance" role="tabpanel">
+                        <div class="row mb-4">
+                            <div class="col-md-6">
+                                <h5><i class="bi bi-shield-check"></i> Compliance Status</h5>
+                                <div class="progress mb-3" style="height: 25px;">
+                                    <div class="progress-bar bg-success" style="width: 87%">
+                                        87% Compliant
+                                    </div>
+                                </div>
+                                
+                                <div class="list-group">
+                                    <div class="list-group-item d-flex justify-content-between">
+                                        <span>SOX Compliance</span>
+                                        <span class="badge bg-success">✓ Passed</span>
+                                    </div>
+                                    <div class="list-group-item d-flex justify-content-between">
+                                        <span>ISO 27001</span>
+                                        <span class="badge bg-success">✓ Passed</span>
+                                    </div>
+                                    <div class="list-group-item d-flex justify-content-between">
+                                        <span>GDPR Compliance</span>
+                                        <span class="badge bg-warning">⚠ Review Required</span>
+                                    </div>
+                                    <div class="list-group-item d-flex justify-content-between">
+                                        <span>PCI DSS</span>
+                                        <span class="badge bg-success">✓ Passed</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <h5><i class="bi bi-calendar-check"></i> Upcoming Compliance Deadlines</h5>
+                                <div class="timeline">
+                                    <div class="timeline-item">
+                                        <div class="timeline-marker bg-danger"></div>
+                                        <div class="timeline-content">
+                                            <h6 class="mb-1">GDPR Annual Review</h6>
+                                            <small class="text-muted">Due: February 15, 2025</small>
+                                            <div class="mt-1">
+                                                <span class="badge bg-danger">High Priority</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="timeline-item">
+                                        <div class="timeline-marker bg-warning"></div>
+                                        <div class="timeline-content">
+                                            <h6 class="mb-1">SOX Q1 Testing</h6>
+                                            <small class="text-muted">Due: March 31, 2025</small>
+                                            <div class="mt-1">
+                                                <span class="badge bg-warning">Medium Priority</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="timeline-item">
+                                        <div class="timeline-marker bg-info"></div>
+                                        <div class="timeline-content">
+                                            <h6 class="mb-1">ISO 27001 Surveillance</h6>
+                                            <small class="text-muted">Due: April 30, 2025</small>
+                                            <div class="mt-1">
+                                                <span class="badge bg-info">Medium Priority</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Report Actions -->
+    <div class="col-lg-4">
+        <!-- Generate Reports -->
+        <div class="card mb-4">
+            <div class="card-header">
+                <h5 class="mb-0">
+                    <i class="bi bi-file-earmark-text"></i> Generate Reports
+                </h5>
+            </div>
+            <div class="card-body">
+                <form id="reportGenerationForm">
+                    <div class="mb-3">
+                        <label class="form-label">Report Type</label>
+                        <select class="form-select" name="report_type" required>
+                            <option value="">Select report type...</option>
+                            <option value="executive_summary">Executive Summary</option>
+                            <option value="detailed_audit">Detailed Audit Report</option>
+                            <option value="performance_metrics">Performance Metrics</option>
+                            <option value="compliance_status">Compliance Status</option>
+                            <option value="trend_analysis">Trend Analysis</option>
+                            <option value="custom">Custom Report</option>
+                        </select>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label class="form-label">Date Range</label>
+                        <div class="row">
+                            <div class="col-6">
+                                <input type="date" class="form-control" name="date_from" required>
+                            </div>
+                            <div class="col-6">
+                                <input type="date" class="form-control" name="date_to" required>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label class="form-label">Include</label>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="include_charts" id="include_charts" checked>
+                            <label class="form-check-label" for="include_charts">Charts & Graphs</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="include_raw_data" id="include_raw_data">
+                            <label class="form-check-label" for="include_raw_data">Raw Data</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="include_recommendations" id="include_recommendations" checked>
+                            <label class="form-check-label" for="include_recommendations">Recommendations</label>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label class="form-label">Format</label>
+                        <div class="btn-group w-100" role="group">
+                            <input type="radio" class="btn-check" name="format" id="format_pdf" value="pdf" checked>
+                            <label class="btn btn-outline-primary" for="format_pdf">PDF</label>
+                            
+                            <input type="radio" class="btn-check" name="format" id="format_excel" value="excel">
+                            <label class="btn btn-outline-primary" for="format_excel">Excel</label>
+                            
+                            <input type="radio" class="btn-check" name="format" id="format_csv" value="csv">
+                            <label class="btn btn-outline-primary" for="format_csv">CSV</label>
+                        </div>
+                    </div>
+                    
+                    <div class="d-grid">
+                        <button type="submit" class="btn btn-primary">
+                            <i class="bi bi-file-earmark-arrow-down"></i> Generate Report
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        
+        <!-- Scheduled Reports -->
+        <div class="card mb-4">
+            <div class="card-header">
+                <h5 class="mb-0">
+                    <i class="bi bi-calendar-event"></i> Scheduled Reports
+                </h5>
+            </div>
+            <div class="card-body">
+                <div class="list-group list-group-flush">
+                    <div class="list-group-item d-flex justify-content-between align-items-center">
+                        <div>
+                            <h6 class="mb-1">Weekly Summary</h6>
+                            <small class="text-muted">Every Monday at 9:00 AM</small>
+                        </div>
+                        <div class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox" checked>
+                        </div>
+                    </div>
+                    <div class="list-group-item d-flex justify-content-between align-items-center">
+                        <div>
+                            <h6 class="mb-1">Monthly Metrics</h6>
+                            <small class="text-muted">First day of month</small>
+                        </div>
+                        <div class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox" checked>
+                        </div>
+                    </div>
+                    <div class="list-group-item d-flex justify-content-between align-items-center">
+                        <div>
+                            <h6 class="mb-1">Quarterly Review</h6>
+                            <small class="text-muted">End of quarter</small>
+                        </div>
+                        <div class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox">
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mt-3">
+                    <button type="button" class="btn btn-outline-primary btn-sm w-100" 
+                            data-bs-toggle="modal" data-bs-target="#scheduleReportModal">
+                        <i class="bi bi-plus-circle"></i> Schedule New Report
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Recent Reports -->
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0">
+                    <i class="bi bi-clock-history"></i> Recent Reports
+                </h5>
+            </div>
+            <div class="card-body">
+                <div class="list-group list-group-flush">
+                    <a href="#" class="list-group-item list-group-item-action">
+                        <div class="d-flex w-100 justify-content-between">
+                            <h6 class="mb-1">Executive Summary Q1</h6>
+                            <small>2 hours ago</small>
+                        </div>
+                        <small class="text-muted">PDF • 2.3 MB</small>
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action">
+                        <div class="d-flex w-100 justify-content-between">
+                            <h6 class="mb-1">Performance Metrics</h6>
+                            <small>1 day ago</small>
+                        </div>
+                        <small class="text-muted">Excel • 1.1 MB</small>
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action">
+                        <div class="d-flex w-100 justify-content-between">
+                            <h6 class="mb-1">Compliance Status</h6>
+                            <small>3 days ago</small>
+                        </div>
+                        <small class="text-muted">PDF • 847 KB</small>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Schedule Report Modal -->
+<div class="modal fade" id="scheduleReportModal" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">
+                    <i class="bi bi-calendar-plus"></i> Schedule Report
+                </h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <form id="scheduleReportForm">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label class="form-label">Report Name</label>
+                                <input type="text" class="form-control" name="report_name" 
+                                       placeholder="Enter report name..." required>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label class="form-label">Report Type</label>
+                                <select class="form-select" name="report_type" required>
+                                    <option value="executive_summary">Executive Summary</option>
+                                    <option value="performance_metrics">Performance Metrics</option>
+                                    <option value="compliance_status">Compliance Status</option>
+                                    <option value="trend_analysis">Trend Analysis</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label class="form-label">Frequency</label>
+                                <select class="form-select" name="frequency" required>
+                                    <option value="daily">Daily</option>
+                                    <option value="weekly">Weekly</option>
+                                    <option value="monthly">Monthly</option>
+                                    <option value="quarterly">Quarterly</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label class="form-label">Format</label>
+                                <select class="form-select" name="format" required>
+                                    <option value="pdf">PDF</option>
+                                    <option value="excel">Excel</option>
+                                    <option value="csv">CSV</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label class="form-label">Recipients</label>
+                        <input type="email" class="form-control" name="recipients" 
+                               placeholder="Enter email addresses (comma-separated)..." required>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label class="form-label">Schedule Time</label>
+                        <input type="time" class="form-control" name="schedule_time" value="09:00" required>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-primary" onclick="scheduleReport()">
+                    <i class="bi bi-calendar-check"></i> Schedule Report
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    initializeCharts();
+    
+    // Form submission
+    document.getElementById('reportGenerationForm').addEventListener('submit', generateReport);
+});
+
+function initializeCharts() {
+    // Status Distribution Chart
+    const statusCtx = document.getElementById('statusChart').getContext('2d');
+    new Chart(statusCtx, {
+        type: 'doughnut',
+        data: {
+            labels: ['Completed', 'In Progress', 'Open', 'Overdue'],
+            datasets: [{
+                data: [18, 4, 0, 2],
+                backgroundColor: ['#198754', '#ffc107', '#0dcaf0', '#dc3545']
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false
+        }
+    });
+    
+    // Auditor Workload Chart
+    const auditorCtx = document.getElementById('auditorChart').getContext('2d');
+    new Chart(auditorCtx, {
+        type: 'bar',
+        data: {
+            labels: ['John Smith', 'Jane Doe', 'Bob Johnson', 'Sarah Wilson'],
+            datasets: [{
+                label: 'Assigned Audits',
+                data: [8, 6, 5, 5],
+                backgroundColor: '#0d6efd'
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+    
+    // Monthly Volume Chart
+    const monthlyCtx = document.getElementById('monthlyChart').getContext('2d');
+    new Chart(monthlyCtx, {
+        type: 'line',
+        data: {
+            labels: ['Oct', 'Nov', 'Dec', 'Jan', 'Feb', 'Mar'],
+            datasets: [{
+                label: 'Audits Created',
+                data: [12, 15, 18, 14, 22, 19],
+                borderColor: '#0d6efd',
+                backgroundColor: 'rgba(13, 110, 253, 0.1)',
+                fill: true
+            }, {
+                label: 'Audits Completed',
+                data: [10, 13, 16, 12, 18, 15],
+                borderColor: '#198754',
+                backgroundColor: 'rgba(25, 135, 84, 0.1)',
+                fill: true
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            interaction: {
+                intersect: false,
+                mode: 'index'
+            }
+        }
+    });
+    
+    // Trends Chart
+    const trendsCtx = document.getElementById('trendsChart').getContext('2d');
+    new Chart(trendsCtx, {
+        type: 'line',
+        data: {
+            labels: ['Q1 2024', 'Q2 2024', 'Q3 2024', 'Q4 2024', 'Q1 2025'],
+            datasets: [{
+                label: 'Audit Volume',
+                data: [45, 52, 48, 61, 58],
+                borderColor: '#0d6efd',
+                backgroundColor: 'rgba(13, 110, 253, 0.1)',
+                fill: true
+            }, {
+                label: 'Completion Rate',
+                data: [85, 88, 92, 87, 95],
+                borderColor: '#198754',
+                backgroundColor: 'rgba(25, 135, 84, 0.1)',
+                fill: true,
+                yAxisID: 'y1'
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: {
+                y: {
+                    type: 'linear',
+                    display: true,
+                    position: 'left',
+                },
+                y1: {
+                    type: 'linear',
+                    display: true,
+                    position: 'right',
+                    grid: {
+                        drawOnChartArea: false,
+                    },
+                }
+            }
+        }
+    });
+}
+
+function generateReport(event) {
+    event.preventDefault();
+    
+    const formData = new FormData(event.target);
+    const reportType = formData.get('report_type');
+    const format = formData.get('format');
+    
+    // Show loading state
+    const submitBtn = event.target.querySelector('button[type="submit"]');
+    const originalText = submitBtn.innerHTML;
+    submitBtn.innerHTML = '<i class="bi bi-hourglass-split"></i> Generating...';
+    submitBtn.disabled = true;
+    
+    // Simulate report generation
+    setTimeout(() => {
+        alert(`${reportType} report generated successfully in ${format.toUpperCase()} format!`);
+        
+        // Reset button
+        submitBtn.innerHTML = originalText;
+        submitBtn.disabled = false;
+        
+        // Reset form
+        event.target.reset();
+    }, 2000);
+}
+
+function scheduleReport() {
+    const form = document.getElementById('scheduleReportForm');
+    const formData = new FormData(form);
+    
+    const reportName = formData.get('report_name');
+    const frequency = formData.get('frequency');
+    
+    if (!reportName) {
+        alert('Please enter a report name');
+        return;
+    }
+    
+    alert(`Report "${reportName}" scheduled successfully for ${frequency} delivery!`);
+    
+    // Close modal and reset form
+    const modal = bootstrap.Modal.getInstance(document.getElementById('scheduleReportModal'));
+    modal.hide();
+    form.reset();
+}
+</script>
+
+<style>
+.timeline {
+    position: relative;
+    padding-left: 30px;
+}
+
+.timeline-item {
+    position: relative;
+    padding-bottom: 20px;
+}
+
+.timeline-item:last-child {
+    padding-bottom: 0;
+}
+
+.timeline-marker {
+    position: absolute;
+    left: -36px;
+    top: 5px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+}
+
+.timeline-item:not(:last-child)::before {
+    content: '';
+    position: absolute;
+    left: -30px;
+    top: 17px;
+    width: 2px;
+    height: calc(100% - 5px);
+    background-color: #dee2e6;
+}
+
+.timeline-content h6 {
+    margin-bottom: 4px;
+    font-weight: 600;
+}
+</style>
+{% endblock %}

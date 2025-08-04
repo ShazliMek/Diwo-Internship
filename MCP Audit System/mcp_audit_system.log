@@ -1,0 +1,831 @@
+2025-07-30 21:09:13,443 - MCPAuditWebApp - INFO - _load_config:101 - 🌐 SERVER: Configuration loaded successfully
+2025-07-30 21:09:13,443 - MCPAuditWebApp - INFO - __init__:94 - 🌐 SERVER: Server manager initialized with config: server_config.json
+2025-07-30 21:09:13,443 - MCPAuditWebApp - INFO - __init__:244 - 🌐 CLIENT: MCP client initialized
+2025-07-30 21:09:13,443 - MCPAuditWebApp - INFO - __init__:352 - 🌐 AI: OpenAI integration initialized
+2025-07-30 21:09:13,446 - MCPAuditWebApp - INFO - main:752 - 🌐 WEB: Starting MCP Audit Management Web Application
+2025-07-30 21:09:13,446 - MCPAuditWebApp - INFO - start_server:152 - 🌐 SERVER: Starting server SecureAudit
+2025-07-30 21:09:13,448 - MCPAuditWebApp - INFO - start_server:185 - 🌐 SERVER: Started SecureAudit with PID 588
+2025-07-30 21:09:13,448 - MCPAuditWebApp - INFO - main:758 - 🌐 WEB: Started default server SecureAudit
+2025-07-30 21:09:13,807 - MCPAuditWebApp - INFO - _load_config:101 - 🌐 SERVER: Configuration loaded successfully
+2025-07-30 21:09:13,807 - MCPAuditWebApp - INFO - __init__:94 - 🌐 SERVER: Server manager initialized with config: server_config.json
+2025-07-30 21:09:13,807 - MCPAuditWebApp - INFO - __init__:244 - 🌐 CLIENT: MCP client initialized
+2025-07-30 21:09:13,807 - MCPAuditWebApp - INFO - __init__:352 - 🌐 AI: OpenAI integration initialized
+2025-07-30 21:09:13,810 - MCPAuditWebApp - INFO - main:752 - 🌐 WEB: Starting MCP Audit Management Web Application
+2025-07-30 21:09:13,810 - MCPAuditWebApp - INFO - start_server:152 - 🌐 SERVER: Starting server SecureAudit
+2025-07-30 21:09:13,812 - MCPAuditWebApp - INFO - start_server:185 - 🌐 SERVER: Started SecureAudit with PID 597
+2025-07-30 21:09:13,812 - MCPAuditWebApp - INFO - main:758 - 🌐 WEB: Started default server SecureAudit
+2025-07-30 21:09:17,141 - MCPAuditWebApp - INFO - index:429 - 🌐 WEB: Accessing dashboard
+2025-07-30 21:09:33,632 - MCPAuditWebApp - INFO - create_audit:531 - 🌐 WEB: Creating new audit
+2025-07-30 21:09:33,635 - MCPAuditWebApp - INFO - call_tool:248 - 🌐 CLIENT: Calling tool create_audit with args: ['title', 'description', 'date', 'status', 'assigned_auditor']
+2025-07-30 21:11:18,491 - MCPAuditWebApp - INFO - index:429 - 🌐 WEB: Accessing dashboard
+2025-07-30 21:11:21,470 - MCPAuditWebApp - INFO - _load_config:101 - 🌐 SERVER: Configuration loaded successfully
+2025-07-30 21:11:21,470 - MCPAuditWebApp - INFO - __init__:94 - 🌐 SERVER: Server manager initialized with config: server_config.json
+2025-07-30 21:11:21,470 - MCPAuditWebApp - INFO - __init__:244 - 🌐 CLIENT: MCP client initialized
+2025-07-30 21:11:21,470 - MCPAuditWebApp - INFO - __init__:352 - 🌐 AI: OpenAI integration initialized
+2025-07-30 21:11:21,473 - MCPAuditWebApp - INFO - main:752 - 🌐 WEB: Starting MCP Audit Management Web Application
+2025-07-30 21:11:21,473 - MCPAuditWebApp - INFO - start_server:152 - 🌐 SERVER: Starting server SecureAudit
+2025-07-30 21:11:21,475 - MCPAuditWebApp - INFO - start_server:185 - 🌐 SERVER: Started SecureAudit with PID 3759
+2025-07-30 21:11:21,475 - MCPAuditWebApp - INFO - main:758 - 🌐 WEB: Started default server SecureAudit
+2025-07-30 21:11:21,519 - MCPAuditWebApp - INFO - list_audits:451 - 🌐 WEB: Listing audits
+2025-07-30 21:11:21,519 - MCPAuditWebApp - INFO - call_tool:248 - 🌐 CLIENT: Calling tool list_audits with args: ['status', 'assigned_auditor', 'search']
+2025-07-30 21:11:21,554 - MCPAuditWebApp - INFO - call_tool:303 - 🌐 CLIENT: Tool list_audits executed successfully
+2025-07-30 21:11:26,501 - MCPAuditWebApp - INFO - delete_audit:600 - 🌐 WEB: Deleting audit 1
+2025-07-30 21:11:26,502 - MCPAuditWebApp - INFO - call_tool:248 - 🌐 CLIENT: Calling tool delete_audit with args: ['audit_id']
+2025-07-30 21:11:26,562 - MCPAuditWebApp - INFO - call_tool:303 - 🌐 CLIENT: Tool delete_audit executed successfully
+2025-07-30 21:11:26,567 - MCPAuditWebApp - INFO - list_audits:451 - 🌐 WEB: Listing audits
+2025-07-30 21:11:26,567 - MCPAuditWebApp - INFO - call_tool:248 - 🌐 CLIENT: Calling tool list_audits with args: ['status', 'assigned_auditor', 'search']
+2025-07-30 21:11:26,603 - MCPAuditWebApp - INFO - call_tool:303 - 🌐 CLIENT: Tool list_audits executed successfully
+2025-07-30 21:11:28,748 - MCPAuditWebApp - INFO - index:429 - 🌐 WEB: Accessing dashboard
+2025-07-30 21:11:30,379 - MCPAuditWebApp - INFO - _load_config:101 - 🌐 SERVER: Configuration loaded successfully
+2025-07-30 21:11:30,379 - MCPAuditWebApp - INFO - __init__:94 - 🌐 SERVER: Server manager initialized with config: server_config.json
+2025-07-30 21:11:30,379 - MCPAuditWebApp - INFO - __init__:244 - 🌐 CLIENT: MCP client initialized
+2025-07-30 21:11:30,379 - MCPAuditWebApp - INFO - __init__:352 - 🌐 AI: OpenAI integration initialized
+2025-07-30 21:11:30,382 - MCPAuditWebApp - INFO - main:752 - 🌐 WEB: Starting MCP Audit Management Web Application
+2025-07-30 21:11:30,382 - MCPAuditWebApp - INFO - start_server:152 - 🌐 SERVER: Starting server SecureAudit
+2025-07-30 21:11:30,385 - MCPAuditWebApp - INFO - start_server:185 - 🌐 SERVER: Started SecureAudit with PID 3898
+2025-07-30 21:11:30,385 - MCPAuditWebApp - INFO - main:758 - 🌐 WEB: Started default server SecureAudit
+2025-07-30 21:11:47,559 - MCPAuditWebApp - INFO - _load_config:101 - 🌐 SERVER: Configuration loaded successfully
+2025-07-30 21:11:47,559 - MCPAuditWebApp - INFO - __init__:94 - 🌐 SERVER: Server manager initialized with config: server_config.json
+2025-07-30 21:11:47,559 - MCPAuditWebApp - INFO - __init__:244 - 🌐 CLIENT: MCP client initialized
+2025-07-30 21:11:47,559 - MCPAuditWebApp - INFO - __init__:352 - 🌐 AI: OpenAI integration initialized
+2025-07-30 21:11:47,562 - MCPAuditWebApp - INFO - main:752 - 🌐 WEB: Starting MCP Audit Management Web Application
+2025-07-30 21:11:47,562 - MCPAuditWebApp - INFO - start_server:152 - 🌐 SERVER: Starting server SecureAudit
+2025-07-30 21:11:47,564 - MCPAuditWebApp - INFO - start_server:185 - 🌐 SERVER: Started SecureAudit with PID 4102
+2025-07-30 21:11:47,565 - MCPAuditWebApp - INFO - main:758 - 🌐 WEB: Started default server SecureAudit
+2025-07-30 21:11:57,444 - MCPAuditWebApp - INFO - _load_config:101 - 🌐 SERVER: Configuration loaded successfully
+2025-07-30 21:11:57,444 - MCPAuditWebApp - INFO - __init__:94 - 🌐 SERVER: Server manager initialized with config: server_config.json
+2025-07-30 21:11:57,444 - MCPAuditWebApp - INFO - __init__:244 - 🌐 CLIENT: MCP client initialized
+2025-07-30 21:11:57,444 - MCPAuditWebApp - INFO - __init__:352 - 🌐 AI: OpenAI integration initialized
+2025-07-30 21:11:57,450 - MCPAuditWebApp - INFO - main:752 - 🌐 WEB: Starting MCP Audit Management Web Application
+2025-07-30 21:11:57,451 - MCPAuditWebApp - INFO - start_server:152 - 🌐 SERVER: Starting server SecureAudit
+2025-07-30 21:11:57,453 - MCPAuditWebApp - INFO - start_server:185 - 🌐 SERVER: Started SecureAudit with PID 4208
+2025-07-30 21:11:57,453 - MCPAuditWebApp - INFO - main:758 - 🌐 WEB: Started default server SecureAudit
+2025-07-30 21:11:58,931 - MCPAuditWebApp - INFO - call_tool:248 - 🌐 CLIENT: Calling tool get_audit_statistics with args: []
+2025-07-30 21:12:16,556 - MCPAuditWebApp - INFO - _load_config:101 - 🌐 SERVER: Configuration loaded successfully
+2025-07-30 21:12:16,556 - MCPAuditWebApp - INFO - __init__:94 - 🌐 SERVER: Server manager initialized with config: server_config.json
+2025-07-30 21:12:16,556 - MCPAuditWebApp - INFO - __init__:244 - 🌐 CLIENT: MCP client initialized
+2025-07-30 21:12:16,556 - MCPAuditWebApp - INFO - __init__:352 - 🌐 AI: OpenAI integration initialized
+2025-07-30 21:12:16,558 - MCPAuditWebApp - INFO - main:752 - 🌐 WEB: Starting MCP Audit Management Web Application
+2025-07-30 21:12:16,559 - MCPAuditWebApp - INFO - start_server:152 - 🌐 SERVER: Starting server SecureAudit
+2025-07-30 21:12:16,561 - MCPAuditWebApp - INFO - start_server:185 - 🌐 SERVER: Started SecureAudit with PID 4442
+2025-07-30 21:12:16,561 - MCPAuditWebApp - INFO - main:758 - 🌐 WEB: Started default server SecureAudit
+2025-07-30 21:12:28,933 - MCPAuditWebApp - INFO - call_tool:248 - 🌐 CLIENT: Calling tool get_audit_statistics with args: []
+2025-07-30 21:12:32,767 - MCPAuditWebApp - INFO - _load_config:101 - 🌐 SERVER: Configuration loaded successfully
+2025-07-30 21:12:32,768 - MCPAuditWebApp - INFO - __init__:94 - 🌐 SERVER: Server manager initialized with config: server_config.json
+2025-07-30 21:12:32,768 - MCPAuditWebApp - INFO - __init__:244 - 🌐 CLIENT: MCP client initialized
+2025-07-30 21:12:32,768 - MCPAuditWebApp - INFO - __init__:352 - 🌐 AI: OpenAI integration initialized
+2025-07-30 21:12:32,770 - MCPAuditWebApp - INFO - main:752 - 🌐 WEB: Starting MCP Audit Management Web Application
+2025-07-30 21:12:32,770 - MCPAuditWebApp - INFO - start_server:152 - 🌐 SERVER: Starting server SecureAudit
+2025-07-30 21:12:32,773 - MCPAuditWebApp - INFO - start_server:185 - 🌐 SERVER: Started SecureAudit with PID 4648
+2025-07-30 21:12:32,773 - MCPAuditWebApp - INFO - main:758 - 🌐 WEB: Started default server SecureAudit
+2025-07-30 21:12:58,943 - MCPAuditWebApp - INFO - call_tool:248 - 🌐 CLIENT: Calling tool get_audit_statistics with args: []
+2025-07-30 21:13:28,934 - MCPAuditWebApp - INFO - call_tool:248 - 🌐 CLIENT: Calling tool get_audit_statistics with args: []
+2025-07-30 21:13:58,935 - MCPAuditWebApp - INFO - call_tool:248 - 🌐 CLIENT: Calling tool get_audit_statistics with args: []
+2025-07-30 21:14:28,933 - MCPAuditWebApp - INFO - call_tool:248 - 🌐 CLIENT: Calling tool get_audit_statistics with args: []
+2025-07-30 21:15:20,339 - MCPAuditWebApp - INFO - _load_config:101 - 🌐 SERVER: Configuration loaded successfully
+2025-07-30 21:15:20,339 - MCPAuditWebApp - INFO - __init__:94 - 🌐 SERVER: Server manager initialized with config: server_config.json
+2025-07-30 21:15:20,339 - MCPAuditWebApp - INFO - __init__:244 - 🌐 CLIENT: MCP client initialized
+2025-07-30 21:15:20,339 - MCPAuditWebApp - INFO - __init__:352 - 🌐 AI: OpenAI integration initialized
+2025-07-30 21:15:20,342 - MCPAuditWebApp - INFO - main:752 - 🌐 WEB: Starting MCP Audit Management Web Application
+2025-07-30 21:15:20,342 - MCPAuditWebApp - INFO - start_server:152 - 🌐 SERVER: Starting server SecureAudit
+2025-07-30 21:15:20,344 - MCPAuditWebApp - INFO - start_server:185 - 🌐 SERVER: Started SecureAudit with PID 7647
+2025-07-30 21:15:20,344 - MCPAuditWebApp - INFO - main:758 - 🌐 WEB: Started default server SecureAudit
+2025-07-30 21:15:21,837 - MCPAuditWebApp - INFO - _load_config:101 - 🌐 SERVER: Configuration loaded successfully
+2025-07-30 21:15:21,837 - MCPAuditWebApp - INFO - __init__:94 - 🌐 SERVER: Server manager initialized with config: server_config.json
+2025-07-30 21:15:21,837 - MCPAuditWebApp - INFO - __init__:244 - 🌐 CLIENT: MCP client initialized
+2025-07-30 21:15:21,837 - MCPAuditWebApp - INFO - __init__:352 - 🌐 AI: OpenAI integration initialized
+2025-07-30 21:15:21,840 - MCPAuditWebApp - INFO - main:752 - 🌐 WEB: Starting MCP Audit Management Web Application
+2025-07-30 21:15:21,840 - MCPAuditWebApp - INFO - start_server:152 - 🌐 SERVER: Starting server SecureAudit
+2025-07-30 21:15:21,842 - MCPAuditWebApp - INFO - start_server:185 - 🌐 SERVER: Started SecureAudit with PID 7656
+2025-07-30 21:15:21,842 - MCPAuditWebApp - INFO - main:758 - 🌐 WEB: Started default server SecureAudit
+2025-07-30 21:15:45,001 - MCPAuditWebApp - INFO - call_tool:248 - 🌐 CLIENT: Calling tool get_audit_statistics with args: []
+2025-07-30 21:16:45,002 - MCPAuditWebApp - INFO - call_tool:248 - 🌐 CLIENT: Calling tool get_audit_statistics with args: []
+2025-07-30 21:17:44,949 - MCPAuditWebApp - INFO - call_tool:248 - 🌐 CLIENT: Calling tool get_audit_statistics with args: []
+2025-07-30 21:18:44,981 - MCPAuditWebApp - INFO - call_tool:248 - 🌐 CLIENT: Calling tool get_audit_statistics with args: []
+2025-07-30 21:19:45,018 - MCPAuditWebApp - INFO - call_tool:248 - 🌐 CLIENT: Calling tool get_audit_statistics with args: []
+2025-07-30 21:20:44,945 - MCPAuditWebApp - INFO - call_tool:248 - 🌐 CLIENT: Calling tool get_audit_statistics with args: []
+2025-07-30 21:21:45,034 - MCPAuditWebApp - INFO - call_tool:248 - 🌐 CLIENT: Calling tool get_audit_statistics with args: []
+2025-07-30 21:22:45,018 - MCPAuditWebApp - INFO - call_tool:248 - 🌐 CLIENT: Calling tool get_audit_statistics with args: []
+2025-07-30 21:23:45,021 - MCPAuditWebApp - INFO - call_tool:248 - 🌐 CLIENT: Calling tool get_audit_statistics with args: []
+2025-07-30 21:24:45,050 - MCPAuditWebApp - INFO - call_tool:248 - 🌐 CLIENT: Calling tool get_audit_statistics with args: []
+2025-07-30 21:25:19,500 - MCPAuditWebApp - INFO - _load_config:101 - 🌐 SERVER: Configuration loaded successfully
+2025-07-30 21:25:19,500 - MCPAuditWebApp - INFO - __init__:94 - 🌐 SERVER: Server manager initialized with config: server_config.json
+2025-07-30 21:25:19,500 - MCPAuditWebApp - INFO - __init__:244 - 🌐 CLIENT: MCP client initialized
+2025-07-30 21:25:19,500 - MCPAuditWebApp - INFO - __init__:352 - 🌐 AI: OpenAI integration initialized
+2025-07-30 21:25:19,503 - MCPAuditWebApp - INFO - main:752 - 🌐 WEB: Starting MCP Audit Management Web Application
+2025-07-30 21:25:19,503 - MCPAuditWebApp - INFO - start_server:152 - 🌐 SERVER: Starting server SecureAudit
+2025-07-30 21:25:19,505 - MCPAuditWebApp - INFO - start_server:185 - 🌐 SERVER: Started SecureAudit with PID 17690
+2025-07-30 21:25:19,505 - MCPAuditWebApp - INFO - main:758 - 🌐 WEB: Started default server SecureAudit
+2025-07-30 21:25:19,841 - MCPAuditWebApp - INFO - _load_config:101 - 🌐 SERVER: Configuration loaded successfully
+2025-07-30 21:25:19,841 - MCPAuditWebApp - INFO - __init__:94 - 🌐 SERVER: Server manager initialized with config: server_config.json
+2025-07-30 21:25:19,841 - MCPAuditWebApp - INFO - __init__:244 - 🌐 CLIENT: MCP client initialized
+2025-07-30 21:25:19,841 - MCPAuditWebApp - INFO - __init__:352 - 🌐 AI: OpenAI integration initialized
+2025-07-30 21:25:19,843 - MCPAuditWebApp - INFO - main:752 - 🌐 WEB: Starting MCP Audit Management Web Application
+2025-07-30 21:25:19,844 - MCPAuditWebApp - INFO - start_server:152 - 🌐 SERVER: Starting server SecureAudit
+2025-07-30 21:25:19,846 - MCPAuditWebApp - INFO - start_server:185 - 🌐 SERVER: Started SecureAudit with PID 17693
+2025-07-30 21:25:19,846 - MCPAuditWebApp - INFO - main:758 - 🌐 WEB: Started default server SecureAudit
+2025-07-30 21:25:45,069 - MCPAuditWebApp - INFO - call_tool:248 - 🌐 CLIENT: Calling tool get_audit_statistics with args: []
+2025-07-30 21:26:31,657 - MCPAuditWebApp - INFO - _load_config:101 - 🌐 SERVER: Configuration loaded successfully
+2025-07-30 21:26:31,658 - MCPAuditWebApp - INFO - __init__:94 - 🌐 SERVER: Server manager initialized with config: server_config.json
+2025-07-30 21:26:31,658 - MCPAuditWebApp - INFO - __init__:244 - 🌐 CLIENT: MCP client initialized
+2025-07-30 21:26:31,658 - MCPAuditWebApp - INFO - __init__:352 - 🌐 AI: OpenAI integration initialized
+2025-07-30 21:26:31,660 - MCPAuditWebApp - INFO - main:752 - 🌐 WEB: Starting MCP Audit Management Web Application
+2025-07-30 21:26:31,660 - MCPAuditWebApp - INFO - start_server:152 - 🌐 SERVER: Starting server SecureAudit
+2025-07-30 21:26:31,663 - MCPAuditWebApp - INFO - start_server:185 - 🌐 SERVER: Started SecureAudit with PID 19858
+2025-07-30 21:26:31,663 - MCPAuditWebApp - INFO - main:758 - 🌐 WEB: Started default server SecureAudit
+2025-07-30 21:26:45,026 - MCPAuditWebApp - INFO - call_tool:248 - 🌐 CLIENT: Calling tool get_audit_statistics with args: []
+2025-07-30 21:27:44,997 - MCPAuditWebApp - INFO - call_tool:248 - 🌐 CLIENT: Calling tool get_audit_statistics with args: []
+2025-07-30 21:28:44,987 - MCPAuditWebApp - INFO - call_tool:248 - 🌐 CLIENT: Calling tool get_audit_statistics with args: []
+2025-07-30 21:28:56,336 - MCPAuditWebApp - INFO - _load_config:101 - 🌐 SERVER: Configuration loaded successfully
+2025-07-30 21:28:56,337 - MCPAuditWebApp - INFO - __init__:94 - 🌐 SERVER: Server manager initialized with config: server_config.json
+2025-07-30 21:28:56,337 - MCPAuditWebApp - INFO - __init__:244 - 🌐 CLIENT: MCP client initialized
+2025-07-30 21:28:56,337 - MCPAuditWebApp - INFO - __init__:352 - 🌐 AI: OpenAI integration initialized
+2025-07-30 21:28:56,339 - MCPAuditWebApp - INFO - main:752 - 🌐 WEB: Starting MCP Audit Management Web Application
+2025-07-30 21:28:56,339 - MCPAuditWebApp - INFO - start_server:152 - 🌐 SERVER: Starting server SecureAudit
+2025-07-30 21:28:56,342 - MCPAuditWebApp - INFO - start_server:185 - 🌐 SERVER: Started SecureAudit with PID 21563
+2025-07-30 21:28:56,342 - MCPAuditWebApp - INFO - main:758 - 🌐 WEB: Started default server SecureAudit
+2025-07-30 21:29:01,953 - MCPAuditWebApp - INFO - _load_config:101 - 🌐 SERVER: Configuration loaded successfully
+2025-07-30 21:29:01,953 - MCPAuditWebApp - INFO - __init__:94 - 🌐 SERVER: Server manager initialized with config: server_config.json
+2025-07-30 21:29:01,953 - MCPAuditWebApp - INFO - __init__:244 - 🌐 CLIENT: MCP client initialized
+2025-07-30 21:29:01,953 - MCPAuditWebApp - INFO - __init__:352 - 🌐 AI: OpenAI integration initialized
+2025-07-30 21:29:01,956 - MCPAuditWebApp - INFO - main:752 - 🌐 WEB: Starting MCP Audit Management Web Application
+2025-07-30 21:29:01,956 - MCPAuditWebApp - INFO - start_server:152 - 🌐 SERVER: Starting server SecureAudit
+2025-07-30 21:29:01,958 - MCPAuditWebApp - INFO - start_server:185 - 🌐 SERVER: Started SecureAudit with PID 21624
+2025-07-30 21:29:01,958 - MCPAuditWebApp - INFO - main:758 - 🌐 WEB: Started default server SecureAudit
+2025-07-30 21:29:22,144 - MCPAuditWebApp - INFO - _load_config:101 - 🌐 SERVER: Configuration loaded successfully
+2025-07-30 21:29:22,145 - MCPAuditWebApp - INFO - __init__:94 - 🌐 SERVER: Server manager initialized with config: server_config.json
+2025-07-30 21:29:22,145 - MCPAuditWebApp - INFO - __init__:244 - 🌐 CLIENT: MCP client initialized
+2025-07-30 21:29:22,145 - MCPAuditWebApp - INFO - __init__:352 - 🌐 AI: OpenAI integration initialized
+2025-07-30 21:29:22,147 - MCPAuditWebApp - INFO - main:752 - 🌐 WEB: Starting MCP Audit Management Web Application
+2025-07-30 21:29:22,147 - MCPAuditWebApp - INFO - start_server:152 - 🌐 SERVER: Starting server SecureAudit
+2025-07-30 21:29:22,149 - MCPAuditWebApp - INFO - start_server:185 - 🌐 SERVER: Started SecureAudit with PID 21874
+2025-07-30 21:29:22,150 - MCPAuditWebApp - INFO - main:758 - 🌐 WEB: Started default server SecureAudit
+2025-07-30 21:29:45,033 - MCPAuditWebApp - INFO - call_tool:248 - 🌐 CLIENT: Calling tool get_audit_statistics with args: []
+2025-07-30 21:29:45,077 - MCPAuditWebApp - INFO - call_tool:303 - 🌐 CLIENT: Tool get_audit_statistics executed successfully
+2025-07-30 21:30:45,021 - MCPAuditWebApp - INFO - call_tool:248 - 🌐 CLIENT: Calling tool get_audit_statistics with args: []
+2025-07-30 21:30:45,076 - MCPAuditWebApp - INFO - call_tool:303 - 🌐 CLIENT: Tool get_audit_statistics executed successfully
+2025-07-30 21:31:45,011 - MCPAuditWebApp - INFO - call_tool:248 - 🌐 CLIENT: Calling tool get_audit_statistics with args: []
+2025-07-30 21:31:45,082 - MCPAuditWebApp - INFO - call_tool:303 - 🌐 CLIENT: Tool get_audit_statistics executed successfully
+2025-07-30 21:31:50,747 - MCPAuditWebApp - INFO - _load_config:101 - 🌐 SERVER: Configuration loaded successfully
+2025-07-30 21:31:50,747 - MCPAuditWebApp - INFO - __init__:94 - 🌐 SERVER: Server manager initialized with config: server_config.json
+2025-07-30 21:31:50,747 - MCPAuditWebApp - INFO - __init__:244 - 🌐 CLIENT: MCP client initialized
+2025-07-30 21:31:50,747 - MCPAuditWebApp - INFO - __init__:352 - 🌐 AI: OpenAI integration initialized
+2025-07-30 21:31:50,750 - MCPAuditWebApp - INFO - main:752 - 🌐 WEB: Starting MCP Audit Management Web Application
+2025-07-30 21:31:50,750 - MCPAuditWebApp - INFO - start_server:152 - 🌐 SERVER: Starting server SecureAudit
+2025-07-30 21:31:50,752 - MCPAuditWebApp - INFO - start_server:185 - 🌐 SERVER: Started SecureAudit with PID 25382
+2025-07-30 21:31:50,752 - MCPAuditWebApp - INFO - main:758 - 🌐 WEB: Started default server SecureAudit
+2025-07-30 21:31:58,476 - MCPAuditWebApp - INFO - _load_config:101 - 🌐 SERVER: Configuration loaded successfully
+2025-07-30 21:31:58,476 - MCPAuditWebApp - INFO - __init__:94 - 🌐 SERVER: Server manager initialized with config: server_config.json
+2025-07-30 21:31:58,476 - MCPAuditWebApp - INFO - __init__:244 - 🌐 CLIENT: MCP client initialized
+2025-07-30 21:31:58,476 - MCPAuditWebApp - INFO - __init__:352 - 🌐 AI: OpenAI integration initialized
+2025-07-30 21:31:58,478 - MCPAuditWebApp - INFO - main:752 - 🌐 WEB: Starting MCP Audit Management Web Application
+2025-07-30 21:31:58,478 - MCPAuditWebApp - INFO - start_server:152 - 🌐 SERVER: Starting server SecureAudit
+2025-07-30 21:31:58,481 - MCPAuditWebApp - INFO - start_server:185 - 🌐 SERVER: Started SecureAudit with PID 25485
+2025-07-30 21:31:58,481 - MCPAuditWebApp - INFO - main:758 - 🌐 WEB: Started default server SecureAudit
+2025-07-30 21:32:05,140 - MCPAuditWebApp - INFO - _load_config:101 - 🌐 SERVER: Configuration loaded successfully
+2025-07-30 21:32:05,140 - MCPAuditWebApp - INFO - __init__:94 - 🌐 SERVER: Server manager initialized with config: server_config.json
+2025-07-30 21:32:05,140 - MCPAuditWebApp - INFO - __init__:244 - 🌐 CLIENT: MCP client initialized
+2025-07-30 21:32:05,140 - MCPAuditWebApp - INFO - __init__:352 - 🌐 AI: OpenAI integration initialized
+2025-07-30 21:32:05,143 - MCPAuditWebApp - INFO - main:752 - 🌐 WEB: Starting MCP Audit Management Web Application
+2025-07-30 21:32:05,143 - MCPAuditWebApp - INFO - start_server:152 - 🌐 SERVER: Starting server SecureAudit
+2025-07-30 21:32:05,145 - MCPAuditWebApp - INFO - start_server:185 - 🌐 SERVER: Started SecureAudit with PID 25564
+2025-07-30 21:32:05,145 - MCPAuditWebApp - INFO - main:758 - 🌐 WEB: Started default server SecureAudit
+2025-07-30 21:32:13,868 - MCPAuditWebApp - INFO - _load_config:101 - 🌐 SERVER: Configuration loaded successfully
+2025-07-30 21:32:13,868 - MCPAuditWebApp - INFO - __init__:94 - 🌐 SERVER: Server manager initialized with config: server_config.json
+2025-07-30 21:32:13,869 - MCPAuditWebApp - INFO - __init__:244 - 🌐 CLIENT: MCP client initialized
+2025-07-30 21:32:13,869 - MCPAuditWebApp - INFO - __init__:352 - 🌐 AI: OpenAI integration initialized
+2025-07-30 21:32:13,871 - MCPAuditWebApp - INFO - main:752 - 🌐 WEB: Starting MCP Audit Management Web Application
+2025-07-30 21:32:13,871 - MCPAuditWebApp - INFO - start_server:152 - 🌐 SERVER: Starting server SecureAudit
+2025-07-30 21:32:13,874 - MCPAuditWebApp - INFO - start_server:185 - 🌐 SERVER: Started SecureAudit with PID 25919
+2025-07-30 21:32:13,874 - MCPAuditWebApp - INFO - main:758 - 🌐 WEB: Started default server SecureAudit
+2025-07-30 21:32:23,631 - MCPAuditWebApp - INFO - _load_config:101 - 🌐 SERVER: Configuration loaded successfully
+2025-07-30 21:32:23,631 - MCPAuditWebApp - INFO - __init__:94 - 🌐 SERVER: Server manager initialized with config: server_config.json
+2025-07-30 21:32:23,631 - MCPAuditWebApp - INFO - __init__:244 - 🌐 CLIENT: MCP client initialized
+2025-07-30 21:32:23,631 - MCPAuditWebApp - INFO - __init__:352 - 🌐 AI: OpenAI integration initialized
+2025-07-30 21:32:23,634 - MCPAuditWebApp - INFO - main:752 - 🌐 WEB: Starting MCP Audit Management Web Application
+2025-07-30 21:32:23,634 - MCPAuditWebApp - INFO - start_server:152 - 🌐 SERVER: Starting server SecureAudit
+2025-07-30 21:32:23,637 - MCPAuditWebApp - INFO - start_server:185 - 🌐 SERVER: Started SecureAudit with PID 26054
+2025-07-30 21:32:23,638 - MCPAuditWebApp - INFO - main:758 - 🌐 WEB: Started default server SecureAudit
+2025-07-30 21:32:33,368 - MCPAuditWebApp - INFO - _load_config:101 - 🌐 SERVER: Configuration loaded successfully
+2025-07-30 21:32:33,368 - MCPAuditWebApp - INFO - __init__:94 - 🌐 SERVER: Server manager initialized with config: server_config.json
+2025-07-30 21:32:33,368 - MCPAuditWebApp - INFO - __init__:244 - 🌐 CLIENT: MCP client initialized
+2025-07-30 21:32:33,368 - MCPAuditWebApp - INFO - __init__:352 - 🌐 AI: OpenAI integration initialized
+2025-07-30 21:32:33,371 - MCPAuditWebApp - INFO - main:752 - 🌐 WEB: Starting MCP Audit Management Web Application
+2025-07-30 21:32:33,371 - MCPAuditWebApp - INFO - start_server:152 - 🌐 SERVER: Starting server SecureAudit
+2025-07-30 21:32:33,373 - MCPAuditWebApp - INFO - start_server:185 - 🌐 SERVER: Started SecureAudit with PID 26184
+2025-07-30 21:32:33,373 - MCPAuditWebApp - INFO - main:758 - 🌐 WEB: Started default server SecureAudit
+2025-07-30 21:32:44,984 - MCPAuditWebApp - INFO - call_tool:248 - 🌐 CLIENT: Calling tool get_audit_statistics with args: []
+2025-07-30 21:32:45,031 - MCPAuditWebApp - INFO - call_tool:303 - 🌐 CLIENT: Tool get_audit_statistics executed successfully
+2025-07-30 21:32:52,582 - MCPAuditWebApp - INFO - _load_config:101 - 🌐 SERVER: Configuration loaded successfully
+2025-07-30 21:32:52,582 - MCPAuditWebApp - INFO - __init__:94 - 🌐 SERVER: Server manager initialized with config: server_config.json
+2025-07-30 21:32:52,582 - MCPAuditWebApp - INFO - __init__:244 - 🌐 CLIENT: MCP client initialized
+2025-07-30 21:32:52,582 - MCPAuditWebApp - INFO - __init__:352 - 🌐 AI: OpenAI integration initialized
+2025-07-30 21:32:52,585 - MCPAuditWebApp - INFO - main:752 - 🌐 WEB: Starting MCP Audit Management Web Application
+2025-07-30 21:32:52,585 - MCPAuditWebApp - INFO - start_server:152 - 🌐 SERVER: Starting server SecureAudit
+2025-07-30 21:32:52,587 - MCPAuditWebApp - INFO - start_server:185 - 🌐 SERVER: Started SecureAudit with PID 26418
+2025-07-30 21:32:52,587 - MCPAuditWebApp - INFO - main:758 - 🌐 WEB: Started default server SecureAudit
+2025-07-30 21:33:08,690 - MCPAuditWebApp - INFO - _load_config:101 - 🌐 SERVER: Configuration loaded successfully
+2025-07-30 21:33:08,691 - MCPAuditWebApp - INFO - __init__:94 - 🌐 SERVER: Server manager initialized with config: server_config.json
+2025-07-30 21:33:08,691 - MCPAuditWebApp - INFO - __init__:244 - 🌐 CLIENT: MCP client initialized
+2025-07-30 21:33:08,691 - MCPAuditWebApp - INFO - __init__:352 - 🌐 AI: OpenAI integration initialized
+2025-07-30 21:33:08,693 - MCPAuditWebApp - INFO - main:752 - 🌐 WEB: Starting MCP Audit Management Web Application
+2025-07-30 21:33:08,693 - MCPAuditWebApp - INFO - start_server:152 - 🌐 SERVER: Starting server SecureAudit
+2025-07-30 21:33:08,695 - MCPAuditWebApp - INFO - start_server:185 - 🌐 SERVER: Started SecureAudit with PID 26603
+2025-07-30 21:33:08,695 - MCPAuditWebApp - INFO - main:758 - 🌐 WEB: Started default server SecureAudit
+2025-07-30 21:33:21,650 - MCPAuditWebApp - INFO - _load_config:101 - 🌐 SERVER: Configuration loaded successfully
+2025-07-30 21:33:21,650 - MCPAuditWebApp - INFO - __init__:94 - 🌐 SERVER: Server manager initialized with config: server_config.json
+2025-07-30 21:33:21,650 - MCPAuditWebApp - INFO - __init__:244 - 🌐 CLIENT: MCP client initialized
+2025-07-30 21:33:21,650 - MCPAuditWebApp - INFO - __init__:352 - 🌐 AI: OpenAI integration initialized
+2025-07-30 21:33:21,653 - MCPAuditWebApp - INFO - main:752 - 🌐 WEB: Starting MCP Audit Management Web Application
+2025-07-30 21:33:21,653 - MCPAuditWebApp - INFO - start_server:152 - 🌐 SERVER: Starting server SecureAudit
+2025-07-30 21:33:21,655 - MCPAuditWebApp - INFO - start_server:185 - 🌐 SERVER: Started SecureAudit with PID 26761
+2025-07-30 21:33:21,655 - MCPAuditWebApp - INFO - main:758 - 🌐 WEB: Started default server SecureAudit
+2025-07-30 21:33:45,008 - MCPAuditWebApp - INFO - call_tool:248 - 🌐 CLIENT: Calling tool get_audit_statistics with args: []
+2025-07-30 21:33:46,076 - MCPAuditWebApp - INFO - _load_config:101 - 🌐 SERVER: Configuration loaded successfully
+2025-07-30 21:33:46,076 - MCPAuditWebApp - INFO - __init__:94 - 🌐 SERVER: Server manager initialized with config: server_config.json
+2025-07-30 21:33:46,076 - MCPAuditWebApp - INFO - __init__:244 - 🌐 CLIENT: MCP client initialized
+2025-07-30 21:33:46,076 - MCPAuditWebApp - INFO - __init__:352 - 🌐 AI: OpenAI integration initialized
+2025-07-30 21:33:46,079 - MCPAuditWebApp - INFO - main:752 - 🌐 WEB: Starting MCP Audit Management Web Application
+2025-07-30 21:33:46,079 - MCPAuditWebApp - INFO - start_server:152 - 🌐 SERVER: Starting server SecureAudit
+2025-07-30 21:33:46,081 - MCPAuditWebApp - INFO - start_server:185 - 🌐 SERVER: Started SecureAudit with PID 27080
+2025-07-30 21:33:46,081 - MCPAuditWebApp - INFO - main:758 - 🌐 WEB: Started default server SecureAudit
+2025-07-30 21:34:02,178 - MCPAuditWebApp - INFO - _load_config:101 - 🌐 SERVER: Configuration loaded successfully
+2025-07-30 21:34:02,179 - MCPAuditWebApp - INFO - __init__:94 - 🌐 SERVER: Server manager initialized with config: server_config.json
+2025-07-30 21:34:02,179 - MCPAuditWebApp - INFO - __init__:244 - 🌐 CLIENT: MCP client initialized
+2025-07-30 21:34:02,179 - MCPAuditWebApp - INFO - __init__:352 - 🌐 AI: OpenAI integration initialized
+2025-07-30 21:34:02,181 - MCPAuditWebApp - INFO - main:752 - 🌐 WEB: Starting MCP Audit Management Web Application
+2025-07-30 21:34:02,181 - MCPAuditWebApp - INFO - start_server:152 - 🌐 SERVER: Starting server SecureAudit
+2025-07-30 21:34:02,184 - MCPAuditWebApp - INFO - start_server:185 - 🌐 SERVER: Started SecureAudit with PID 27262
+2025-07-30 21:34:02,184 - MCPAuditWebApp - INFO - main:758 - 🌐 WEB: Started default server SecureAudit
+2025-07-30 21:34:11,970 - MCPAuditWebApp - INFO - _load_config:101 - 🌐 SERVER: Configuration loaded successfully
+2025-07-30 21:34:11,970 - MCPAuditWebApp - INFO - __init__:94 - 🌐 SERVER: Server manager initialized with config: server_config.json
+2025-07-30 21:34:11,970 - MCPAuditWebApp - INFO - __init__:244 - 🌐 CLIENT: MCP client initialized
+2025-07-30 21:34:11,970 - MCPAuditWebApp - INFO - __init__:352 - 🌐 AI: OpenAI integration initialized
+2025-07-30 21:34:11,973 - MCPAuditWebApp - INFO - main:752 - 🌐 WEB: Starting MCP Audit Management Web Application
+2025-07-30 21:34:11,973 - MCPAuditWebApp - INFO - start_server:152 - 🌐 SERVER: Starting server SecureAudit
+2025-07-30 21:34:11,976 - MCPAuditWebApp - INFO - start_server:185 - 🌐 SERVER: Started SecureAudit with PID 27396
+2025-07-30 21:34:11,976 - MCPAuditWebApp - INFO - main:758 - 🌐 WEB: Started default server SecureAudit
+2025-07-30 21:34:28,086 - MCPAuditWebApp - INFO - _load_config:101 - 🌐 SERVER: Configuration loaded successfully
+2025-07-30 21:34:28,086 - MCPAuditWebApp - INFO - __init__:94 - 🌐 SERVER: Server manager initialized with config: server_config.json
+2025-07-30 21:34:28,086 - MCPAuditWebApp - INFO - __init__:244 - 🌐 CLIENT: MCP client initialized
+2025-07-30 21:34:28,086 - MCPAuditWebApp - INFO - __init__:352 - 🌐 AI: OpenAI integration initialized
+2025-07-30 21:34:28,089 - MCPAuditWebApp - INFO - main:752 - 🌐 WEB: Starting MCP Audit Management Web Application
+2025-07-30 21:34:28,089 - MCPAuditWebApp - INFO - start_server:152 - 🌐 SERVER: Starting server SecureAudit
+2025-07-30 21:34:28,091 - MCPAuditWebApp - INFO - start_server:185 - 🌐 SERVER: Started SecureAudit with PID 27580
+2025-07-30 21:34:28,091 - MCPAuditWebApp - INFO - main:758 - 🌐 WEB: Started default server SecureAudit
+2025-07-30 21:34:43,076 - MCPAuditWebApp - INFO - _load_config:101 - 🌐 SERVER: Configuration loaded successfully
+2025-07-30 21:34:43,076 - MCPAuditWebApp - INFO - __init__:94 - 🌐 SERVER: Server manager initialized with config: server_config.json
+2025-07-30 21:34:43,076 - MCPAuditWebApp - INFO - __init__:244 - 🌐 CLIENT: MCP client initialized
+2025-07-30 21:34:43,076 - MCPAuditWebApp - INFO - __init__:352 - 🌐 AI: OpenAI integration initialized
+2025-07-30 21:34:43,078 - MCPAuditWebApp - INFO - main:752 - 🌐 WEB: Starting MCP Audit Management Web Application
+2025-07-30 21:34:43,079 - MCPAuditWebApp - INFO - start_server:152 - 🌐 SERVER: Starting server SecureAudit
+2025-07-30 21:34:43,081 - MCPAuditWebApp - INFO - start_server:185 - 🌐 SERVER: Started SecureAudit with PID 27791
+2025-07-30 21:34:43,081 - MCPAuditWebApp - INFO - main:758 - 🌐 WEB: Started default server SecureAudit
+2025-07-30 21:34:45,024 - MCPAuditWebApp - INFO - call_tool:248 - 🌐 CLIENT: Calling tool get_audit_statistics with args: []
+2025-07-30 21:41:14,110 - MCPAuditWebApp - INFO - _load_config:116 - 🌐 SERVER: Configuration loaded successfully
+2025-07-30 21:41:14,110 - MCPAuditWebApp - INFO - __init__:109 - 🌐 SERVER: Server manager initialized with config: server_config.json
+2025-07-30 21:41:14,110 - MCPAuditWebApp - INFO - __init__:259 - 🌐 CLIENT: MCP client initialized
+2025-07-30 21:41:14,110 - MCPAuditWebApp - INFO - __init__:373 - 🌐 AI: OpenAI integration initialized
+2025-07-30 21:41:14,112 - MCPAuditWebApp - INFO - main:781 - 🌐 WEB: Starting MCP Audit Management Web Application
+2025-07-30 21:41:14,113 - MCPAuditWebApp - INFO - start_server:167 - 🌐 SERVER: Starting server SecureAudit
+2025-07-30 21:41:14,116 - MCPAuditWebApp - INFO - start_server:200 - 🌐 SERVER: Started SecureAudit with PID 33504
+2025-07-30 21:41:14,116 - MCPAuditWebApp - INFO - main:787 - 🌐 WEB: Started default server SecureAudit
+2025-07-30 21:41:14,470 - MCPAuditWebApp - INFO - _load_config:116 - 🌐 SERVER: Configuration loaded successfully
+2025-07-30 21:41:14,470 - MCPAuditWebApp - INFO - __init__:109 - 🌐 SERVER: Server manager initialized with config: server_config.json
+2025-07-30 21:41:14,470 - MCPAuditWebApp - INFO - __init__:259 - 🌐 CLIENT: MCP client initialized
+2025-07-30 21:41:14,470 - MCPAuditWebApp - INFO - __init__:373 - 🌐 AI: OpenAI integration initialized
+2025-07-30 21:41:14,473 - MCPAuditWebApp - INFO - main:781 - 🌐 WEB: Starting MCP Audit Management Web Application
+2025-07-30 21:41:14,473 - MCPAuditWebApp - INFO - start_server:167 - 🌐 SERVER: Starting server SecureAudit
+2025-07-30 21:41:14,475 - MCPAuditWebApp - INFO - start_server:200 - 🌐 SERVER: Started SecureAudit with PID 33507
+2025-07-30 21:41:14,475 - MCPAuditWebApp - INFO - main:787 - 🌐 WEB: Started default server SecureAudit
+2025-07-31 09:36:30,851 - MCPAuditWebApp - INFO - _load_config:116 - 🌐 SERVER: Configuration loaded successfully
+2025-07-31 09:36:30,852 - MCPAuditWebApp - INFO - __init__:109 - 🌐 SERVER: Server manager initialized with config: server_config.json
+2025-07-31 09:36:30,852 - MCPAuditWebApp - INFO - __init__:259 - 🌐 CLIENT: MCP client initialized
+2025-07-31 09:36:30,852 - MCPAuditWebApp - INFO - __init__:373 - 🌐 AI: OpenAI integration initialized
+2025-07-31 09:36:30,854 - MCPAuditWebApp - INFO - main:781 - 🌐 WEB: Starting MCP Audit Management Web Application
+2025-07-31 09:36:30,854 - MCPAuditWebApp - INFO - start_server:167 - 🌐 SERVER: Starting server SecureAudit
+2025-07-31 09:36:30,856 - MCPAuditWebApp - INFO - start_server:200 - 🌐 SERVER: Started SecureAudit with PID 43229
+2025-07-31 09:36:30,857 - MCPAuditWebApp - INFO - main:787 - 🌐 WEB: Started default server SecureAudit
+2025-07-31 09:36:31,201 - MCPAuditWebApp - INFO - _load_config:116 - 🌐 SERVER: Configuration loaded successfully
+2025-07-31 09:36:31,201 - MCPAuditWebApp - INFO - __init__:109 - 🌐 SERVER: Server manager initialized with config: server_config.json
+2025-07-31 09:36:31,201 - MCPAuditWebApp - INFO - __init__:259 - 🌐 CLIENT: MCP client initialized
+2025-07-31 09:36:31,201 - MCPAuditWebApp - INFO - __init__:373 - 🌐 AI: OpenAI integration initialized
+2025-07-31 09:36:31,204 - MCPAuditWebApp - INFO - main:781 - 🌐 WEB: Starting MCP Audit Management Web Application
+2025-07-31 09:36:31,204 - MCPAuditWebApp - INFO - start_server:167 - 🌐 SERVER: Starting server SecureAudit
+2025-07-31 09:36:31,206 - MCPAuditWebApp - INFO - start_server:200 - 🌐 SERVER: Started SecureAudit with PID 43232
+2025-07-31 09:36:31,206 - MCPAuditWebApp - INFO - main:787 - 🌐 WEB: Started default server SecureAudit
+2025-07-31 09:36:35,269 - MCPAuditWebApp - INFO - index:450 - 🌐 WEB: Accessing dashboard
+2025-07-31 09:36:36,979 - MCPAuditWebApp - INFO - call_tool:264 - 🌐 MCP_REQUEST: Calling tool 'get_audit_statistics' with arguments: {}
+2025-07-31 09:36:37,026 - MCPAuditWebApp - INFO - call_tool:322 - 🌐 MCP_RESPONSE: Tool 'get_audit_statistics' executed successfully (execution time: 0.047s)
+2025-07-31 09:36:45,968 - MCPAuditWebApp - INFO - create_audit:559 - 🌐 WEB: Creating new audit with data: {'title': 'sf', 'description': 'sdfdsf', 'date': '2025-07-31', 'status': 'open', 'assigned_auditor': 'John Smith'}
+2025-07-31 09:36:45,968 - MCPAuditWebApp - INFO - call_tool:264 - 🌐 MCP_REQUEST: Calling tool 'create_audit' with arguments: {'title': 'sf', 'description': 'sdfdsf', 'date': '2025-07-31', 'status': 'open', 'assigned_auditor': 'John Smith'}
+2025-07-31 09:36:46,023 - MCPAuditWebApp - INFO - call_tool:322 - 🌐 MCP_RESPONSE: Tool 'create_audit' executed successfully (execution time: 0.055s)
+2025-07-31 09:36:46,030 - MCPAuditWebApp - INFO - list_audits:472 - 🌐 WEB: Listing audits
+2025-07-31 09:36:46,030 - MCPAuditWebApp - INFO - call_tool:264 - 🌐 MCP_REQUEST: Calling tool 'list_audits' with arguments: {'status': '', 'assigned_auditor': '', 'search': ''}
+2025-07-31 09:36:46,072 - MCPAuditWebApp - INFO - call_tool:322 - 🌐 MCP_RESPONSE: Tool 'list_audits' executed successfully (execution time: 0.042s)
+2025-07-31 09:37:09,182 - MCPAuditWebApp - INFO - delete_audit:629 - 🌐 WEB: Deleting audit 1
+2025-07-31 09:37:09,183 - MCPAuditWebApp - INFO - call_tool:264 - 🌐 MCP_REQUEST: Calling tool 'delete_audit' with arguments: {'audit_id': 1}
+2025-07-31 09:37:09,252 - MCPAuditWebApp - INFO - call_tool:322 - 🌐 MCP_RESPONSE: Tool 'delete_audit' executed successfully (execution time: 0.069s)
+2025-07-31 09:37:09,256 - MCPAuditWebApp - INFO - list_audits:472 - 🌐 WEB: Listing audits
+2025-07-31 09:37:09,257 - MCPAuditWebApp - INFO - call_tool:264 - 🌐 MCP_REQUEST: Calling tool 'list_audits' with arguments: {'status': '', 'assigned_auditor': '', 'search': ''}
+2025-07-31 09:37:09,294 - MCPAuditWebApp - INFO - call_tool:322 - 🌐 MCP_RESPONSE: Tool 'list_audits' executed successfully (execution time: 0.037s)
+2025-07-31 09:37:13,545 - MCPAuditWebApp - INFO - delete_audit:629 - 🌐 WEB: Deleting audit 2
+2025-07-31 09:37:13,545 - MCPAuditWebApp - INFO - call_tool:264 - 🌐 MCP_REQUEST: Calling tool 'delete_audit' with arguments: {'audit_id': 2}
+2025-07-31 09:37:13,608 - MCPAuditWebApp - INFO - call_tool:322 - 🌐 MCP_RESPONSE: Tool 'delete_audit' executed successfully (execution time: 0.063s)
+2025-07-31 09:37:13,612 - MCPAuditWebApp - INFO - list_audits:472 - 🌐 WEB: Listing audits
+2025-07-31 09:37:13,612 - MCPAuditWebApp - INFO - call_tool:264 - 🌐 MCP_REQUEST: Calling tool 'list_audits' with arguments: {'status': '', 'assigned_auditor': '', 'search': ''}
+2025-07-31 09:37:13,651 - MCPAuditWebApp - INFO - call_tool:322 - 🌐 MCP_RESPONSE: Tool 'list_audits' executed successfully (execution time: 0.039s)
+2025-07-31 09:37:20,245 - MCPAuditWebApp - INFO - delete_audit:629 - 🌐 WEB: Deleting audit 3
+2025-07-31 09:37:20,246 - MCPAuditWebApp - INFO - call_tool:264 - 🌐 MCP_REQUEST: Calling tool 'delete_audit' with arguments: {'audit_id': 3}
+2025-07-31 09:37:20,321 - MCPAuditWebApp - INFO - call_tool:322 - 🌐 MCP_RESPONSE: Tool 'delete_audit' executed successfully (execution time: 0.075s)
+2025-07-31 09:37:20,326 - MCPAuditWebApp - INFO - list_audits:472 - 🌐 WEB: Listing audits
+2025-07-31 09:37:20,326 - MCPAuditWebApp - INFO - call_tool:264 - 🌐 MCP_REQUEST: Calling tool 'list_audits' with arguments: {'status': '', 'assigned_auditor': '', 'search': ''}
+2025-07-31 09:37:20,366 - MCPAuditWebApp - INFO - call_tool:322 - 🌐 MCP_RESPONSE: Tool 'list_audits' executed successfully (execution time: 0.039s)
+2025-07-31 09:37:31,928 - MCPAuditWebApp - INFO - audit_detail:529 - 🌐 WEB: Viewing audit detail for ID 1
+2025-07-31 09:37:31,929 - MCPAuditWebApp - INFO - call_tool:264 - 🌐 MCP_REQUEST: Calling tool 'get_audit' with arguments: {'audit_id': 1}
+2025-07-31 09:37:31,983 - MCPAuditWebApp - INFO - call_tool:322 - 🌐 MCP_RESPONSE: Tool 'get_audit' executed successfully (execution time: 0.054s)
+2025-07-31 09:37:37,511 - MCPAuditWebApp - INFO - delete_audit:629 - 🌐 WEB: Deleting audit 2
+2025-07-31 09:37:37,512 - MCPAuditWebApp - INFO - call_tool:264 - 🌐 MCP_REQUEST: Calling tool 'delete_audit' with arguments: {'audit_id': 2}
+2025-07-31 09:37:37,566 - MCPAuditWebApp - INFO - call_tool:322 - 🌐 MCP_RESPONSE: Tool 'delete_audit' executed successfully (execution time: 0.054s)
+2025-07-31 09:37:37,571 - MCPAuditWebApp - INFO - list_audits:472 - 🌐 WEB: Listing audits
+2025-07-31 09:37:37,571 - MCPAuditWebApp - INFO - call_tool:264 - 🌐 MCP_REQUEST: Calling tool 'list_audits' with arguments: {'status': '', 'assigned_auditor': '', 'search': ''}
+2025-07-31 09:37:37,610 - MCPAuditWebApp - INFO - call_tool:322 - 🌐 MCP_RESPONSE: Tool 'list_audits' executed successfully (execution time: 0.039s)
+2025-07-31 09:37:40,312 - MCPAuditWebApp - INFO - list_audits:472 - 🌐 WEB: Listing audits
+2025-07-31 09:37:40,313 - MCPAuditWebApp - INFO - call_tool:264 - 🌐 MCP_REQUEST: Calling tool 'list_audits' with arguments: {'status': '', 'assigned_auditor': '', 'search': ''}
+2025-07-31 09:37:40,376 - MCPAuditWebApp - INFO - call_tool:322 - 🌐 MCP_RESPONSE: Tool 'list_audits' executed successfully (execution time: 0.064s)
+2025-07-31 09:37:41,215 - MCPAuditWebApp - INFO - list_audits:472 - 🌐 WEB: Listing audits
+2025-07-31 09:37:41,215 - MCPAuditWebApp - INFO - call_tool:264 - 🌐 MCP_REQUEST: Calling tool 'list_audits' with arguments: {'status': '', 'assigned_auditor': '', 'search': ''}
+2025-07-31 09:37:41,271 - MCPAuditWebApp - INFO - call_tool:322 - 🌐 MCP_RESPONSE: Tool 'list_audits' executed successfully (execution time: 0.056s)
+2025-07-31 09:37:41,857 - MCPAuditWebApp - INFO - list_audits:472 - 🌐 WEB: Listing audits
+2025-07-31 09:37:41,857 - MCPAuditWebApp - INFO - call_tool:264 - 🌐 MCP_REQUEST: Calling tool 'list_audits' with arguments: {'status': '', 'assigned_auditor': '', 'search': ''}
+2025-07-31 09:37:41,909 - MCPAuditWebApp - INFO - call_tool:322 - 🌐 MCP_RESPONSE: Tool 'list_audits' executed successfully (execution time: 0.052s)
+2025-07-31 09:37:42,691 - MCPAuditWebApp - INFO - list_audits:472 - 🌐 WEB: Listing audits
+2025-07-31 09:37:42,691 - MCPAuditWebApp - INFO - call_tool:264 - 🌐 MCP_REQUEST: Calling tool 'list_audits' with arguments: {'status': '', 'assigned_auditor': '', 'search': ''}
+2025-07-31 09:37:42,726 - MCPAuditWebApp - INFO - call_tool:322 - 🌐 MCP_RESPONSE: Tool 'list_audits' executed successfully (execution time: 0.035s)
+2025-07-31 09:38:43,045 - MCPAuditWebApp - INFO - list_audits:472 - 🌐 WEB: Listing audits
+2025-07-31 09:38:43,046 - MCPAuditWebApp - INFO - call_tool:264 - 🌐 MCP_REQUEST: Calling tool 'list_audits' with arguments: {'status': '', 'assigned_auditor': '', 'search': ''}
+2025-07-31 09:38:43,125 - MCPAuditWebApp - INFO - call_tool:322 - 🌐 MCP_RESPONSE: Tool 'list_audits' executed successfully (execution time: 0.079s)
+2025-07-31 09:39:44,037 - MCPAuditWebApp - INFO - list_audits:472 - 🌐 WEB: Listing audits
+2025-07-31 09:39:44,038 - MCPAuditWebApp - INFO - call_tool:264 - 🌐 MCP_REQUEST: Calling tool 'list_audits' with arguments: {'status': '', 'assigned_auditor': '', 'search': ''}
+2025-07-31 09:39:44,092 - MCPAuditWebApp - INFO - call_tool:322 - 🌐 MCP_RESPONSE: Tool 'list_audits' executed successfully (execution time: 0.054s)
+2025-07-31 09:40:45,036 - MCPAuditWebApp - INFO - list_audits:472 - 🌐 WEB: Listing audits
+2025-07-31 09:40:45,038 - MCPAuditWebApp - INFO - call_tool:264 - 🌐 MCP_REQUEST: Calling tool 'list_audits' with arguments: {'status': '', 'assigned_auditor': '', 'search': ''}
+2025-07-31 09:40:45,114 - MCPAuditWebApp - INFO - call_tool:322 - 🌐 MCP_RESPONSE: Tool 'list_audits' executed successfully (execution time: 0.077s)
+2025-07-31 09:41:46,030 - MCPAuditWebApp - INFO - list_audits:472 - 🌐 WEB: Listing audits
+2025-07-31 09:41:46,031 - MCPAuditWebApp - INFO - call_tool:264 - 🌐 MCP_REQUEST: Calling tool 'list_audits' with arguments: {'status': '', 'assigned_auditor': '', 'search': ''}
+2025-07-31 09:41:46,089 - MCPAuditWebApp - INFO - call_tool:322 - 🌐 MCP_RESPONSE: Tool 'list_audits' executed successfully (execution time: 0.058s)
+2025-07-31 09:42:47,054 - MCPAuditWebApp - INFO - list_audits:472 - 🌐 WEB: Listing audits
+2025-07-31 09:42:47,055 - MCPAuditWebApp - INFO - call_tool:264 - 🌐 MCP_REQUEST: Calling tool 'list_audits' with arguments: {'status': '', 'assigned_auditor': '', 'search': ''}
+2025-07-31 09:42:47,114 - MCPAuditWebApp - INFO - call_tool:322 - 🌐 MCP_RESPONSE: Tool 'list_audits' executed successfully (execution time: 0.058s)
+2025-07-31 09:43:48,036 - MCPAuditWebApp - INFO - list_audits:472 - 🌐 WEB: Listing audits
+2025-07-31 09:43:48,037 - MCPAuditWebApp - INFO - call_tool:264 - 🌐 MCP_REQUEST: Calling tool 'list_audits' with arguments: {'status': '', 'assigned_auditor': '', 'search': ''}
+2025-07-31 09:43:48,086 - MCPAuditWebApp - INFO - call_tool:322 - 🌐 MCP_RESPONSE: Tool 'list_audits' executed successfully (execution time: 0.049s)
+2025-07-31 09:44:49,044 - MCPAuditWebApp - INFO - list_audits:472 - 🌐 WEB: Listing audits
+2025-07-31 09:44:49,045 - MCPAuditWebApp - INFO - call_tool:264 - 🌐 MCP_REQUEST: Calling tool 'list_audits' with arguments: {'status': '', 'assigned_auditor': '', 'search': ''}
+2025-07-31 09:44:49,116 - MCPAuditWebApp - INFO - call_tool:322 - 🌐 MCP_RESPONSE: Tool 'list_audits' executed successfully (execution time: 0.070s)
+2025-07-31 09:45:50,032 - MCPAuditWebApp - INFO - list_audits:472 - 🌐 WEB: Listing audits
+2025-07-31 09:45:50,033 - MCPAuditWebApp - INFO - call_tool:264 - 🌐 MCP_REQUEST: Calling tool 'list_audits' with arguments: {'status': '', 'assigned_auditor': '', 'search': ''}
+2025-07-31 09:45:50,103 - MCPAuditWebApp - INFO - call_tool:322 - 🌐 MCP_RESPONSE: Tool 'list_audits' executed successfully (execution time: 0.070s)
+2025-07-31 09:46:51,032 - MCPAuditWebApp - INFO - list_audits:472 - 🌐 WEB: Listing audits
+2025-07-31 09:46:51,033 - MCPAuditWebApp - INFO - call_tool:264 - 🌐 MCP_REQUEST: Calling tool 'list_audits' with arguments: {'status': '', 'assigned_auditor': '', 'search': ''}
+2025-07-31 09:46:51,089 - MCPAuditWebApp - INFO - call_tool:322 - 🌐 MCP_RESPONSE: Tool 'list_audits' executed successfully (execution time: 0.056s)
+2025-07-31 09:47:52,038 - MCPAuditWebApp - INFO - list_audits:472 - 🌐 WEB: Listing audits
+2025-07-31 09:47:52,040 - MCPAuditWebApp - INFO - call_tool:264 - 🌐 MCP_REQUEST: Calling tool 'list_audits' with arguments: {'status': '', 'assigned_auditor': '', 'search': ''}
+2025-07-31 09:47:52,104 - MCPAuditWebApp - INFO - call_tool:322 - 🌐 MCP_RESPONSE: Tool 'list_audits' executed successfully (execution time: 0.064s)
+2025-07-31 09:48:53,031 - MCPAuditWebApp - INFO - list_audits:472 - 🌐 WEB: Listing audits
+2025-07-31 09:48:53,032 - MCPAuditWebApp - INFO - call_tool:264 - 🌐 MCP_REQUEST: Calling tool 'list_audits' with arguments: {'status': '', 'assigned_auditor': '', 'search': ''}
+2025-07-31 09:48:53,103 - MCPAuditWebApp - INFO - call_tool:322 - 🌐 MCP_RESPONSE: Tool 'list_audits' executed successfully (execution time: 0.071s)
+2025-07-31 09:49:54,036 - MCPAuditWebApp - INFO - list_audits:472 - 🌐 WEB: Listing audits
+2025-07-31 09:49:54,038 - MCPAuditWebApp - INFO - call_tool:264 - 🌐 MCP_REQUEST: Calling tool 'list_audits' with arguments: {'status': '', 'assigned_auditor': '', 'search': ''}
+2025-07-31 09:49:54,113 - MCPAuditWebApp - INFO - call_tool:322 - 🌐 MCP_RESPONSE: Tool 'list_audits' executed successfully (execution time: 0.076s)
+2025-07-31 09:50:55,028 - MCPAuditWebApp - INFO - list_audits:472 - 🌐 WEB: Listing audits
+2025-07-31 09:50:55,030 - MCPAuditWebApp - INFO - call_tool:264 - 🌐 MCP_REQUEST: Calling tool 'list_audits' with arguments: {'status': '', 'assigned_auditor': '', 'search': ''}
+2025-07-31 09:50:55,077 - MCPAuditWebApp - INFO - call_tool:322 - 🌐 MCP_RESPONSE: Tool 'list_audits' executed successfully (execution time: 0.048s)
+2025-07-31 09:51:56,041 - MCPAuditWebApp - INFO - list_audits:472 - 🌐 WEB: Listing audits
+2025-07-31 09:51:56,044 - MCPAuditWebApp - INFO - call_tool:264 - 🌐 MCP_REQUEST: Calling tool 'list_audits' with arguments: {'status': '', 'assigned_auditor': '', 'search': ''}
+2025-07-31 09:51:56,115 - MCPAuditWebApp - INFO - call_tool:322 - 🌐 MCP_RESPONSE: Tool 'list_audits' executed successfully (execution time: 0.071s)
+2025-07-31 09:52:57,026 - MCPAuditWebApp - INFO - list_audits:472 - 🌐 WEB: Listing audits
+2025-07-31 09:52:57,027 - MCPAuditWebApp - INFO - call_tool:264 - 🌐 MCP_REQUEST: Calling tool 'list_audits' with arguments: {'status': '', 'assigned_auditor': '', 'search': ''}
+2025-07-31 09:52:57,075 - MCPAuditWebApp - INFO - call_tool:322 - 🌐 MCP_RESPONSE: Tool 'list_audits' executed successfully (execution time: 0.048s)
+2025-07-31 09:53:58,026 - MCPAuditWebApp - INFO - list_audits:472 - 🌐 WEB: Listing audits
+2025-07-31 09:53:58,027 - MCPAuditWebApp - INFO - call_tool:264 - 🌐 MCP_REQUEST: Calling tool 'list_audits' with arguments: {'status': '', 'assigned_auditor': '', 'search': ''}
+2025-07-31 09:53:58,088 - MCPAuditWebApp - INFO - call_tool:322 - 🌐 MCP_RESPONSE: Tool 'list_audits' executed successfully (execution time: 0.061s)
+2025-07-31 09:54:59,036 - MCPAuditWebApp - INFO - list_audits:472 - 🌐 WEB: Listing audits
+2025-07-31 09:54:59,038 - MCPAuditWebApp - INFO - call_tool:264 - 🌐 MCP_REQUEST: Calling tool 'list_audits' with arguments: {'status': '', 'assigned_auditor': '', 'search': ''}
+2025-07-31 09:54:59,104 - MCPAuditWebApp - INFO - call_tool:322 - 🌐 MCP_RESPONSE: Tool 'list_audits' executed successfully (execution time: 0.066s)
+2025-07-31 09:56:00,041 - MCPAuditWebApp - INFO - list_audits:472 - 🌐 WEB: Listing audits
+2025-07-31 09:56:00,043 - MCPAuditWebApp - INFO - call_tool:264 - 🌐 MCP_REQUEST: Calling tool 'list_audits' with arguments: {'status': '', 'assigned_auditor': '', 'search': ''}
+2025-07-31 09:56:00,101 - MCPAuditWebApp - INFO - call_tool:322 - 🌐 MCP_RESPONSE: Tool 'list_audits' executed successfully (execution time: 0.058s)
+2025-07-31 09:57:01,037 - MCPAuditWebApp - INFO - list_audits:472 - 🌐 WEB: Listing audits
+2025-07-31 09:57:01,039 - MCPAuditWebApp - INFO - call_tool:264 - 🌐 MCP_REQUEST: Calling tool 'list_audits' with arguments: {'status': '', 'assigned_auditor': '', 'search': ''}
+2025-07-31 09:57:01,097 - MCPAuditWebApp - INFO - call_tool:322 - 🌐 MCP_RESPONSE: Tool 'list_audits' executed successfully (execution time: 0.059s)
+2025-07-31 09:58:02,031 - MCPAuditWebApp - INFO - list_audits:472 - 🌐 WEB: Listing audits
+2025-07-31 09:58:02,034 - MCPAuditWebApp - INFO - call_tool:264 - 🌐 MCP_REQUEST: Calling tool 'list_audits' with arguments: {'status': '', 'assigned_auditor': '', 'search': ''}
+2025-07-31 09:58:02,099 - MCPAuditWebApp - INFO - call_tool:322 - 🌐 MCP_RESPONSE: Tool 'list_audits' executed successfully (execution time: 0.065s)
+2025-07-31 09:59:03,030 - MCPAuditWebApp - INFO - list_audits:472 - 🌐 WEB: Listing audits
+2025-07-31 09:59:03,031 - MCPAuditWebApp - INFO - call_tool:264 - 🌐 MCP_REQUEST: Calling tool 'list_audits' with arguments: {'status': '', 'assigned_auditor': '', 'search': ''}
+2025-07-31 09:59:03,081 - MCPAuditWebApp - INFO - call_tool:322 - 🌐 MCP_RESPONSE: Tool 'list_audits' executed successfully (execution time: 0.050s)
+2025-07-31 10:00:04,026 - MCPAuditWebApp - INFO - list_audits:472 - 🌐 WEB: Listing audits
+2025-07-31 10:00:04,028 - MCPAuditWebApp - INFO - call_tool:264 - 🌐 MCP_REQUEST: Calling tool 'list_audits' with arguments: {'status': '', 'assigned_auditor': '', 'search': ''}
+2025-07-31 10:00:04,096 - MCPAuditWebApp - INFO - call_tool:322 - 🌐 MCP_RESPONSE: Tool 'list_audits' executed successfully (execution time: 0.068s)
+2025-07-31 10:01:05,023 - MCPAuditWebApp - INFO - list_audits:472 - 🌐 WEB: Listing audits
+2025-07-31 10:01:05,025 - MCPAuditWebApp - INFO - call_tool:264 - 🌐 MCP_REQUEST: Calling tool 'list_audits' with arguments: {'status': '', 'assigned_auditor': '', 'search': ''}
+2025-07-31 10:01:05,085 - MCPAuditWebApp - INFO - call_tool:322 - 🌐 MCP_RESPONSE: Tool 'list_audits' executed successfully (execution time: 0.060s)
+2025-07-31 10:02:06,028 - MCPAuditWebApp - INFO - list_audits:472 - 🌐 WEB: Listing audits
+2025-07-31 10:02:06,029 - MCPAuditWebApp - INFO - call_tool:264 - 🌐 MCP_REQUEST: Calling tool 'list_audits' with arguments: {'status': '', 'assigned_auditor': '', 'search': ''}
+2025-07-31 10:02:06,098 - MCPAuditWebApp - INFO - call_tool:322 - 🌐 MCP_RESPONSE: Tool 'list_audits' executed successfully (execution time: 0.069s)
+2025-07-31 10:03:07,029 - MCPAuditWebApp - INFO - list_audits:472 - 🌐 WEB: Listing audits
+2025-07-31 10:03:07,030 - MCPAuditWebApp - INFO - call_tool:264 - 🌐 MCP_REQUEST: Calling tool 'list_audits' with arguments: {'status': '', 'assigned_auditor': '', 'search': ''}
+2025-07-31 10:03:07,107 - MCPAuditWebApp - INFO - call_tool:322 - 🌐 MCP_RESPONSE: Tool 'list_audits' executed successfully (execution time: 0.077s)
+2025-07-31 10:04:08,022 - MCPAuditWebApp - INFO - list_audits:472 - 🌐 WEB: Listing audits
+2025-07-31 10:04:08,024 - MCPAuditWebApp - INFO - call_tool:264 - 🌐 MCP_REQUEST: Calling tool 'list_audits' with arguments: {'status': '', 'assigned_auditor': '', 'search': ''}
+2025-07-31 10:04:08,077 - MCPAuditWebApp - INFO - call_tool:322 - 🌐 MCP_RESPONSE: Tool 'list_audits' executed successfully (execution time: 0.053s)
+2025-07-31 10:05:09,024 - MCPAuditWebApp - INFO - list_audits:472 - 🌐 WEB: Listing audits
+2025-07-31 10:05:09,026 - MCPAuditWebApp - INFO - call_tool:264 - 🌐 MCP_REQUEST: Calling tool 'list_audits' with arguments: {'status': '', 'assigned_auditor': '', 'search': ''}
+2025-07-31 10:05:09,088 - MCPAuditWebApp - INFO - call_tool:322 - 🌐 MCP_RESPONSE: Tool 'list_audits' executed successfully (execution time: 0.062s)
+2025-07-31 10:06:10,020 - MCPAuditWebApp - INFO - list_audits:472 - 🌐 WEB: Listing audits
+2025-07-31 10:06:10,021 - MCPAuditWebApp - INFO - call_tool:264 - 🌐 MCP_REQUEST: Calling tool 'list_audits' with arguments: {'status': '', 'assigned_auditor': '', 'search': ''}
+2025-07-31 10:06:10,075 - MCPAuditWebApp - INFO - call_tool:322 - 🌐 MCP_RESPONSE: Tool 'list_audits' executed successfully (execution time: 0.054s)
+2025-07-31 10:06:23,458 - MCPAuditWebApp - INFO - list_audits:472 - 🌐 WEB: Listing audits
+2025-07-31 10:06:23,460 - MCPAuditWebApp - INFO - call_tool:264 - 🌐 MCP_REQUEST: Calling tool 'list_audits' with arguments: {'status': '', 'assigned_auditor': '', 'search': ''}
+2025-07-31 10:06:23,528 - MCPAuditWebApp - INFO - call_tool:322 - 🌐 MCP_RESPONSE: Tool 'list_audits' executed successfully (execution time: 0.068s)
+2025-07-31 10:06:24,586 - MCPAuditWebApp - INFO - list_audits:472 - 🌐 WEB: Listing audits
+2025-07-31 10:06:24,586 - MCPAuditWebApp - INFO - call_tool:264 - 🌐 MCP_REQUEST: Calling tool 'list_audits' with arguments: {'status': '', 'assigned_auditor': '', 'search': ''}
+2025-07-31 10:06:24,627 - MCPAuditWebApp - INFO - call_tool:322 - 🌐 MCP_RESPONSE: Tool 'list_audits' executed successfully (execution time: 0.041s)
+2025-07-31 10:06:26,389 - MCPAuditWebApp - INFO - list_audits:472 - 🌐 WEB: Listing audits
+2025-07-31 10:06:26,389 - MCPAuditWebApp - INFO - call_tool:264 - 🌐 MCP_REQUEST: Calling tool 'list_audits' with arguments: {'status': '', 'assigned_auditor': '', 'search': ''}
+2025-07-31 10:06:26,460 - MCPAuditWebApp - INFO - call_tool:322 - 🌐 MCP_RESPONSE: Tool 'list_audits' executed successfully (execution time: 0.070s)
+2025-07-31 10:06:26,981 - MCPAuditWebApp - INFO - index:450 - 🌐 WEB: Accessing dashboard
+2025-07-31 10:06:34,413 - MCPAuditWebApp - INFO - servers:666 - 🌐 WEB: Accessing server management
+2025-07-31 10:06:36,355 - MCPAuditWebApp - INFO - start_server:676 - 🌐 WEB: Starting server SampleServer
+2025-07-31 10:06:36,356 - MCPAuditWebApp - INFO - start_server:167 - 🌐 SERVER: Starting server SampleServer
+2025-07-31 10:06:36,359 - MCPAuditWebApp - INFO - start_server:200 - 🌐 SERVER: Started SampleServer with PID 65021
+2025-07-31 10:06:36,365 - MCPAuditWebApp - INFO - servers:666 - 🌐 WEB: Accessing server management
+2025-07-31 10:06:38,483 - MCPAuditWebApp - INFO - start_server:676 - 🌐 WEB: Starting server SSEAuditServer
+2025-07-31 10:06:38,483 - MCPAuditWebApp - INFO - start_server:167 - 🌐 SERVER: Starting server SSEAuditServer
+2025-07-31 10:06:38,488 - MCPAuditWebApp - INFO - start_server:200 - 🌐 SERVER: Started SSEAuditServer with PID 65046
+2025-07-31 10:06:38,494 - MCPAuditWebApp - INFO - servers:666 - 🌐 WEB: Accessing server management
+2025-07-31 10:06:41,230 - MCPAuditWebApp - INFO - start_server:676 - 🌐 WEB: Starting server HttpAuditServer
+2025-07-31 10:06:41,231 - MCPAuditWebApp - INFO - start_server:167 - 🌐 SERVER: Starting server HttpAuditServer
+2025-07-31 10:06:41,237 - MCPAuditWebApp - INFO - start_server:200 - 🌐 SERVER: Started HttpAuditServer with PID 65077
+2025-07-31 10:06:41,243 - MCPAuditWebApp - INFO - servers:666 - 🌐 WEB: Accessing server management
+2025-07-31 10:07:09,519 - MCPAuditWebApp - INFO - switch_server:704 - 🌐 WEB: Switching to server SampleServer
+2025-07-31 10:07:09,519 - MCPAuditWebApp - INFO - switch_server:239 - 🌐 SERVER: Switching to server SampleServer
+2025-07-31 10:07:09,520 - MCPAuditWebApp - INFO - switch_server:251 - 🌐 SERVER: Switched to SampleServer
+2025-07-31 10:07:09,526 - MCPAuditWebApp - INFO - servers:666 - 🌐 WEB: Accessing server management
+2025-07-31 10:07:20,292 - MCPAuditWebApp - INFO - index:450 - 🌐 WEB: Accessing dashboard
+2025-07-31 10:07:51,030 - MCPAuditWebApp - INFO - call_tool:264 - 🌐 MCP_REQUEST: Calling tool 'get_audit_statistics' with arguments: {}
+2025-07-31 10:07:51,080 - MCPAuditWebApp - INFO - call_tool:322 - 🌐 MCP_RESPONSE: Tool 'get_audit_statistics' executed successfully (execution time: 0.050s)
+2025-07-31 10:08:21,024 - MCPAuditWebApp - INFO - call_tool:264 - 🌐 MCP_REQUEST: Calling tool 'get_audit_statistics' with arguments: {}
+2025-07-31 10:08:21,081 - MCPAuditWebApp - INFO - call_tool:322 - 🌐 MCP_RESPONSE: Tool 'get_audit_statistics' executed successfully (execution time: 0.057s)
+2025-07-31 10:08:50,341 - MCPAuditWebApp - INFO - call_tool:264 - 🌐 MCP_REQUEST: Calling tool 'get_audit_statistics' with arguments: {}
+2025-07-31 10:08:50,405 - MCPAuditWebApp - INFO - call_tool:322 - 🌐 MCP_RESPONSE: Tool 'get_audit_statistics' executed successfully (execution time: 0.064s)
+2025-07-31 10:09:21,021 - MCPAuditWebApp - INFO - call_tool:264 - 🌐 MCP_REQUEST: Calling tool 'get_audit_statistics' with arguments: {}
+2025-07-31 10:09:21,072 - MCPAuditWebApp - INFO - call_tool:322 - 🌐 MCP_RESPONSE: Tool 'get_audit_statistics' executed successfully (execution time: 0.052s)
+2025-07-31 10:09:51,027 - MCPAuditWebApp - INFO - call_tool:264 - 🌐 MCP_REQUEST: Calling tool 'get_audit_statistics' with arguments: {}
+2025-07-31 10:09:51,089 - MCPAuditWebApp - INFO - call_tool:322 - 🌐 MCP_RESPONSE: Tool 'get_audit_statistics' executed successfully (execution time: 0.062s)
+2025-07-31 10:10:21,029 - MCPAuditWebApp - INFO - call_tool:264 - 🌐 MCP_REQUEST: Calling tool 'get_audit_statistics' with arguments: {}
+2025-07-31 10:10:21,091 - MCPAuditWebApp - INFO - call_tool:322 - 🌐 MCP_RESPONSE: Tool 'get_audit_statistics' executed successfully (execution time: 0.061s)
+2025-07-31 10:11:16,034 - MCPAuditWebApp - INFO - call_tool:264 - 🌐 MCP_REQUEST: Calling tool 'get_audit_statistics' with arguments: {}
+2025-07-31 10:11:16,107 - MCPAuditWebApp - INFO - call_tool:322 - 🌐 MCP_RESPONSE: Tool 'get_audit_statistics' executed successfully (execution time: 0.074s)
+2025-07-31 10:11:21,022 - MCPAuditWebApp - INFO - call_tool:264 - 🌐 MCP_REQUEST: Calling tool 'get_audit_statistics' with arguments: {}
+2025-07-31 10:11:21,075 - MCPAuditWebApp - INFO - call_tool:322 - 🌐 MCP_RESPONSE: Tool 'get_audit_statistics' executed successfully (execution time: 0.053s)
+2025-07-31 10:11:51,024 - MCPAuditWebApp - INFO - call_tool:264 - 🌐 MCP_REQUEST: Calling tool 'get_audit_statistics' with arguments: {}
+2025-07-31 10:11:51,079 - MCPAuditWebApp - INFO - call_tool:322 - 🌐 MCP_RESPONSE: Tool 'get_audit_statistics' executed successfully (execution time: 0.055s)
+2025-07-31 10:12:21,033 - MCPAuditWebApp - INFO - call_tool:264 - 🌐 MCP_REQUEST: Calling tool 'get_audit_statistics' with arguments: {}
+2025-07-31 10:12:21,095 - MCPAuditWebApp - INFO - call_tool:322 - 🌐 MCP_RESPONSE: Tool 'get_audit_statistics' executed successfully (execution time: 0.062s)
+2025-07-31 10:13:16,038 - MCPAuditWebApp - INFO - call_tool:264 - 🌐 MCP_REQUEST: Calling tool 'get_audit_statistics' with arguments: {}
+2025-07-31 10:13:16,109 - MCPAuditWebApp - INFO - call_tool:322 - 🌐 MCP_RESPONSE: Tool 'get_audit_statistics' executed successfully (execution time: 0.071s)
+2025-07-31 10:14:16,033 - MCPAuditWebApp - INFO - call_tool:264 - 🌐 MCP_REQUEST: Calling tool 'get_audit_statistics' with arguments: {}
+2025-07-31 10:14:16,114 - MCPAuditWebApp - INFO - call_tool:322 - 🌐 MCP_RESPONSE: Tool 'get_audit_statistics' executed successfully (execution time: 0.081s)
+2025-07-31 10:15:16,024 - MCPAuditWebApp - INFO - call_tool:264 - 🌐 MCP_REQUEST: Calling tool 'get_audit_statistics' with arguments: {}
+2025-07-31 10:15:16,088 - MCPAuditWebApp - INFO - call_tool:322 - 🌐 MCP_RESPONSE: Tool 'get_audit_statistics' executed successfully (execution time: 0.063s)
+2025-07-31 10:16:16,051 - MCPAuditWebApp - INFO - call_tool:264 - 🌐 MCP_REQUEST: Calling tool 'get_audit_statistics' with arguments: {}
+2025-07-31 10:16:16,114 - MCPAuditWebApp - INFO - call_tool:322 - 🌐 MCP_RESPONSE: Tool 'get_audit_statistics' executed successfully (execution time: 0.063s)
+2025-07-31 10:17:16,038 - MCPAuditWebApp - INFO - call_tool:264 - 🌐 MCP_REQUEST: Calling tool 'get_audit_statistics' with arguments: {}
+2025-07-31 10:17:16,117 - MCPAuditWebApp - INFO - call_tool:322 - 🌐 MCP_RESPONSE: Tool 'get_audit_statistics' executed successfully (execution time: 0.079s)
+2025-07-31 10:18:16,041 - MCPAuditWebApp - INFO - call_tool:264 - 🌐 MCP_REQUEST: Calling tool 'get_audit_statistics' with arguments: {}
+2025-07-31 10:18:16,115 - MCPAuditWebApp - INFO - call_tool:322 - 🌐 MCP_RESPONSE: Tool 'get_audit_statistics' executed successfully (execution time: 0.074s)
+2025-07-31 10:19:16,052 - MCPAuditWebApp - INFO - call_tool:264 - 🌐 MCP_REQUEST: Calling tool 'get_audit_statistics' with arguments: {}
+2025-07-31 10:19:16,113 - MCPAuditWebApp - INFO - call_tool:322 - 🌐 MCP_RESPONSE: Tool 'get_audit_statistics' executed successfully (execution time: 0.061s)
+2025-07-31 10:20:16,023 - MCPAuditWebApp - INFO - call_tool:264 - 🌐 MCP_REQUEST: Calling tool 'get_audit_statistics' with arguments: {}
+2025-07-31 10:20:16,087 - MCPAuditWebApp - INFO - call_tool:322 - 🌐 MCP_RESPONSE: Tool 'get_audit_statistics' executed successfully (execution time: 0.064s)
+2025-07-31 10:21:16,042 - MCPAuditWebApp - INFO - call_tool:264 - 🌐 MCP_REQUEST: Calling tool 'get_audit_statistics' with arguments: {}
+2025-07-31 10:21:16,108 - MCPAuditWebApp - INFO - call_tool:322 - 🌐 MCP_RESPONSE: Tool 'get_audit_statistics' executed successfully (execution time: 0.066s)
+2025-07-31 10:22:16,027 - MCPAuditWebApp - INFO - call_tool:264 - 🌐 MCP_REQUEST: Calling tool 'get_audit_statistics' with arguments: {}
+2025-07-31 10:22:16,100 - MCPAuditWebApp - INFO - call_tool:322 - 🌐 MCP_RESPONSE: Tool 'get_audit_statistics' executed successfully (execution time: 0.073s)
+2025-07-31 10:23:16,031 - MCPAuditWebApp - INFO - call_tool:264 - 🌐 MCP_REQUEST: Calling tool 'get_audit_statistics' with arguments: {}
+2025-07-31 10:23:16,086 - MCPAuditWebApp - INFO - call_tool:322 - 🌐 MCP_RESPONSE: Tool 'get_audit_statistics' executed successfully (execution time: 0.055s)
+2025-07-31 10:24:16,022 - MCPAuditWebApp - INFO - call_tool:264 - 🌐 MCP_REQUEST: Calling tool 'get_audit_statistics' with arguments: {}
+2025-07-31 10:24:16,107 - MCPAuditWebApp - INFO - call_tool:322 - 🌐 MCP_RESPONSE: Tool 'get_audit_statistics' executed successfully (execution time: 0.085s)
+2025-07-31 10:25:16,062 - MCPAuditWebApp - INFO - call_tool:264 - 🌐 MCP_REQUEST: Calling tool 'get_audit_statistics' with arguments: {}
+2025-07-31 10:25:16,127 - MCPAuditWebApp - INFO - call_tool:322 - 🌐 MCP_RESPONSE: Tool 'get_audit_statistics' executed successfully (execution time: 0.065s)
+2025-07-31 10:26:16,082 - MCPAuditWebApp - INFO - call_tool:264 - 🌐 MCP_REQUEST: Calling tool 'get_audit_statistics' with arguments: {}
+2025-07-31 10:26:16,139 - MCPAuditWebApp - INFO - call_tool:322 - 🌐 MCP_RESPONSE: Tool 'get_audit_statistics' executed successfully (execution time: 0.057s)
+2025-07-31 10:27:16,089 - MCPAuditWebApp - INFO - call_tool:264 - 🌐 MCP_REQUEST: Calling tool 'get_audit_statistics' with arguments: {}
+2025-07-31 10:27:16,151 - MCPAuditWebApp - INFO - call_tool:322 - 🌐 MCP_RESPONSE: Tool 'get_audit_statistics' executed successfully (execution time: 0.062s)
+2025-07-31 10:28:16,099 - MCPAuditWebApp - INFO - call_tool:264 - 🌐 MCP_REQUEST: Calling tool 'get_audit_statistics' with arguments: {}
+2025-07-31 10:28:16,169 - MCPAuditWebApp - INFO - call_tool:322 - 🌐 MCP_RESPONSE: Tool 'get_audit_statistics' executed successfully (execution time: 0.070s)
+2025-07-31 10:29:16,030 - MCPAuditWebApp - INFO - call_tool:264 - 🌐 MCP_REQUEST: Calling tool 'get_audit_statistics' with arguments: {}
+2025-07-31 10:29:16,093 - MCPAuditWebApp - INFO - call_tool:322 - 🌐 MCP_RESPONSE: Tool 'get_audit_statistics' executed successfully (execution time: 0.063s)
+2025-07-31 10:30:16,024 - MCPAuditWebApp - INFO - call_tool:264 - 🌐 MCP_REQUEST: Calling tool 'get_audit_statistics' with arguments: {}
+2025-07-31 10:30:16,092 - MCPAuditWebApp - INFO - call_tool:322 - 🌐 MCP_RESPONSE: Tool 'get_audit_statistics' executed successfully (execution time: 0.067s)
+2025-07-31 10:31:16,025 - MCPAuditWebApp - INFO - call_tool:264 - 🌐 MCP_REQUEST: Calling tool 'get_audit_statistics' with arguments: {}
+2025-07-31 10:31:16,090 - MCPAuditWebApp - INFO - call_tool:322 - 🌐 MCP_RESPONSE: Tool 'get_audit_statistics' executed successfully (execution time: 0.065s)
+2025-07-31 10:32:16,027 - MCPAuditWebApp - INFO - call_tool:264 - 🌐 MCP_REQUEST: Calling tool 'get_audit_statistics' with arguments: {}
+2025-07-31 10:32:16,100 - MCPAuditWebApp - INFO - call_tool:322 - 🌐 MCP_RESPONSE: Tool 'get_audit_statistics' executed successfully (execution time: 0.073s)
+2025-07-31 10:33:16,021 - MCPAuditWebApp - INFO - call_tool:264 - 🌐 MCP_REQUEST: Calling tool 'get_audit_statistics' with arguments: {}
+2025-07-31 10:33:16,091 - MCPAuditWebApp - INFO - call_tool:322 - 🌐 MCP_RESPONSE: Tool 'get_audit_statistics' executed successfully (execution time: 0.070s)
+2025-07-31 10:34:16,031 - MCPAuditWebApp - INFO - call_tool:264 - 🌐 MCP_REQUEST: Calling tool 'get_audit_statistics' with arguments: {}
+2025-07-31 10:34:16,088 - MCPAuditWebApp - INFO - call_tool:322 - 🌐 MCP_RESPONSE: Tool 'get_audit_statistics' executed successfully (execution time: 0.057s)
+2025-07-31 10:35:16,021 - MCPAuditWebApp - INFO - call_tool:264 - 🌐 MCP_REQUEST: Calling tool 'get_audit_statistics' with arguments: {}
+2025-07-31 10:35:16,099 - MCPAuditWebApp - INFO - call_tool:322 - 🌐 MCP_RESPONSE: Tool 'get_audit_statistics' executed successfully (execution time: 0.078s)
+2025-07-31 10:36:16,032 - MCPAuditWebApp - INFO - call_tool:264 - 🌐 MCP_REQUEST: Calling tool 'get_audit_statistics' with arguments: {}
+2025-07-31 10:36:16,091 - MCPAuditWebApp - INFO - call_tool:322 - 🌐 MCP_RESPONSE: Tool 'get_audit_statistics' executed successfully (execution time: 0.059s)
+2025-07-31 10:37:16,019 - MCPAuditWebApp - INFO - call_tool:264 - 🌐 MCP_REQUEST: Calling tool 'get_audit_statistics' with arguments: {}
+2025-07-31 10:37:16,079 - MCPAuditWebApp - INFO - call_tool:322 - 🌐 MCP_RESPONSE: Tool 'get_audit_statistics' executed successfully (execution time: 0.060s)
+2025-07-31 10:38:16,021 - MCPAuditWebApp - INFO - call_tool:264 - 🌐 MCP_REQUEST: Calling tool 'get_audit_statistics' with arguments: {}
+2025-07-31 10:38:16,088 - MCPAuditWebApp - INFO - call_tool:322 - 🌐 MCP_RESPONSE: Tool 'get_audit_statistics' executed successfully (execution time: 0.068s)
+2025-07-31 10:39:16,057 - MCPAuditWebApp - INFO - call_tool:264 - 🌐 MCP_REQUEST: Calling tool 'get_audit_statistics' with arguments: {}
+2025-07-31 10:39:16,120 - MCPAuditWebApp - INFO - call_tool:322 - 🌐 MCP_RESPONSE: Tool 'get_audit_statistics' executed successfully (execution time: 0.063s)
+2025-07-31 10:40:16,020 - MCPAuditWebApp - INFO - call_tool:264 - 🌐 MCP_REQUEST: Calling tool 'get_audit_statistics' with arguments: {}
+2025-07-31 10:40:16,073 - MCPAuditWebApp - INFO - call_tool:322 - 🌐 MCP_RESPONSE: Tool 'get_audit_statistics' executed successfully (execution time: 0.053s)
+2025-07-31 10:41:16,023 - MCPAuditWebApp - INFO - call_tool:264 - 🌐 MCP_REQUEST: Calling tool 'get_audit_statistics' with arguments: {}
+2025-07-31 10:41:16,088 - MCPAuditWebApp - INFO - call_tool:322 - 🌐 MCP_RESPONSE: Tool 'get_audit_statistics' executed successfully (execution time: 0.065s)
+2025-07-31 10:42:16,023 - MCPAuditWebApp - INFO - call_tool:264 - 🌐 MCP_REQUEST: Calling tool 'get_audit_statistics' with arguments: {}
+2025-07-31 10:42:16,086 - MCPAuditWebApp - INFO - call_tool:322 - 🌐 MCP_RESPONSE: Tool 'get_audit_statistics' executed successfully (execution time: 0.063s)
+2025-07-31 10:43:16,017 - MCPAuditWebApp - INFO - call_tool:264 - 🌐 MCP_REQUEST: Calling tool 'get_audit_statistics' with arguments: {}
+2025-07-31 10:43:16,081 - MCPAuditWebApp - INFO - call_tool:322 - 🌐 MCP_RESPONSE: Tool 'get_audit_statistics' executed successfully (execution time: 0.064s)
+2025-07-31 10:44:16,052 - MCPAuditWebApp - INFO - call_tool:264 - 🌐 MCP_REQUEST: Calling tool 'get_audit_statistics' with arguments: {}
+2025-07-31 10:44:16,113 - MCPAuditWebApp - INFO - call_tool:322 - 🌐 MCP_RESPONSE: Tool 'get_audit_statistics' executed successfully (execution time: 0.061s)
+2025-07-31 10:45:16,085 - MCPAuditWebApp - INFO - call_tool:264 - 🌐 MCP_REQUEST: Calling tool 'get_audit_statistics' with arguments: {}
+2025-07-31 10:45:16,148 - MCPAuditWebApp - INFO - call_tool:322 - 🌐 MCP_RESPONSE: Tool 'get_audit_statistics' executed successfully (execution time: 0.062s)
+2025-07-31 10:46:16,026 - MCPAuditWebApp - INFO - call_tool:264 - 🌐 MCP_REQUEST: Calling tool 'get_audit_statistics' with arguments: {}
+2025-07-31 10:46:16,105 - MCPAuditWebApp - INFO - call_tool:322 - 🌐 MCP_RESPONSE: Tool 'get_audit_statistics' executed successfully (execution time: 0.080s)
+2025-07-31 10:47:16,023 - MCPAuditWebApp - INFO - call_tool:264 - 🌐 MCP_REQUEST: Calling tool 'get_audit_statistics' with arguments: {}
+2025-07-31 10:47:16,095 - MCPAuditWebApp - INFO - call_tool:322 - 🌐 MCP_RESPONSE: Tool 'get_audit_statistics' executed successfully (execution time: 0.072s)
+2025-07-31 10:48:16,064 - MCPAuditWebApp - INFO - call_tool:264 - 🌐 MCP_REQUEST: Calling tool 'get_audit_statistics' with arguments: {}
+2025-07-31 10:48:16,125 - MCPAuditWebApp - INFO - call_tool:322 - 🌐 MCP_RESPONSE: Tool 'get_audit_statistics' executed successfully (execution time: 0.061s)
+2025-07-31 10:49:15,990 - MCPAuditWebApp - INFO - call_tool:264 - 🌐 MCP_REQUEST: Calling tool 'get_audit_statistics' with arguments: {}
+2025-07-31 10:49:16,060 - MCPAuditWebApp - INFO - call_tool:322 - 🌐 MCP_RESPONSE: Tool 'get_audit_statistics' executed successfully (execution time: 0.070s)
+2025-07-31 10:50:15,986 - MCPAuditWebApp - INFO - call_tool:264 - 🌐 MCP_REQUEST: Calling tool 'get_audit_statistics' with arguments: {}
+2025-07-31 10:50:16,051 - MCPAuditWebApp - INFO - call_tool:322 - 🌐 MCP_RESPONSE: Tool 'get_audit_statistics' executed successfully (execution time: 0.065s)
+2025-07-31 10:51:15,941 - MCPAuditWebApp - INFO - call_tool:264 - 🌐 MCP_REQUEST: Calling tool 'get_audit_statistics' with arguments: {}
+2025-07-31 10:51:16,011 - MCPAuditWebApp - INFO - call_tool:322 - 🌐 MCP_RESPONSE: Tool 'get_audit_statistics' executed successfully (execution time: 0.070s)
+2025-07-31 10:52:15,980 - MCPAuditWebApp - INFO - call_tool:264 - 🌐 MCP_REQUEST: Calling tool 'get_audit_statistics' with arguments: {}
+2025-07-31 10:52:16,039 - MCPAuditWebApp - INFO - call_tool:322 - 🌐 MCP_RESPONSE: Tool 'get_audit_statistics' executed successfully (execution time: 0.059s)
+2025-07-31 10:53:15,979 - MCPAuditWebApp - INFO - call_tool:264 - 🌐 MCP_REQUEST: Calling tool 'get_audit_statistics' with arguments: {}
+2025-07-31 10:53:16,039 - MCPAuditWebApp - INFO - call_tool:322 - 🌐 MCP_RESPONSE: Tool 'get_audit_statistics' executed successfully (execution time: 0.060s)
+2025-07-31 10:54:15,957 - MCPAuditWebApp - INFO - call_tool:264 - 🌐 MCP_REQUEST: Calling tool 'get_audit_statistics' with arguments: {}
+2025-07-31 10:54:16,004 - MCPAuditWebApp - INFO - call_tool:322 - 🌐 MCP_RESPONSE: Tool 'get_audit_statistics' executed successfully (execution time: 0.047s)
+2025-07-31 10:55:15,942 - MCPAuditWebApp - INFO - call_tool:264 - 🌐 MCP_REQUEST: Calling tool 'get_audit_statistics' with arguments: {}
+2025-07-31 10:55:16,006 - MCPAuditWebApp - INFO - call_tool:322 - 🌐 MCP_RESPONSE: Tool 'get_audit_statistics' executed successfully (execution time: 0.064s)
+2025-07-31 10:56:15,936 - MCPAuditWebApp - INFO - call_tool:264 - 🌐 MCP_REQUEST: Calling tool 'get_audit_statistics' with arguments: {}
+2025-07-31 10:56:15,993 - MCPAuditWebApp - INFO - call_tool:322 - 🌐 MCP_RESPONSE: Tool 'get_audit_statistics' executed successfully (execution time: 0.057s)
+2025-07-31 10:57:15,935 - MCPAuditWebApp - INFO - call_tool:264 - 🌐 MCP_REQUEST: Calling tool 'get_audit_statistics' with arguments: {}
+2025-07-31 10:57:16,000 - MCPAuditWebApp - INFO - call_tool:322 - 🌐 MCP_RESPONSE: Tool 'get_audit_statistics' executed successfully (execution time: 0.064s)
+2025-07-31 10:58:16,115 - MCPAuditWebApp - INFO - call_tool:264 - 🌐 MCP_REQUEST: Calling tool 'get_audit_statistics' with arguments: {}
+2025-07-31 10:58:16,300 - MCPAuditWebApp - INFO - call_tool:322 - 🌐 MCP_RESPONSE: Tool 'get_audit_statistics' executed successfully (execution time: 0.185s)
+2025-07-31 10:59:15,973 - MCPAuditWebApp - INFO - call_tool:264 - 🌐 MCP_REQUEST: Calling tool 'get_audit_statistics' with arguments: {}
+2025-07-31 10:59:16,042 - MCPAuditWebApp - INFO - call_tool:322 - 🌐 MCP_RESPONSE: Tool 'get_audit_statistics' executed successfully (execution time: 0.070s)
+2025-07-31 11:00:15,991 - MCPAuditWebApp - INFO - call_tool:264 - 🌐 MCP_REQUEST: Calling tool 'get_audit_statistics' with arguments: {}
+2025-07-31 11:00:16,077 - MCPAuditWebApp - INFO - call_tool:322 - 🌐 MCP_RESPONSE: Tool 'get_audit_statistics' executed successfully (execution time: 0.086s)
+2025-07-31 11:01:15,972 - MCPAuditWebApp - INFO - call_tool:264 - 🌐 MCP_REQUEST: Calling tool 'get_audit_statistics' with arguments: {}
+2025-07-31 11:01:16,032 - MCPAuditWebApp - INFO - call_tool:322 - 🌐 MCP_RESPONSE: Tool 'get_audit_statistics' executed successfully (execution time: 0.060s)
+2025-07-31 11:02:11,017 - MCPAuditWebApp - INFO - call_tool:264 - 🌐 MCP_REQUEST: Calling tool 'get_audit_statistics' with arguments: {}
+2025-07-31 11:02:11,065 - MCPAuditWebApp - INFO - call_tool:322 - 🌐 MCP_RESPONSE: Tool 'get_audit_statistics' executed successfully (execution time: 0.049s)
+2025-07-31 11:02:14,341 - MCPAuditWebApp - INFO - servers:666 - 🌐 WEB: Accessing server management
+2025-07-31 11:02:23,598 - MCPAuditWebApp - INFO - stop_server:690 - 🌐 WEB: Stopping server SecureAudit
+2025-07-31 11:02:23,598 - MCPAuditWebApp - INFO - stop_server:209 - 🌐 SERVER: Stopping server SecureAudit
+2025-07-31 11:02:23,603 - MCPAuditWebApp - INFO - stop_server:230 - 🌐 SERVER: Stopped SecureAudit
+2025-07-31 11:02:23,613 - MCPAuditWebApp - INFO - servers:666 - 🌐 WEB: Accessing server management
+2025-07-31 11:02:25,087 - MCPAuditWebApp - INFO - stop_server:690 - 🌐 WEB: Stopping server SampleServer
+2025-07-31 11:02:25,087 - MCPAuditWebApp - INFO - stop_server:209 - 🌐 SERVER: Stopping server SampleServer
+2025-07-31 11:02:25,095 - MCPAuditWebApp - INFO - stop_server:230 - 🌐 SERVER: Stopped SampleServer
+2025-07-31 11:02:25,099 - MCPAuditWebApp - INFO - servers:666 - 🌐 WEB: Accessing server management
+2025-07-31 11:02:41,369 - MCPAuditWebApp - INFO - start_server:676 - 🌐 WEB: Starting server SecureAudit
+2025-07-31 11:02:41,369 - MCPAuditWebApp - INFO - start_server:167 - 🌐 SERVER: Starting server SecureAudit
+2025-07-31 11:02:41,372 - MCPAuditWebApp - INFO - start_server:200 - 🌐 SERVER: Started SecureAudit with PID 5975
+2025-07-31 11:02:41,376 - MCPAuditWebApp - INFO - servers:666 - 🌐 WEB: Accessing server management
+2025-07-31 11:02:42,692 - MCPAuditWebApp - INFO - start_server:676 - 🌐 WEB: Starting server SampleServer
+2025-07-31 11:02:42,692 - MCPAuditWebApp - INFO - start_server:167 - 🌐 SERVER: Starting server SampleServer
+2025-07-31 11:02:42,695 - MCPAuditWebApp - INFO - start_server:200 - 🌐 SERVER: Started SampleServer with PID 5987
+2025-07-31 11:02:42,698 - MCPAuditWebApp - INFO - servers:666 - 🌐 WEB: Accessing server management
+2025-07-31 11:02:58,100 - MCPAuditWebApp - INFO - index:450 - 🌐 WEB: Accessing dashboard
+2025-07-31 11:03:09,401 - MCPAuditWebApp - INFO - create_audit:559 - 🌐 WEB: Creating new audit with data: {'title': 'test', 'description': 'demo', 'date': '2025-07-31', 'status': 'open', 'assigned_auditor': 'Bob Johnson'}
+2025-07-31 11:03:09,401 - MCPAuditWebApp - INFO - call_tool:264 - 🌐 MCP_REQUEST: Calling tool 'create_audit' with arguments: {'title': 'test', 'description': 'demo', 'date': '2025-07-31', 'status': 'open', 'assigned_auditor': 'Bob Johnson'}
+2025-07-31 11:03:09,450 - MCPAuditWebApp - INFO - call_tool:322 - 🌐 MCP_RESPONSE: Tool 'create_audit' executed successfully (execution time: 0.048s)
+2025-07-31 11:03:09,455 - MCPAuditWebApp - INFO - list_audits:472 - 🌐 WEB: Listing audits
+2025-07-31 11:03:09,456 - MCPAuditWebApp - INFO - call_tool:264 - 🌐 MCP_REQUEST: Calling tool 'list_audits' with arguments: {'status': '', 'assigned_auditor': '', 'search': ''}
+2025-07-31 11:03:09,493 - MCPAuditWebApp - INFO - call_tool:322 - 🌐 MCP_RESPONSE: Tool 'list_audits' executed successfully (execution time: 0.037s)
+2025-07-31 11:04:09,921 - MCPAuditWebApp - INFO - list_audits:472 - 🌐 WEB: Listing audits
+2025-07-31 11:04:09,922 - MCPAuditWebApp - INFO - call_tool:264 - 🌐 MCP_REQUEST: Calling tool 'list_audits' with arguments: {'status': '', 'assigned_auditor': '', 'search': ''}
+2025-07-31 11:04:09,975 - MCPAuditWebApp - INFO - call_tool:322 - 🌐 MCP_RESPONSE: Tool 'list_audits' executed successfully (execution time: 0.053s)
+2025-07-31 11:05:10,934 - MCPAuditWebApp - INFO - list_audits:472 - 🌐 WEB: Listing audits
+2025-07-31 11:05:10,935 - MCPAuditWebApp - INFO - call_tool:264 - 🌐 MCP_REQUEST: Calling tool 'list_audits' with arguments: {'status': '', 'assigned_auditor': '', 'search': ''}
+2025-07-31 11:05:10,990 - MCPAuditWebApp - INFO - call_tool:322 - 🌐 MCP_RESPONSE: Tool 'list_audits' executed successfully (execution time: 0.056s)
+2025-07-31 11:06:11,946 - MCPAuditWebApp - INFO - list_audits:472 - 🌐 WEB: Listing audits
+2025-07-31 11:06:11,946 - MCPAuditWebApp - INFO - call_tool:264 - 🌐 MCP_REQUEST: Calling tool 'list_audits' with arguments: {'status': '', 'assigned_auditor': '', 'search': ''}
+2025-07-31 11:06:12,005 - MCPAuditWebApp - INFO - call_tool:322 - 🌐 MCP_RESPONSE: Tool 'list_audits' executed successfully (execution time: 0.059s)
+2025-07-31 11:06:30,586 - MCPAuditWebApp - INFO - servers:666 - 🌐 WEB: Accessing server management
+2025-07-31 11:06:34,747 - MCPAuditWebApp - INFO - stop_server:690 - 🌐 WEB: Stopping server SSEAuditServer
+2025-07-31 11:06:34,747 - MCPAuditWebApp - INFO - stop_server:209 - 🌐 SERVER: Stopping server SSEAuditServer
+2025-07-31 11:06:34,751 - MCPAuditWebApp - INFO - stop_server:230 - 🌐 SERVER: Stopped SSEAuditServer
+2025-07-31 11:06:34,755 - MCPAuditWebApp - INFO - servers:666 - 🌐 WEB: Accessing server management
+2025-07-31 11:06:36,481 - MCPAuditWebApp - INFO - start_server:676 - 🌐 WEB: Starting server SSEAuditServer
+2025-07-31 11:06:36,481 - MCPAuditWebApp - INFO - start_server:167 - 🌐 SERVER: Starting server SSEAuditServer
+2025-07-31 11:06:36,486 - MCPAuditWebApp - INFO - start_server:200 - 🌐 SERVER: Started SSEAuditServer with PID 7927
+2025-07-31 11:06:36,491 - MCPAuditWebApp - INFO - servers:666 - 🌐 WEB: Accessing server management
+2025-08-03 23:25:54,069 - MCPAuditWebApp - INFO - _load_config:116 - 🌐 SERVER: Configuration loaded successfully
+2025-08-03 23:25:54,069 - MCPAuditWebApp - INFO - __init__:109 - 🌐 SERVER: Server manager initialized with config: server_config.json
+2025-08-03 23:25:54,069 - MCPAuditWebApp - INFO - __init__:259 - 🌐 CLIENT: MCP client initialized
+2025-08-03 23:25:54,069 - MCPAuditWebApp - INFO - __init__:373 - 🌐 AI: OpenAI integration initialized
+2025-08-03 23:25:54,072 - MCPAuditWebApp - INFO - main:781 - 🌐 WEB: Starting MCP Audit Management Web Application
+2025-08-03 23:25:54,072 - MCPAuditWebApp - INFO - start_server:167 - 🌐 SERVER: Starting server SecureAudit
+2025-08-03 23:25:54,074 - MCPAuditWebApp - INFO - start_server:200 - 🌐 SERVER: Started SecureAudit with PID 8186
+2025-08-03 23:25:54,074 - MCPAuditWebApp - INFO - main:787 - 🌐 WEB: Started default server SecureAudit
+2025-08-03 23:26:00,762 - MCPAuditWebApp - INFO - _load_config:116 - 🌐 SERVER: Configuration loaded successfully
+2025-08-03 23:26:00,762 - MCPAuditWebApp - INFO - __init__:109 - 🌐 SERVER: Server manager initialized with config: server_config.json
+2025-08-03 23:26:00,762 - MCPAuditWebApp - INFO - __init__:259 - 🌐 CLIENT: MCP client initialized
+2025-08-03 23:26:00,762 - MCPAuditWebApp - INFO - __init__:373 - 🌐 AI: OpenAI integration initialized
+2025-08-03 23:26:00,765 - MCPAuditWebApp - INFO - main:781 - 🌐 WEB: Starting MCP Audit Management Web Application
+2025-08-03 23:26:00,765 - MCPAuditWebApp - INFO - start_server:167 - 🌐 SERVER: Starting server SecureAudit
+2025-08-03 23:26:00,767 - MCPAuditWebApp - INFO - start_server:200 - 🌐 SERVER: Started SecureAudit with PID 8254
+2025-08-03 23:26:00,767 - MCPAuditWebApp - INFO - main:787 - 🌐 WEB: Started default server SecureAudit
+2025-08-03 23:26:10,729 - MCPAuditWebApp - INFO - _load_config:116 - 🌐 SERVER: Configuration loaded successfully
+2025-08-03 23:26:10,729 - MCPAuditWebApp - INFO - __init__:109 - 🌐 SERVER: Server manager initialized with config: server_config.json
+2025-08-03 23:26:10,729 - MCPAuditWebApp - INFO - __init__:259 - 🌐 CLIENT: MCP client initialized
+2025-08-03 23:26:10,729 - MCPAuditWebApp - INFO - __init__:373 - 🌐 AI: OpenAI integration initialized
+2025-08-03 23:26:10,732 - MCPAuditWebApp - INFO - main:781 - 🌐 WEB: Starting MCP Audit Management Web Application
+2025-08-03 23:26:10,732 - MCPAuditWebApp - INFO - start_server:167 - 🌐 SERVER: Starting server SecureAudit
+2025-08-03 23:26:10,736 - MCPAuditWebApp - INFO - start_server:200 - 🌐 SERVER: Started SecureAudit with PID 8348
+2025-08-03 23:26:10,737 - MCPAuditWebApp - INFO - main:787 - 🌐 WEB: Started default server SecureAudit
+2025-08-03 23:26:20,647 - MCPAuditWebApp - INFO - _load_config:116 - 🌐 SERVER: Configuration loaded successfully
+2025-08-03 23:26:20,647 - MCPAuditWebApp - INFO - __init__:109 - 🌐 SERVER: Server manager initialized with config: server_config.json
+2025-08-03 23:26:20,647 - MCPAuditWebApp - INFO - __init__:259 - 🌐 CLIENT: MCP client initialized
+2025-08-03 23:26:20,647 - MCPAuditWebApp - INFO - __init__:373 - 🌐 AI: OpenAI integration initialized
+2025-08-03 23:26:20,650 - MCPAuditWebApp - INFO - main:781 - 🌐 WEB: Starting MCP Audit Management Web Application
+2025-08-03 23:26:20,650 - MCPAuditWebApp - INFO - start_server:167 - 🌐 SERVER: Starting server SecureAudit
+2025-08-03 23:26:20,652 - MCPAuditWebApp - INFO - start_server:200 - 🌐 SERVER: Started SecureAudit with PID 8449
+2025-08-03 23:26:20,652 - MCPAuditWebApp - INFO - main:787 - 🌐 WEB: Started default server SecureAudit
+2025-08-03 23:26:29,550 - MCPAuditWebApp - INFO - _load_config:116 - 🌐 SERVER: Configuration loaded successfully
+2025-08-03 23:26:29,550 - MCPAuditWebApp - INFO - __init__:109 - 🌐 SERVER: Server manager initialized with config: server_config.json
+2025-08-03 23:26:29,550 - MCPAuditWebApp - INFO - __init__:259 - 🌐 CLIENT: MCP client initialized
+2025-08-03 23:26:29,550 - MCPAuditWebApp - INFO - __init__:373 - 🌐 AI: OpenAI integration initialized
+2025-08-03 23:26:29,553 - MCPAuditWebApp - INFO - main:781 - 🌐 WEB: Starting MCP Audit Management Web Application
+2025-08-03 23:26:29,553 - MCPAuditWebApp - INFO - start_server:167 - 🌐 SERVER: Starting server SecureAudit
+2025-08-03 23:26:29,555 - MCPAuditWebApp - INFO - start_server:200 - 🌐 SERVER: Started SecureAudit with PID 8550
+2025-08-03 23:26:29,556 - MCPAuditWebApp - INFO - main:787 - 🌐 WEB: Started default server SecureAudit
+2025-08-03 23:26:39,418 - MCPAuditWebApp - INFO - _load_config:116 - 🌐 SERVER: Configuration loaded successfully
+2025-08-03 23:26:39,419 - MCPAuditWebApp - INFO - __init__:109 - 🌐 SERVER: Server manager initialized with config: server_config.json
+2025-08-03 23:26:39,419 - MCPAuditWebApp - INFO - __init__:259 - 🌐 CLIENT: MCP client initialized
+2025-08-03 23:26:39,419 - MCPAuditWebApp - INFO - __init__:373 - 🌐 AI: OpenAI integration initialized
+2025-08-03 23:26:39,421 - MCPAuditWebApp - INFO - main:781 - 🌐 WEB: Starting MCP Audit Management Web Application
+2025-08-03 23:26:39,421 - MCPAuditWebApp - INFO - start_server:167 - 🌐 SERVER: Starting server SecureAudit
+2025-08-03 23:26:39,424 - MCPAuditWebApp - INFO - start_server:200 - 🌐 SERVER: Started SecureAudit with PID 8624
+2025-08-03 23:26:39,424 - MCPAuditWebApp - INFO - main:787 - 🌐 WEB: Started default server SecureAudit
+2025-08-04 10:31:26,106 - MCPAuditWebApp - INFO - _load_config:116 - 🌐 SERVER: Configuration loaded successfully
+2025-08-04 10:31:26,107 - MCPAuditWebApp - INFO - __init__:109 - 🌐 SERVER: Server manager initialized with config: server_config.json
+2025-08-04 10:31:26,107 - MCPAuditWebApp - INFO - __init__:259 - 🌐 CLIENT: MCP client initialized
+2025-08-04 10:31:26,107 - MCPAuditWebApp - INFO - __init__:373 - 🌐 AI: OpenAI integration initialized
+2025-08-04 10:31:26,110 - MCPAuditWebApp - INFO - main:781 - 🌐 WEB: Starting MCP Audit Management Web Application
+2025-08-04 10:31:26,110 - MCPAuditWebApp - INFO - start_server:167 - 🌐 SERVER: Starting server SecureAudit
+2025-08-04 10:31:26,113 - MCPAuditWebApp - INFO - start_server:200 - 🌐 SERVER: Started SecureAudit with PID 88529
+2025-08-04 10:31:26,114 - MCPAuditWebApp - INFO - main:787 - 🌐 WEB: Started default server SecureAudit
+2025-08-04 10:31:27,863 - MCPAuditWebApp - INFO - _load_config:116 - 🌐 SERVER: Configuration loaded successfully
+2025-08-04 10:31:27,863 - MCPAuditWebApp - INFO - __init__:109 - 🌐 SERVER: Server manager initialized with config: server_config.json
+2025-08-04 10:31:27,863 - MCPAuditWebApp - INFO - __init__:259 - 🌐 CLIENT: MCP client initialized
+2025-08-04 10:31:27,863 - MCPAuditWebApp - INFO - __init__:373 - 🌐 AI: OpenAI integration initialized
+2025-08-04 10:31:27,870 - MCPAuditWebApp - INFO - main:781 - 🌐 WEB: Starting MCP Audit Management Web Application
+2025-08-04 10:31:27,870 - MCPAuditWebApp - INFO - start_server:167 - 🌐 SERVER: Starting server SecureAudit
+2025-08-04 10:31:27,874 - MCPAuditWebApp - INFO - start_server:200 - 🌐 SERVER: Started SecureAudit with PID 88568
+2025-08-04 10:31:27,874 - MCPAuditWebApp - INFO - main:787 - 🌐 WEB: Started default server SecureAudit
+2025-08-04 10:37:28,438 - MCPAuditWebApp - INFO - _load_config:116 - 🌐 SERVER: Configuration loaded successfully
+2025-08-04 10:37:28,439 - MCPAuditWebApp - INFO - __init__:109 - 🌐 SERVER: Server manager initialized with config: server_config.json
+2025-08-04 10:37:28,439 - MCPAuditWebApp - INFO - __init__:259 - 🌐 CLIENT: MCP client initialized
+2025-08-04 10:37:28,439 - MCPAuditWebApp - INFO - __init__:373 - 🌐 AI: OpenAI integration initialized
+2025-08-04 10:37:28,441 - MCPAuditWebApp - INFO - main:781 - 🌐 WEB: Starting MCP Audit Management Web Application
+2025-08-04 10:37:28,442 - MCPAuditWebApp - INFO - start_server:167 - 🌐 SERVER: Starting server SecureAudit
+2025-08-04 10:37:28,442 - MCPAuditWebApp - ERROR - start_server:204 - ❌ SERVER: Failed to start SecureAudit - 'command'
+2025-08-04 10:37:28,442 - MCPAuditWebApp - WARNING - main:789 - ⚠️ WEB: Failed to start default server: Failed to start server: 'command'
+2025-08-04 10:37:28,782 - MCPAuditWebApp - INFO - _load_config:116 - 🌐 SERVER: Configuration loaded successfully
+2025-08-04 10:37:28,782 - MCPAuditWebApp - INFO - __init__:109 - 🌐 SERVER: Server manager initialized with config: server_config.json
+2025-08-04 10:37:28,782 - MCPAuditWebApp - INFO - __init__:259 - 🌐 CLIENT: MCP client initialized
+2025-08-04 10:37:28,782 - MCPAuditWebApp - INFO - __init__:373 - 🌐 AI: OpenAI integration initialized
+2025-08-04 10:37:28,785 - MCPAuditWebApp - INFO - main:781 - 🌐 WEB: Starting MCP Audit Management Web Application
+2025-08-04 10:37:28,785 - MCPAuditWebApp - INFO - start_server:167 - 🌐 SERVER: Starting server SecureAudit
+2025-08-04 10:37:28,785 - MCPAuditWebApp - ERROR - start_server:204 - ❌ SERVER: Failed to start SecureAudit - 'command'
+2025-08-04 10:37:28,785 - MCPAuditWebApp - WARNING - main:789 - ⚠️ WEB: Failed to start default server: Failed to start server: 'command'
+2025-08-04 10:37:46,829 - MCPAuditWebApp - INFO - index:450 - 🌐 WEB: Accessing dashboard
+2025-08-04 10:37:54,538 - MCPAuditWebApp - INFO - servers:666 - 🌐 WEB: Accessing server management
+2025-08-04 10:37:56,008 - MCPAuditWebApp - INFO - start_server:676 - 🌐 WEB: Starting server SecureAudit
+2025-08-04 10:37:56,008 - MCPAuditWebApp - INFO - start_server:167 - 🌐 SERVER: Starting server SecureAudit
+2025-08-04 10:37:56,008 - MCPAuditWebApp - ERROR - start_server:204 - ❌ SERVER: Failed to start SecureAudit - 'command'
+2025-08-04 10:37:56,012 - MCPAuditWebApp - INFO - servers:666 - 🌐 WEB: Accessing server management
+2025-08-04 10:37:57,969 - MCPAuditWebApp - INFO - start_server:676 - 🌐 WEB: Starting server SampleServer
+2025-08-04 10:37:57,969 - MCPAuditWebApp - INFO - start_server:167 - 🌐 SERVER: Starting server SampleServer
+2025-08-04 10:37:57,969 - MCPAuditWebApp - ERROR - start_server:204 - ❌ SERVER: Failed to start SampleServer - 'command'
+2025-08-04 10:37:57,974 - MCPAuditWebApp - INFO - servers:666 - 🌐 WEB: Accessing server management
+2025-08-04 10:37:59,409 - MCPAuditWebApp - INFO - start_server:676 - 🌐 WEB: Starting server SSEAuditServer
+2025-08-04 10:37:59,409 - MCPAuditWebApp - INFO - start_server:167 - 🌐 SERVER: Starting server SSEAuditServer
+2025-08-04 10:37:59,409 - MCPAuditWebApp - ERROR - start_server:204 - ❌ SERVER: Failed to start SSEAuditServer - 'command'
+2025-08-04 10:37:59,414 - MCPAuditWebApp - INFO - servers:666 - 🌐 WEB: Accessing server management
+2025-08-04 10:38:00,420 - MCPAuditWebApp - INFO - servers:666 - 🌐 WEB: Accessing server management
+2025-08-04 10:38:03,328 - MCPAuditWebApp - INFO - start_server:676 - 🌐 WEB: Starting server HttpAuditServer
+2025-08-04 10:38:03,329 - MCPAuditWebApp - INFO - start_server:167 - 🌐 SERVER: Starting server HttpAuditServer
+2025-08-04 10:38:03,329 - MCPAuditWebApp - ERROR - start_server:204 - ❌ SERVER: Failed to start HttpAuditServer - 'command'
+2025-08-04 10:38:03,335 - MCPAuditWebApp - INFO - servers:666 - 🌐 WEB: Accessing server management
+2025-08-04 10:39:42,654 - MCPAuditWebApp - INFO - _load_config:116 - 🌐 SERVER: Configuration loaded successfully
+2025-08-04 10:39:42,654 - MCPAuditWebApp - INFO - __init__:109 - 🌐 SERVER: Server manager initialized with config: server_config.json
+2025-08-04 10:39:42,654 - MCPAuditWebApp - INFO - __init__:268 - 🌐 CLIENT: MCP client initialized
+2025-08-04 10:39:42,654 - MCPAuditWebApp - INFO - __init__:382 - 🌐 AI: OpenAI integration initialized
+2025-08-04 10:39:42,657 - MCPAuditWebApp - INFO - main:790 - 🌐 WEB: Starting MCP Audit Management Web Application
+2025-08-04 10:39:42,657 - MCPAuditWebApp - INFO - start_server:167 - 🌐 SERVER: Starting server SecureAudit
+2025-08-04 10:39:42,659 - MCPAuditWebApp - INFO - start_server:209 - 🌐 SERVER: Started SecureAudit with PID 96322
+2025-08-04 10:39:42,659 - MCPAuditWebApp - INFO - main:796 - 🌐 WEB: Started default server SecureAudit
+2025-08-04 10:39:53,603 - MCPAuditWebApp - INFO - _load_config:116 - 🌐 SERVER: Configuration loaded successfully
+2025-08-04 10:39:53,603 - MCPAuditWebApp - INFO - __init__:109 - 🌐 SERVER: Server manager initialized with config: server_config.json
+2025-08-04 10:39:53,603 - MCPAuditWebApp - INFO - __init__:268 - 🌐 CLIENT: MCP client initialized
+2025-08-04 10:39:53,603 - MCPAuditWebApp - INFO - __init__:382 - 🌐 AI: OpenAI integration initialized
+2025-08-04 10:39:53,606 - MCPAuditWebApp - INFO - main:790 - 🌐 WEB: Starting MCP Audit Management Web Application
+2025-08-04 10:39:53,607 - MCPAuditWebApp - INFO - start_server:167 - 🌐 SERVER: Starting server SecureAudit
+2025-08-04 10:39:53,609 - MCPAuditWebApp - INFO - start_server:209 - 🌐 SERVER: Started SecureAudit with PID 96460
+2025-08-04 10:39:53,609 - MCPAuditWebApp - INFO - main:796 - 🌐 WEB: Started default server SecureAudit
+2025-08-04 10:41:19,011 - MCPAuditWebApp - INFO - _load_config:116 - 🌐 SERVER: Configuration loaded successfully
+2025-08-04 10:41:19,012 - MCPAuditWebApp - INFO - __init__:109 - 🌐 SERVER: Server manager initialized with config: server_config.json
+2025-08-04 10:41:19,012 - MCPAuditWebApp - INFO - __init__:268 - 🌐 CLIENT: MCP client initialized
+2025-08-04 10:41:19,012 - MCPAuditWebApp - INFO - __init__:382 - 🌐 AI: OpenAI integration initialized
+2025-08-04 10:41:19,014 - MCPAuditWebApp - INFO - main:790 - 🌐 WEB: Starting MCP Audit Management Web Application
+2025-08-04 10:41:19,014 - MCPAuditWebApp - INFO - start_server:167 - 🌐 SERVER: Starting server SecureAudit
+2025-08-04 10:41:19,017 - MCPAuditWebApp - INFO - start_server:209 - 🌐 SERVER: Started SecureAudit with PID 97407
+2025-08-04 10:41:19,017 - MCPAuditWebApp - INFO - main:796 - 🌐 WEB: Started default server SecureAudit
+2025-08-04 10:41:19,351 - MCPAuditWebApp - INFO - _load_config:116 - 🌐 SERVER: Configuration loaded successfully
+2025-08-04 10:41:19,351 - MCPAuditWebApp - INFO - __init__:109 - 🌐 SERVER: Server manager initialized with config: server_config.json
+2025-08-04 10:41:19,351 - MCPAuditWebApp - INFO - __init__:268 - 🌐 CLIENT: MCP client initialized
+2025-08-04 10:41:19,351 - MCPAuditWebApp - INFO - __init__:382 - 🌐 AI: OpenAI integration initialized
+2025-08-04 10:41:19,354 - MCPAuditWebApp - INFO - main:790 - 🌐 WEB: Starting MCP Audit Management Web Application
+2025-08-04 10:41:19,354 - MCPAuditWebApp - INFO - start_server:167 - 🌐 SERVER: Starting server SecureAudit
+2025-08-04 10:41:19,356 - MCPAuditWebApp - INFO - start_server:209 - 🌐 SERVER: Started SecureAudit with PID 97420
+2025-08-04 10:41:19,356 - MCPAuditWebApp - INFO - main:796 - 🌐 WEB: Started default server SecureAudit
+2025-08-04 10:41:58,268 - MCPAuditWebApp - INFO - _load_config:116 - 🌐 SERVER: Configuration loaded successfully
+2025-08-04 10:41:58,268 - MCPAuditWebApp - INFO - __init__:109 - 🌐 SERVER: Server manager initialized with config: server_config.json
+2025-08-04 10:41:58,268 - MCPAuditWebApp - INFO - __init__:268 - 🌐 CLIENT: MCP client initialized
+2025-08-04 10:41:58,268 - MCPAuditWebApp - INFO - __init__:382 - 🌐 AI: OpenAI integration initialized
+2025-08-04 10:41:58,271 - MCPAuditWebApp - INFO - main:790 - 🌐 WEB: Starting MCP Audit Management Web Application
+2025-08-04 10:41:58,271 - MCPAuditWebApp - INFO - start_server:167 - 🌐 SERVER: Starting server SecureAudit
+2025-08-04 10:41:58,274 - MCPAuditWebApp - INFO - start_server:209 - 🌐 SERVER: Started SecureAudit with PID 97765
+2025-08-04 10:41:58,274 - MCPAuditWebApp - INFO - main:796 - 🌐 WEB: Started default server SecureAudit
+2025-08-04 10:43:05,697 - MCPAuditWebApp - INFO - _load_config:116 - 🌐 SERVER: Configuration loaded successfully
+2025-08-04 10:43:05,698 - MCPAuditWebApp - INFO - __init__:109 - 🌐 SERVER: Server manager initialized with config: server_config.json
+2025-08-04 10:43:05,698 - MCPAuditWebApp - INFO - __init__:268 - 🌐 CLIENT: MCP client initialized
+2025-08-04 10:43:05,698 - MCPAuditWebApp - INFO - __init__:382 - 🌐 AI: OpenAI integration initialized
+2025-08-04 10:43:05,701 - MCPAuditWebApp - INFO - main:790 - 🌐 WEB: Starting MCP Audit Management Web Application
+2025-08-04 10:43:05,701 - MCPAuditWebApp - INFO - start_server:167 - 🌐 SERVER: Starting server SecureAudit
+2025-08-04 10:43:05,703 - MCPAuditWebApp - INFO - start_server:209 - 🌐 SERVER: Started SecureAudit with PID 98480
+2025-08-04 10:43:05,703 - MCPAuditWebApp - INFO - main:796 - 🌐 WEB: Started default server SecureAudit
+2025-08-04 10:43:06,040 - MCPAuditWebApp - INFO - _load_config:116 - 🌐 SERVER: Configuration loaded successfully
+2025-08-04 10:43:06,040 - MCPAuditWebApp - INFO - __init__:109 - 🌐 SERVER: Server manager initialized with config: server_config.json
+2025-08-04 10:43:06,040 - MCPAuditWebApp - INFO - __init__:268 - 🌐 CLIENT: MCP client initialized
+2025-08-04 10:43:06,040 - MCPAuditWebApp - INFO - __init__:382 - 🌐 AI: OpenAI integration initialized
+2025-08-04 10:43:06,043 - MCPAuditWebApp - INFO - main:790 - 🌐 WEB: Starting MCP Audit Management Web Application
+2025-08-04 10:43:06,043 - MCPAuditWebApp - INFO - start_server:167 - 🌐 SERVER: Starting server SecureAudit
+2025-08-04 10:43:06,045 - MCPAuditWebApp - INFO - start_server:209 - 🌐 SERVER: Started SecureAudit with PID 98499
+2025-08-04 10:43:06,045 - MCPAuditWebApp - INFO - main:796 - 🌐 WEB: Started default server SecureAudit
+2025-08-04 10:43:09,294 - MCPAuditWebApp - INFO - index:459 - 🌐 WEB: Accessing dashboard
+2025-08-04 10:43:15,346 - MCPAuditWebApp - INFO - servers:675 - 🌐 WEB: Accessing server management
+2025-08-04 10:43:17,529 - MCPAuditWebApp - INFO - start_server:685 - 🌐 WEB: Starting server SampleServer
+2025-08-04 10:43:17,529 - MCPAuditWebApp - INFO - start_server:167 - 🌐 SERVER: Starting server SampleServer
+2025-08-04 10:43:17,533 - MCPAuditWebApp - INFO - start_server:209 - 🌐 SERVER: Started SampleServer with PID 98601
+2025-08-04 10:43:17,539 - MCPAuditWebApp - INFO - servers:675 - 🌐 WEB: Accessing server management
+2025-08-04 10:43:19,008 - MCPAuditWebApp - INFO - start_server:685 - 🌐 WEB: Starting server SSEAuditServer
+2025-08-04 10:43:19,009 - MCPAuditWebApp - INFO - start_server:167 - 🌐 SERVER: Starting server SSEAuditServer
+2025-08-04 10:43:19,012 - MCPAuditWebApp - INFO - start_server:209 - 🌐 SERVER: Started SSEAuditServer with PID 98621
+2025-08-04 10:43:19,018 - MCPAuditWebApp - INFO - servers:675 - 🌐 WEB: Accessing server management
+2025-08-04 10:43:20,573 - MCPAuditWebApp - INFO - start_server:685 - 🌐 WEB: Starting server HttpAuditServer
+2025-08-04 10:43:20,573 - MCPAuditWebApp - INFO - start_server:167 - 🌐 SERVER: Starting server HttpAuditServer
+2025-08-04 10:43:20,576 - MCPAuditWebApp - INFO - start_server:209 - 🌐 SERVER: Started HttpAuditServer with PID 98622
+2025-08-04 10:43:20,582 - MCPAuditWebApp - INFO - servers:675 - 🌐 WEB: Accessing server management
+2025-08-04 10:43:27,158 - MCPAuditWebApp - INFO - _load_config:116 - 🌐 SERVER: Configuration loaded successfully
+2025-08-04 10:43:27,158 - MCPAuditWebApp - INFO - __init__:109 - 🌐 SERVER: Server manager initialized with config: server_config.json
+2025-08-04 10:43:27,158 - MCPAuditWebApp - INFO - __init__:268 - 🌐 CLIENT: MCP client initialized
+2025-08-04 10:43:27,158 - MCPAuditWebApp - INFO - __init__:382 - 🌐 AI: OpenAI integration initialized
+2025-08-04 10:43:27,161 - MCPAuditWebApp - INFO - main:790 - 🌐 WEB: Starting MCP Audit Management Web Application
+2025-08-04 10:43:27,161 - MCPAuditWebApp - INFO - start_server:167 - 🌐 SERVER: Starting server SecureAudit
+2025-08-04 10:43:27,163 - MCPAuditWebApp - INFO - start_server:209 - 🌐 SERVER: Started SecureAudit with PID 98702
+2025-08-04 10:43:27,163 - MCPAuditWebApp - INFO - main:796 - 🌐 WEB: Started default server SecureAudit
+2025-08-04 10:43:33,752 - MCPAuditWebApp - INFO - start_server:685 - 🌐 WEB: Starting server SampleServer
+2025-08-04 10:43:33,752 - MCPAuditWebApp - INFO - start_server:167 - 🌐 SERVER: Starting server SampleServer
+2025-08-04 10:43:33,755 - MCPAuditWebApp - INFO - start_server:209 - 🌐 SERVER: Started SampleServer with PID 98762
+2025-08-04 10:43:33,758 - MCPAuditWebApp - INFO - servers:675 - 🌐 WEB: Accessing server management
+2025-08-04 10:43:36,706 - MCPAuditWebApp - INFO - start_server:685 - 🌐 WEB: Starting server SSEAuditServer
+2025-08-04 10:43:36,706 - MCPAuditWebApp - INFO - start_server:167 - 🌐 SERVER: Starting server SSEAuditServer
+2025-08-04 10:43:36,712 - MCPAuditWebApp - INFO - start_server:209 - 🌐 SERVER: Started SSEAuditServer with PID 98781
+2025-08-04 10:43:36,718 - MCPAuditWebApp - INFO - servers:675 - 🌐 WEB: Accessing server management
+2025-08-04 10:43:38,528 - MCPAuditWebApp - INFO - start_server:685 - 🌐 WEB: Starting server HttpAuditServer
+2025-08-04 10:43:38,529 - MCPAuditWebApp - INFO - start_server:167 - 🌐 SERVER: Starting server HttpAuditServer
+2025-08-04 10:43:38,533 - MCPAuditWebApp - INFO - start_server:209 - 🌐 SERVER: Started HttpAuditServer with PID 98798
+2025-08-04 10:43:38,541 - MCPAuditWebApp - INFO - servers:675 - 🌐 WEB: Accessing server management
+2025-08-04 10:43:40,159 - MCPAuditWebApp - INFO - start_server:685 - 🌐 WEB: Starting server SampleServer
+2025-08-04 10:43:40,159 - MCPAuditWebApp - INFO - start_server:167 - 🌐 SERVER: Starting server SampleServer
+2025-08-04 10:43:40,164 - MCPAuditWebApp - INFO - start_server:209 - 🌐 SERVER: Started SampleServer with PID 98816
+2025-08-04 10:43:40,170 - MCPAuditWebApp - INFO - servers:675 - 🌐 WEB: Accessing server management

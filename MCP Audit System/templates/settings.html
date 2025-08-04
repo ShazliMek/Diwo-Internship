@@ -1,0 +1,1037 @@
+{% extends "base.html" %}
+
+{% block title %}System Settings - MCP Audit Management System{% endblock %}
+
+{% block breadcrumb %}
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb mb-4">
+        <li class="breadcrumb-item">
+            <a href="{{ url_for('index') }}">Dashboard</a>
+        </li>
+        <li class="breadcrumb-item active">Settings</li>
+    </ol>
+</nav>
+{% endblock %}
+
+{% block content %}
+<div class="row mb-4">
+    <div class="col-12">
+        <h1 class="h2 mb-0">
+            <i class="bi bi-gear"></i> System Settings
+        </h1>
+        <p class="text-muted">Configure system preferences and manage application settings</p>
+    </div>
+</div>
+
+<div class="row">
+    <!-- Settings Navigation -->
+    <div class="col-lg-3">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0">
+                    <i class="bi bi-list"></i> Settings Categories
+                </h5>
+            </div>
+            <div class="list-group list-group-flush">
+                <button type="button" class="list-group-item list-group-item-action active" 
+                        onclick="showSettingsTab('general')">
+                    <i class="bi bi-gear"></i> General Settings
+                </button>
+                <button type="button" class="list-group-item list-group-item-action" 
+                        onclick="showSettingsTab('users')">
+                    <i class="bi bi-people"></i> User Management
+                </button>
+                <button type="button" class="list-group-item list-group-item-action" 
+                        onclick="showSettingsTab('notifications')">
+                    <i class="bi bi-bell"></i> Notifications
+                </button>
+                <button type="button" class="list-group-item list-group-item-action" 
+                        onclick="showSettingsTab('security')">
+                    <i class="bi bi-shield-lock"></i> Security
+                </button>
+                <button type="button" class="list-group-item list-group-item-action" 
+                        onclick="showSettingsTab('integrations')">
+                    <i class="bi bi-plug"></i> Integrations
+                </button>
+                <button type="button" class="list-group-item list-group-item-action" 
+                        onclick="showSettingsTab('backup')">
+                    <i class="bi bi-cloud-download"></i> Backup & Restore
+                </button>
+                <button type="button" class="list-group-item list-group-item-action" 
+                        onclick="showSettingsTab('maintenance')">
+                    <i class="bi bi-tools"></i> Maintenance
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Settings Content -->
+    <div class="col-lg-9">
+        <!-- General Settings -->
+        <div id="general-settings" class="settings-tab">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="mb-0">
+                        <i class="bi bi-gear"></i> General Settings
+                    </h5>
+                </div>
+                <div class="card-body">
+                    <form id="generalSettingsForm">
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <label class="form-label">System Name</label>
+                                <input type="text" class="form-control" value="MCP Audit Management System" 
+                                       name="system_name">
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Default Language</label>
+                                <select class="form-select" name="default_language">
+                                    <option value="en" selected>English</option>
+                                    <option value="es">Spanish</option>
+                                    <option value="fr">French</option>
+                                    <option value="de">German</option>
+                                    <option value="zh">Chinese</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <label class="form-label">Time Zone</label>
+                                <select class="form-select" name="timezone">
+                                    <option value="UTC">UTC</option>
+                                    <option value="America/New_York" selected>Eastern Time</option>
+                                    <option value="America/Chicago">Central Time</option>
+                                    <option value="America/Denver">Mountain Time</option>
+                                    <option value="America/Los_Angeles">Pacific Time</option>
+                                    <option value="Europe/London">GMT</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Date Format</label>
+                                <select class="form-select" name="date_format">
+                                    <option value="MM/DD/YYYY" selected>MM/DD/YYYY</option>
+                                    <option value="DD/MM/YYYY">DD/MM/YYYY</option>
+                                    <option value="YYYY-MM-DD">YYYY-MM-DD</option>
+                                    <option value="DD MMM YYYY">DD MMM YYYY</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <label class="form-label">Items Per Page</label>
+                                <select class="form-select" name="items_per_page">
+                                    <option value="10">10</option>
+                                    <option value="25" selected>25</option>
+                                    <option value="50">50</option>
+                                    <option value="100">100</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Auto-save Interval</label>
+                                <select class="form-select" name="autosave_interval">
+                                    <option value="30">30 seconds</option>
+                                    <option value="60" selected>1 minute</option>
+                                    <option value="300">5 minutes</option>
+                                    <option value="600">10 minutes</option>
+                                    <option value="0">Disabled</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" id="enable_dark_mode" checked>
+                                <label class="form-check-label" for="enable_dark_mode">
+                                    Enable Dark Mode Support
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" id="enable_analytics" checked>
+                                <label class="form-check-label" for="enable_analytics">
+                                    Enable Usage Analytics
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary">
+                            <i class="bi bi-check-lg"></i> Save General Settings
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        
+        <!-- User Management -->
+        <div id="users-settings" class="settings-tab" style="display: none;">
+            <div class="card">
+                <div class="card-header d-flex justify-content-between align-items-center">
+                    <h5 class="mb-0">
+                        <i class="bi bi-people"></i> User Management
+                    </h5>
+                    <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#addUserModal">
+                        <i class="bi bi-person-plus"></i> Add User
+                    </button>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Email</th>
+                                    <th>Role</th>
+                                    <th>Status</th>
+                                    <th>Last Login</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <div class="d-flex align-items-center">
+                                            <div class="avatar-sm bg-primary text-white rounded-circle me-2 d-flex align-items-center justify-content-center">
+                                                JS
+                                            </div>
+                                            John Smith
+                                        </div>
+                                    </td>
+                                    <td>john.smith@company.com</td>
+                                    <td><span class="badge bg-danger">Admin</span></td>
+                                    <td><span class="badge bg-success">Active</span></td>
+                                    <td>2 hours ago</td>
+                                    <td>
+                                        <div class="btn-group btn-group-sm">
+                                            <button type="button" class="btn btn-outline-primary" onclick="editUser(1)">
+                                                <i class="bi bi-pencil"></i>
+                                            </button>
+                                            <button type="button" class="btn btn-outline-danger" onclick="deleteUser(1)">
+                                                <i class="bi bi-trash"></i>
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="d-flex align-items-center">
+                                            <div class="avatar-sm bg-success text-white rounded-circle me-2 d-flex align-items-center justify-content-center">
+                                                JD
+                                            </div>
+                                            Jane Doe
+                                        </div>
+                                    </td>
+                                    <td>jane.doe@company.com</td>
+                                    <td><span class="badge bg-warning">Auditor</span></td>
+                                    <td><span class="badge bg-success">Active</span></td>
+                                    <td>1 day ago</td>
+                                    <td>
+                                        <div class="btn-group btn-group-sm">
+                                            <button type="button" class="btn btn-outline-primary" onclick="editUser(2)">
+                                                <i class="bi bi-pencil"></i>
+                                            </button>
+                                            <button type="button" class="btn btn-outline-danger" onclick="deleteUser(2)">
+                                                <i class="bi bi-trash"></i>
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="d-flex align-items-center">
+                                            <div class="avatar-sm bg-info text-white rounded-circle me-2 d-flex align-items-center justify-content-center">
+                                                BJ
+                                            </div>
+                                            Bob Johnson
+                                        </div>
+                                    </td>
+                                    <td>bob.johnson@company.com</td>
+                                    <td><span class="badge bg-info">Viewer</span></td>
+                                    <td><span class="badge bg-warning">Inactive</span></td>
+                                    <td>1 week ago</td>
+                                    <td>
+                                        <div class="btn-group btn-group-sm">
+                                            <button type="button" class="btn btn-outline-primary" onclick="editUser(3)">
+                                                <i class="bi bi-pencil"></i>
+                                            </button>
+                                            <button type="button" class="btn btn-outline-danger" onclick="deleteUser(3)">
+                                                <i class="bi bi-trash"></i>
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Notifications -->
+        <div id="notifications-settings" class="settings-tab" style="display: none;">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="mb-0">
+                        <i class="bi bi-bell"></i> Notification Settings
+                    </h5>
+                </div>
+                <div class="card-body">
+                    <form id="notificationSettingsForm">
+                        <h6 class="mb-3">Email Notifications</h6>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-check form-switch mb-3">
+                                    <input class="form-check-input" type="checkbox" id="email_new_audit" checked>
+                                    <label class="form-check-label" for="email_new_audit">
+                                        New Audit Assignments
+                                    </label>
+                                </div>
+                                <div class="form-check form-switch mb-3">
+                                    <input class="form-check-input" type="checkbox" id="email_audit_updates" checked>
+                                    <label class="form-check-label" for="email_audit_updates">
+                                        Audit Status Updates
+                                    </label>
+                                </div>
+                                <div class="form-check form-switch mb-3">
+                                    <input class="form-check-input" type="checkbox" id="email_due_reminders" checked>
+                                    <label class="form-check-label" for="email_due_reminders">
+                                        Due Date Reminders
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-check form-switch mb-3">
+                                    <input class="form-check-input" type="checkbox" id="email_overdue_alerts" checked>
+                                    <label class="form-check-label" for="email_overdue_alerts">
+                                        Overdue Alerts
+                                    </label>
+                                </div>
+                                <div class="form-check form-switch mb-3">
+                                    <input class="form-check-input" type="checkbox" id="email_weekly_summary">
+                                    <label class="form-check-label" for="email_weekly_summary">
+                                        Weekly Summary Reports
+                                    </label>
+                                </div>
+                                <div class="form-check form-switch mb-3">
+                                    <input class="form-check-input" type="checkbox" id="email_system_alerts" checked>
+                                    <label class="form-check-label" for="email_system_alerts">
+                                        System Alerts
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <hr>
+                        
+                        <h6 class="mb-3">In-App Notifications</h6>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-check form-switch mb-3">
+                                    <input class="form-check-input" type="checkbox" id="app_new_comments" checked>
+                                    <label class="form-check-label" for="app_new_comments">
+                                        New Comments
+                                    </label>
+                                </div>
+                                <div class="form-check form-switch mb-3">
+                                    <input class="form-check-input" type="checkbox" id="app_status_changes" checked>
+                                    <label class="form-check-label" for="app_status_changes">
+                                        Status Changes
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-check form-switch mb-3">
+                                    <input class="form-check-input" type="checkbox" id="app_mentions" checked>
+                                    <label class="form-check-label" for="app_mentions">
+                                        @Mentions
+                                    </label>
+                                </div>
+                                <div class="form-check form-switch mb-3">
+                                    <input class="form-check-input" type="checkbox" id="app_system_updates">
+                                    <label class="form-check-label" for="app_system_updates">
+                                        System Updates
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <hr>
+                        
+                        <h6 class="mb-3">Notification Timing</h6>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label class="form-label">Reminder Frequency</label>
+                                    <select class="form-select" name="reminder_frequency">
+                                        <option value="daily">Daily</option>
+                                        <option value="weekly" selected>Weekly</option>
+                                        <option value="monthly">Monthly</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label class="form-label">Days Before Due Date</label>
+                                    <select class="form-select" name="due_date_warning">
+                                        <option value="1">1 day</option>
+                                        <option value="3" selected>3 days</option>
+                                        <option value="7">7 days</option>
+                                        <option value="14">14 days</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary">
+                            <i class="bi bi-check-lg"></i> Save Notification Settings
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Security Settings -->
+        <div id="security-settings" class="settings-tab" style="display: none;">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="mb-0">
+                        <i class="bi bi-shield-lock"></i> Security Settings
+                    </h5>
+                </div>
+                <div class="card-body">
+                    <form id="securitySettingsForm">
+                        <h6 class="mb-3">Password Policy</h6>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label class="form-label">Minimum Password Length</label>
+                                    <select class="form-select" name="min_password_length">
+                                        <option value="6">6 characters</option>
+                                        <option value="8" selected>8 characters</option>
+                                        <option value="10">10 characters</option>
+                                        <option value="12">12 characters</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label class="form-label">Password Expiry</label>
+                                    <select class="form-select" name="password_expiry">
+                                        <option value="30">30 days</option>
+                                        <option value="60">60 days</option>
+                                        <option value="90" selected>90 days</option>
+                                        <option value="0">Never</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <div class="form-check form-switch mb-3">
+                                    <input class="form-check-input" type="checkbox" id="require_uppercase" checked>
+                                    <label class="form-check-label" for="require_uppercase">
+                                        Require Uppercase Letters
+                                    </label>
+                                </div>
+                                <div class="form-check form-switch mb-3">
+                                    <input class="form-check-input" type="checkbox" id="require_numbers" checked>
+                                    <label class="form-check-label" for="require_numbers">
+                                        Require Numbers
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-check form-switch mb-3">
+                                    <input class="form-check-input" type="checkbox" id="require_special" checked>
+                                    <label class="form-check-label" for="require_special">
+                                        Require Special Characters
+                                    </label>
+                                </div>
+                                <div class="form-check form-switch mb-3">
+                                    <input class="form-check-input" type="checkbox" id="prevent_reuse" checked>
+                                    <label class="form-check-label" for="prevent_reuse">
+                                        Prevent Password Reuse
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <hr>
+                        
+                        <h6 class="mb-3">Session Management</h6>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label class="form-label">Session Timeout</label>
+                                    <select class="form-select" name="session_timeout">
+                                        <option value="15">15 minutes</option>
+                                        <option value="30">30 minutes</option>
+                                        <option value="60" selected>1 hour</option>
+                                        <option value="480">8 hours</option>
+                                        <option value="0">No timeout</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label class="form-label">Max Failed Login Attempts</label>
+                                    <select class="form-select" name="max_login_attempts">
+                                        <option value="3">3 attempts</option>
+                                        <option value="5" selected>5 attempts</option>
+                                        <option value="10">10 attempts</option>
+                                        <option value="0">Unlimited</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-check form-switch mb-3">
+                            <input class="form-check-input" type="checkbox" id="enable_2fa">
+                            <label class="form-check-label" for="enable_2fa">
+                                Enable Two-Factor Authentication
+                            </label>
+                        </div>
+                        
+                        <div class="form-check form-switch mb-4">
+                            <input class="form-check-input" type="checkbox" id="audit_login_attempts" checked>
+                            <label class="form-check-label" for="audit_login_attempts">
+                                Audit Login Attempts
+                            </label>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary">
+                            <i class="bi bi-check-lg"></i> Save Security Settings
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Integrations -->
+        <div id="integrations-settings" class="settings-tab" style="display: none;">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="mb-0">
+                        <i class="bi bi-plug"></i> System Integrations
+                    </h5>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6 mb-4">
+                            <div class="card border">
+                                <div class="card-body">
+                                    <div class="d-flex align-items-center mb-3">
+                                        <i class="bi bi-envelope text-primary" style="font-size: 2rem;"></i>
+                                        <div class="ms-3">
+                                            <h6 class="mb-0">Email Integration</h6>
+                                            <small class="text-muted">SMTP Configuration</small>
+                                        </div>
+                                    </div>
+                                    <div class="form-check form-switch">
+                                        <input class="form-check-input" type="checkbox" id="email_enabled" checked>
+                                        <label class="form-check-label" for="email_enabled">
+                                            Enabled
+                                        </label>
+                                    </div>
+                                    <button type="button" class="btn btn-outline-primary btn-sm mt-2" 
+                                            onclick="configureIntegration('email')">
+                                        Configure
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6 mb-4">
+                            <div class="card border">
+                                <div class="card-body">
+                                    <div class="d-flex align-items-center mb-3">
+                                        <i class="bi bi-robot text-success" style="font-size: 2rem;"></i>
+                                        <div class="ms-3">
+                                            <h6 class="mb-0">AI Integration</h6>
+                                            <small class="text-muted">OpenAI API</small>
+                                        </div>
+                                    </div>
+                                    <div class="form-check form-switch">
+                                        <input class="form-check-input" type="checkbox" id="ai_enabled" checked>
+                                        <label class="form-check-label" for="ai_enabled">
+                                            Enabled
+                                        </label>
+                                    </div>
+                                    <button type="button" class="btn btn-outline-success btn-sm mt-2" 
+                                            onclick="configureIntegration('ai')">
+                                        Configure
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6 mb-4">
+                            <div class="card border">
+                                <div class="card-body">
+                                    <div class="d-flex align-items-center mb-3">
+                                        <i class="bi bi-slack text-info" style="font-size: 2rem;"></i>
+                                        <div class="ms-3">
+                                            <h6 class="mb-0">Slack Integration</h6>
+                                            <small class="text-muted">Team Notifications</small>
+                                        </div>
+                                    </div>
+                                    <div class="form-check form-switch">
+                                        <input class="form-check-input" type="checkbox" id="slack_enabled">
+                                        <label class="form-check-label" for="slack_enabled">
+                                            Enabled
+                                        </label>
+                                    </div>
+                                    <button type="button" class="btn btn-outline-info btn-sm mt-2" 
+                                            onclick="configureIntegration('slack')">
+                                        Configure
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6 mb-4">
+                            <div class="card border">
+                                <div class="card-body">
+                                    <div class="d-flex align-items-center mb-3">
+                                        <i class="bi bi-microsoft text-warning" style="font-size: 2rem;"></i>
+                                        <div class="ms-3">
+                                            <h6 class="mb-0">Teams Integration</h6>
+                                            <small class="text-muted">Microsoft Teams</small>
+                                        </div>
+                                    </div>
+                                    <div class="form-check form-switch">
+                                        <input class="form-check-input" type="checkbox" id="teams_enabled">
+                                        <label class="form-check-label" for="teams_enabled">
+                                            Enabled
+                                        </label>
+                                    </div>
+                                    <button type="button" class="btn btn-outline-warning btn-sm mt-2" 
+                                            onclick="configureIntegration('teams')">
+                                        Configure
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Backup & Restore -->
+        <div id="backup-settings" class="settings-tab" style="display: none;">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5 class="mb-0">
+                                <i class="bi bi-cloud-download"></i> Backup Settings
+                            </h5>
+                        </div>
+                        <div class="card-body">
+                            <form id="backupSettingsForm">
+                                <div class="mb-3">
+                                    <label class="form-label">Backup Frequency</label>
+                                    <select class="form-select" name="backup_frequency">
+                                        <option value="daily" selected>Daily</option>
+                                        <option value="weekly">Weekly</option>
+                                        <option value="monthly">Monthly</option>
+                                        <option value="manual">Manual Only</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="mb-3">
+                                    <label class="form-label">Backup Retention</label>
+                                    <select class="form-select" name="backup_retention">
+                                        <option value="7">7 days</option>
+                                        <option value="30" selected>30 days</option>
+                                        <option value="90">90 days</option>
+                                        <option value="365">1 year</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="form-check form-switch mb-3">
+                                    <input class="form-check-input" type="checkbox" id="compress_backups" checked>
+                                    <label class="form-check-label" for="compress_backups">
+                                        Compress Backups
+                                    </label>
+                                </div>
+                                
+                                <div class="form-check form-switch mb-4">
+                                    <input class="form-check-input" type="checkbox" id="encrypt_backups" checked>
+                                    <label class="form-check-label" for="encrypt_backups">
+                                        Encrypt Backups
+                                    </label>
+                                </div>
+                                
+                                <div class="d-grid gap-2">
+                                    <button type="submit" class="btn btn-primary">
+                                        <i class="bi bi-check-lg"></i> Save Backup Settings
+                                    </button>
+                                    <button type="button" class="btn btn-outline-success" onclick="createBackup()">
+                                        <i class="bi bi-cloud-arrow-down"></i> Create Backup Now
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5 class="mb-0">
+                                <i class="bi bi-clock-history"></i> Recent Backups
+                            </h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="list-group list-group-flush">
+                                <div class="list-group-item d-flex justify-content-between align-items-center">
+                                    <div>
+                                        <h6 class="mb-1">Daily Backup</h6>
+                                        <small class="text-muted">January 20, 2025 - 3:00 AM</small>
+                                    </div>
+                                    <div>
+                                        <span class="badge bg-success">Complete</span>
+                                        <button class="btn btn-outline-primary btn-sm ms-2" onclick="downloadBackup('backup-2025-01-20')">
+                                            <i class="bi bi-download"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="list-group-item d-flex justify-content-between align-items-center">
+                                    <div>
+                                        <h6 class="mb-1">Daily Backup</h6>
+                                        <small class="text-muted">January 19, 2025 - 3:00 AM</small>
+                                    </div>
+                                    <div>
+                                        <span class="badge bg-success">Complete</span>
+                                        <button class="btn btn-outline-primary btn-sm ms-2" onclick="downloadBackup('backup-2025-01-19')">
+                                            <i class="bi bi-download"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="list-group-item d-flex justify-content-between align-items-center">
+                                    <div>
+                                        <h6 class="mb-1">Daily Backup</h6>
+                                        <small class="text-muted">January 18, 2025 - 3:00 AM</small>
+                                    </div>
+                                    <div>
+                                        <span class="badge bg-success">Complete</span>
+                                        <button class="btn btn-outline-primary btn-sm ms-2" onclick="downloadBackup('backup-2025-01-18')">
+                                            <i class="bi bi-download"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="mt-3">
+                                <input type="file" class="form-control" accept=".zip,.sql" id="restoreFile">
+                                <button type="button" class="btn btn-outline-warning w-100 mt-2" onclick="restoreBackup()">
+                                    <i class="bi bi-arrow-clockwise"></i> Restore from Backup
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Maintenance -->
+        <div id="maintenance-settings" class="settings-tab" style="display: none;">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="mb-0">
+                        <i class="bi bi-tools"></i> System Maintenance
+                    </h5>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h6 class="mb-3">Database Maintenance</h6>
+                            <div class="d-grid gap-2 mb-4">
+                                <button type="button" class="btn btn-outline-primary" onclick="optimizeDatabase()">
+                                    <i class="bi bi-arrow-clockwise"></i> Optimize Database
+                                </button>
+                                <button type="button" class="btn btn-outline-warning" onclick="rebuildIndexes()">
+                                    <i class="bi bi-diagram-3"></i> Rebuild Indexes
+                                </button>
+                                <button type="button" class="btn btn-outline-info" onclick="analyzeStorage()">
+                                    <i class="bi bi-pie-chart"></i> Analyze Storage
+                                </button>
+                            </div>
+                            
+                            <h6 class="mb-3">System Cleanup</h6>
+                            <div class="d-grid gap-2">
+                                <button type="button" class="btn btn-outline-secondary" onclick="clearTempFiles()">
+                                    <i class="bi bi-trash"></i> Clear Temporary Files
+                                </button>
+                                <button type="button" class="btn btn-outline-secondary" onclick="clearLogs()">
+                                    <i class="bi bi-file-text"></i> Clear Old Logs
+                                </button>
+                                <button type="button" class="btn btn-outline-secondary" onclick="clearCache()">
+                                    <i class="bi bi-arrow-repeat"></i> Clear Cache
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6">
+                            <h6 class="mb-3">System Information</h6>
+                            <div class="card border-0 bg-light">
+                                <div class="card-body">
+                                    <div class="row mb-2">
+                                        <div class="col-6"><strong>Version:</strong></div>
+                                        <div class="col-6">v2.1.0</div>
+                                    </div>
+                                    <div class="row mb-2">
+                                        <div class="col-6"><strong>Database Size:</strong></div>
+                                        <div class="col-6">45.2 MB</div>
+                                    </div>
+                                    <div class="row mb-2">
+                                        <div class="col-6"><strong>Total Audits:</strong></div>
+                                        <div class="col-6">247</div>
+                                    </div>
+                                    <div class="row mb-2">
+                                        <div class="col-6"><strong>Active Users:</strong></div>
+                                        <div class="col-6">12</div>
+                                    </div>
+                                    <div class="row mb-2">
+                                        <div class="col-6"><strong>Last Backup:</strong></div>
+                                        <div class="col-6">2 hours ago</div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-6"><strong>Uptime:</strong></div>
+                                        <div class="col-6">7 days, 14 hours</div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="mt-3">
+                                <button type="button" class="btn btn-outline-danger w-100" onclick="restartSystem()">
+                                    <i class="bi bi-arrow-clockwise"></i> Restart System
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Add User Modal -->
+<div class="modal fade" id="addUserModal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">
+                    <i class="bi bi-person-plus"></i> Add New User
+                </h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <form id="addUserForm">
+                    <div class="mb-3">
+                        <label class="form-label">Full Name</label>
+                        <input type="text" class="form-control" name="full_name" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Email Address</label>
+                        <input type="email" class="form-control" name="email" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Role</label>
+                        <select class="form-select" name="role" required>
+                            <option value="">Select role...</option>
+                            <option value="admin">Administrator</option>
+                            <option value="auditor">Auditor</option>
+                            <option value="viewer">Viewer</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Temporary Password</label>
+                        <input type="password" class="form-control" name="password" required>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="send_welcome_email" id="send_welcome_email" checked>
+                        <label class="form-check-label" for="send_welcome_email">
+                            Send welcome email with login instructions
+                        </label>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-primary" onclick="addUser()">
+                    <i class="bi bi-plus-circle"></i> Add User
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Form submissions
+    document.getElementById('generalSettingsForm').addEventListener('submit', saveSettings);
+    document.getElementById('notificationSettingsForm').addEventListener('submit', saveSettings);
+    document.getElementById('securitySettingsForm').addEventListener('submit', saveSettings);
+    document.getElementById('backupSettingsForm').addEventListener('submit', saveSettings);
+});
+
+function showSettingsTab(tabName) {
+    // Hide all tabs
+    const tabs = document.querySelectorAll('.settings-tab');
+    tabs.forEach(tab => tab.style.display = 'none');
+    
+    // Show selected tab
+    document.getElementById(tabName + '-settings').style.display = 'block';
+    
+    // Update navigation
+    const navItems = document.querySelectorAll('.list-group-item-action');
+    navItems.forEach(item => item.classList.remove('active'));
+    event.target.classList.add('active');
+}
+
+function saveSettings(event) {
+    event.preventDefault();
+    
+    const formData = new FormData(event.target);
+    const formId = event.target.id;
+    
+    // Show loading state
+    const submitBtn = event.target.querySelector('button[type="submit"]');
+    const originalText = submitBtn.innerHTML;
+    submitBtn.innerHTML = '<i class="bi bi-hourglass-split"></i> Saving...';
+    submitBtn.disabled = true;
+    
+    // Simulate save
+    setTimeout(() => {
+        alert('Settings saved successfully!');
+        
+        // Reset button
+        submitBtn.innerHTML = originalText;
+        submitBtn.disabled = false;
+    }, 1000);
+}
+
+function addUser() {
+    const form = document.getElementById('addUserForm');
+    const formData = new FormData(form);
+    
+    const fullName = formData.get('full_name');
+    const email = formData.get('email');
+    const role = formData.get('role');
+    
+    if (!fullName || !email || !role) {
+        alert('Please fill in all required fields');
+        return;
+    }
+    
+    alert(`User "${fullName}" added successfully!`);
+    
+    // Close modal and reset form
+    const modal = bootstrap.Modal.getInstance(document.getElementById('addUserModal'));
+    modal.hide();
+    form.reset();
+}
+
+function editUser(userId) {
+    alert(`Edit user functionality would open for user ID: ${userId}`);
+}
+
+function deleteUser(userId) {
+    if (confirm('Are you sure you want to delete this user?')) {
+        alert(`User ${userId} deleted successfully!`);
+    }
+}
+
+function configureIntegration(type) {
+    alert(`${type.charAt(0).toUpperCase() + type.slice(1)} integration configuration would open here`);
+}
+
+function createBackup() {
+    if (confirm('Create a backup now? This may take a few minutes.')) {
+        alert('Backup process started. You will be notified when complete.');
+    }
+}
+
+function downloadBackup(backupId) {
+    alert(`Downloading backup: ${backupId}`);
+}
+
+function restoreBackup() {
+    const fileInput = document.getElementById('restoreFile');
+    if (!fileInput.files.length) {
+        alert('Please select a backup file to restore');
+        return;
+    }
+    
+    if (confirm('Are you sure you want to restore from this backup? This will overwrite current data.')) {
+        alert('Restore process started. System will restart when complete.');
+    }
+}
+
+function optimizeDatabase() {
+    if (confirm('Optimize database? This may take several minutes.')) {
+        alert('Database optimization started.');
+    }
+}
+
+function rebuildIndexes() {
+    if (confirm('Rebuild database indexes? This may impact performance temporarily.')) {
+        alert('Index rebuild started.');
+    }
+}
+
+function analyzeStorage() {
+    alert('Storage analysis would show detailed storage usage statistics.');
+}
+
+function clearTempFiles() {
+    if (confirm('Clear all temporary files?')) {
+        alert('Temporary files cleared successfully.');
+    }
+}
+
+function clearLogs() {
+    if (confirm('Clear old log files? This action cannot be undone.')) {
+        alert('Old logs cleared successfully.');
+    }
+}
+
+function clearCache() {
+    if (confirm('Clear system cache? This may temporarily slow performance.')) {
+        alert('Cache cleared successfully.');
+    }
+}
+
+function restartSystem() {
+    if (confirm('Restart the system? All users will be disconnected.')) {
+        alert('System restart initiated. Please wait...');
+    }
+}
+</script>
+
+<style>
+.avatar-sm {
+    width: 32px;
+    height: 32px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.settings-tab {
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+</style>
+{% endblock %}

@@ -1,0 +1,25 @@
+{
+  "servers": {
+    "SecureAudit": {
+      "host": "127.0.0.1",
+      "port": 8000
+    },
+    "SampleServer": {
+      "host": "127.0.0.1",
+      "port": 8001
+    },
+    "HttpAuditServer": {
+      "host": "127.0.0.1",
+      "port": 8002
+    },
+    "SSEAuditServer": {
+      "host": "127.0.0.1",
+      "port": 8003
+    }
+  },
+  "default_server": "SecureAudit",
+  "web_interface": {
+    "host": "127.0.0.1",
+    "port": 5001
+  }
+}

@@ -1,0 +1,342 @@
+{% extends "base.html" %}
+
+{% block title %}Audits - MCP Audit Management System{% endblock %}
+
+{% block breadcrumb %}
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb mb-4">
+        <li class="breadcrumb-item">
+            <a href="{{ url_for('index') }}">Dashboard</a>
+        </li>
+        <li class="breadcrumb-item active">Audits</li>
+    </ol>
+</nav>
+{% endblock %}
+
+{% block content %}
+<div class="row mb-4">
+    <div class="col-md-8">
+        <h1 class="h2 mb-0">
+            <i class="bi bi-list-ul"></i> Audits
+        </h1>
+        <p class="text-muted">Manage and track all audit activities</p>
+    </div>
+    <div class="col-md-4 text-md-end">
+        <a href="{{ url_for('create_audit') }}" class="btn btn-primary">
+            <i class="bi bi-plus-circle"></i> New Audit
+        </a>
+    </div>
+</div>
+
+<!-- Filters -->
+<div class="card mb-4">
+    <div class="card-header">
+        <h5 class="mb-0">
+            <i class="bi bi-funnel"></i> Filters
+        </h5>
+    </div>
+    <div class="card-body">
+        <form method="GET" action="{{ url_for('list_audits') }}">
+            <div class="row g-3">
+                <div class="col-md-3">
+                    <label for="status" class="form-label">Status</label>
+                    <select class="form-select" id="status" name="status">
+                        <option value="">All Statuses</option>
+                        <option value="open" {% if filters.status == 'open' %}selected{% endif %}>Open</option>
+                        <option value="in_progress" {% if filters.status == 'in_progress' %}selected{% endif %}>In Progress</option>
+                        <option value="completed" {% if filters.status == 'completed' %}selected{% endif %}>Completed</option>
+                        <option value="closed" {% if filters.status == 'closed' %}selected{% endif %}>Closed</option>
+                        <option value="cancelled" {% if filters.status == 'cancelled' %}selected{% endif %}>Cancelled</option>
+                    </select>
+                </div>
+                <div class="col-md-3">
+                    <label for="auditor" class="form-label">Assigned Auditor</label>
+                    <select class="form-select" id="auditor" name="auditor">
+                        <option value="">All Auditors</option>
+                        <option value="John Smith" {% if filters.auditor == 'John Smith' %}selected{% endif %}>John Smith</option>
+                        <option value="Jane Doe" {% if filters.auditor == 'Jane Doe' %}selected{% endif %}>Jane Doe</option>
+                        <option value="Bob Johnson" {% if filters.auditor == 'Bob Johnson' %}selected{% endif %}>Bob Johnson</option>
+                    </select>
+                </div>
+                <div class="col-md-4">
+                    <label for="search" class="form-label">Search</label>
+                    <input type="text" class="form-control" id="search" name="search" 
+                           placeholder="Search in title and description..." 
+                           value="{{ filters.search or '' }}">
+                </div>
+                <div class="col-md-2">
+                    <label class="form-label">&nbsp;</label>
+                    <div class="d-grid">
+                        <button type="submit" class="btn btn-outline-primary">
+                            <i class="bi bi-search"></i> Filter
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            {% if filters.status or filters.auditor or filters.search %}
+            <div class="row mt-2">
+                <div class="col-12">
+                    <a href="{{ url_for('list_audits') }}" class="btn btn-outline-secondary btn-sm">
+                        <i class="bi bi-x-circle"></i> Clear Filters
+                    </a>
+                </div>
+            </div>
+            {% endif %}
+        </form>
+    </div>
+</div>
+
+<!-- Export Options -->
+<div class="mb-3">
+    <div class="btn-group" role="group">
+        <a href="{{ url_for('export_csv') }}" class="btn btn-outline-success btn-sm">
+            <i class="bi bi-download"></i> Export CSV
+        </a>
+        <a href="#" class="btn btn-outline-info btn-sm">
+            <i class="bi bi-file-pdf"></i> Export PDF
+        </a>
+        <a href="#" class="btn btn-outline-warning btn-sm">
+            <i class="bi bi-printer"></i> Print
+        </a>
+    </div>
+</div>
+
+<!-- Audits Table -->
+{% if audits %}
+<div class="card">
+    <div class="card-header">
+        <h5 class="mb-0">
+            <i class="bi bi-table"></i> Audit List ({{ audits|length }} items)
+        </h5>
+    </div>
+    <div class="card-body p-0">
+        <div class="table-responsive">
+            <table class="table table-hover mb-0">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Title</th>
+                        <th>Status</th>
+                        <th>Assigned Auditor</th>
+                        <th>Date</th>
+                        <th>Created</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for audit in audits %}
+                    <tr>
+                        <td>
+                            <strong>#{{ audit.id }}</strong>
+                        </td>
+                        <td>
+                            <a href="{{ url_for('audit_detail', audit_id=audit.id) }}" 
+                               class="text-decoration-none">
+                                <strong>{{ audit.title }}</strong>
+                            </a>
+                            {% if audit.description %}
+                            <br>
+                            <small class="text-muted">
+                                {{ audit.description[:80] }}{% if audit.description|length > 80 %}...{% endif %}
+                            </small>
+                            {% endif %}
+                        </td>
+                        <td>
+                            <span class="status-badge status-{{ audit.status.replace('_', '-') }}">
+                                {% if audit.status == 'open' %}
+                                    <i class="bi bi-circle"></i> Open
+                                {% elif audit.status == 'in_progress' %}
+                                    <i class="bi bi-arrow-clockwise"></i> In Progress
+                                {% elif audit.status == 'completed' %}
+                                    <i class="bi bi-check-circle"></i> Completed
+                                {% elif audit.status == 'closed' %}
+                                    <i class="bi bi-lock"></i> Closed
+                                {% elif audit.status == 'cancelled' %}
+                                    <i class="bi bi-x-circle"></i> Cancelled
+                                {% else %}
+                                    {{ audit.status|title }}
+                                {% endif %}
+                            </span>
+                        </td>
+                        <td>
+                            {% if audit.assigned_auditor %}
+                                <i class="bi bi-person"></i> {{ audit.assigned_auditor }}
+                            {% else %}
+                                <span class="text-muted">Unassigned</span>
+                            {% endif %}
+                        </td>
+                        <td>
+                            {% if audit.date %}
+                                <i class="bi bi-calendar"></i> {{ audit.date }}
+                            {% else %}
+                                <span class="text-muted">No date set</span>
+                            {% endif %}
+                        </td>
+                        <td>
+                            <small class="text-muted">
+                                {{ audit.created_at[:10] if audit.created_at else 'Unknown' }}
+                            </small>
+                        </td>
+                        <td>
+                            <div class="btn-group btn-group-sm" role="group">
+                                <a href="{{ url_for('audit_detail', audit_id=audit.id) }}" 
+                                   class="btn btn-outline-primary" title="View Details">
+                                    <i class="bi bi-eye"></i>
+                                </a>
+                                <a href="{{ url_for('update_audit', audit_id=audit.id) }}" 
+                                   class="btn btn-outline-warning" title="Edit">
+                                    <i class="bi bi-pencil"></i>
+                                </a>
+                                <a href="{{ url_for('ai_summary', audit_id=audit.id) }}" 
+                                   class="btn btn-outline-info" title="AI Summary">
+                                    <i class="bi bi-robot"></i>
+                                </a>
+                                <form method="POST" action="{{ url_for('delete_audit', audit_id=audit.id) }}" 
+                                      style="display: inline;">
+                                    <button type="submit" class="btn btn-outline-danger" 
+                                            title="Delete"
+                                            data-confirm-delete="Are you sure you want to delete audit '{{ audit.title }}'?">
+                                        <i class="bi bi-trash"></i>
+                                    </button>
+                                </form>
+                            </div>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<!-- Pagination (placeholder) -->
+<nav aria-label="Audit pagination" class="mt-4">
+    <ul class="pagination justify-content-center">
+        <li class="page-item disabled">
+            <a class="page-link" href="#" tabindex="-1">Previous</a>
+        </li>
+        <li class="page-item active">
+            <a class="page-link" href="#">1</a>
+        </li>
+        <li class="page-item">
+            <a class="page-link" href="#">2</a>
+        </li>
+        <li class="page-item">
+            <a class="page-link" href="#">3</a>
+        </li>
+        <li class="page-item">
+            <a class="page-link" href="#">Next</a>
+        </li>
+    </ul>
+</nav>
+
+{% else %}
+<!-- Empty State -->
+<div class="card">
+    <div class="card-body text-center py-5">
+        <i class="bi bi-inbox" style="font-size: 4rem; color: #dee2e6;"></i>
+        <h4 class="mt-3">No Audits Found</h4>
+        <p class="text-muted mb-4">
+            {% if filters.status or filters.auditor or filters.search %}
+                No audits match your current filters. Try adjusting your search criteria.
+            {% else %}
+                You haven't created any audits yet. Get started by creating your first audit.
+            {% endif %}
+        </p>
+        {% if not (filters.status or filters.auditor or filters.search) %}
+        <a href="{{ url_for('create_audit') }}" class="btn btn-primary">
+            <i class="bi bi-plus-circle"></i> Create Your First Audit
+        </a>
+        {% else %}
+        <a href="{{ url_for('list_audits') }}" class="btn btn-outline-primary">
+            <i class="bi bi-arrow-left"></i> View All Audits
+        </a>
+        {% endif %}
+    </div>
+</div>
+{% endif %}
+
+<!-- Bulk Actions Modal (placeholder) -->
+<div class="modal fade" id="bulkActionsModal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">
+                    <i class="bi bi-check-square"></i> Bulk Actions
+                </h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <p>Select actions to perform on multiple audits:</p>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="bulkUpdateStatus">
+                    <label class="form-check-label" for="bulkUpdateStatus">
+                        Update Status
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="bulkAssignAuditor">
+                    <label class="form-check-label" for="bulkAssignAuditor">
+                        Assign Auditor
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="bulkExport">
+                    <label class="form-check-label" for="bulkExport">
+                        Export Selected
+                    </label>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                    Cancel
+                </button>
+                <button type="button" class="btn btn-primary">
+                    Apply Actions
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Enable bulk selection (placeholder functionality)
+    const selectAllCheckbox = document.querySelector('#selectAll');
+    const itemCheckboxes = document.querySelectorAll('.item-checkbox');
+    
+    if (selectAllCheckbox && itemCheckboxes.length > 0) {
+        selectAllCheckbox.addEventListener('change', function() {
+            itemCheckboxes.forEach(checkbox => {
+                checkbox.checked = this.checked;
+            });
+            updateBulkActions();
+        });
+        
+        itemCheckboxes.forEach(checkbox => {
+            checkbox.addEventListener('change', updateBulkActions);
+        });
+    }
+    
+    function updateBulkActions() {
+        const checkedItems = document.querySelectorAll('.item-checkbox:checked');
+        const bulkActionButtons = document.querySelectorAll('.bulk-action-btn');
+        
+        if (checkedItems.length > 0) {
+            bulkActionButtons.forEach(btn => btn.style.display = 'inline-block');
+        } else {
+            bulkActionButtons.forEach(btn => btn.style.display = 'none');
+        }
+    }
+    
+    // Auto-refresh audit list every 60 seconds
+    setInterval(function() {
+        // Refresh page with current filters
+        window.location.reload();
+    }, 60000);
+});
+</script>
+{% endblock %}

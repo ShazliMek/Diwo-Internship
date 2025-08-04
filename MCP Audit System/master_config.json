@@ -1,0 +1,32 @@
+{
+  "servers": {
+    "SecureAudit": {
+      "config_file": "config/secure_audit_server.json",
+      "enabled": true
+    },
+    "SampleServer": {
+      "config_file": "config/sample_server.json",
+      "enabled": false
+    },
+    "HttpAuditServer": {
+      "config_file": "config/http_audit_server.json",
+      "enabled": false
+    },
+    "SSEAuditServer": {
+      "config_file": "config/sse_audit_server.json",
+      "enabled": false
+    }
+  },
+  "default_server": "SecureAudit",
+  "web_interface": {
+    "host": "127.0.0.1",
+    "port": 5000,
+    "debug": true,
+    "secret_key": "audit-system-secret-key-2025"
+  },
+  "global_settings": {
+    "config_directory": "config",
+    "auto_reload_configs": true,
+    "validation_enabled": true
+  }
+}

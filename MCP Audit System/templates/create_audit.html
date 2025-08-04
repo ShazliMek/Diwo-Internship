@@ -1,0 +1,510 @@
+{% extends "base.html" %}
+
+{% block title %}Create Audit - MCP Audit Management System{% endblock %}
+
+{% block breadcrumb %}
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb mb-4">
+        <li class="breadcrumb-item">
+            <a href="{{ url_for('index') }}">Dashboard</a>
+        </li>
+        <li class="breadcrumb-item">
+            <a href="{{ url_for('list_audits') }}">Audits</a>
+        </li>
+        <li class="breadcrumb-item active">Create Audit</li>
+    </ol>
+</nav>
+{% endblock %}
+
+{% block content %}
+<div class="row mb-4">
+    <div class="col-12">
+        <h1 class="h2 mb-0">
+            <i class="bi bi-plus-circle"></i> Create New Audit
+        </h1>
+        <p class="text-muted">Start a new audit process</p>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-8">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0">
+                    <i class="bi bi-form"></i> Audit Information
+                </h5>
+            </div>
+            <div class="card-body">
+                <form method="POST" action="{{ url_for('create_audit') }}">
+                    <div class="row">
+                        <div class="col-12 mb-3">
+                            <label for="title" class="form-label">
+                                <i class="bi bi-card-text"></i> Title <span class="text-danger">*</span>
+                            </label>
+                            <input type="text" class="form-control" id="title" name="title" 
+                                   placeholder="Enter audit title..." required maxlength="200">
+                            <div class="form-text">A clear, descriptive title for the audit</div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="status" class="form-label">
+                                <i class="bi bi-flag"></i> Initial Status
+                            </label>
+                            <select class="form-select" id="status" name="status">
+                                <option value="open" selected>Open</option>
+                                <option value="in_progress">In Progress</option>
+                            </select>
+                            <div class="form-text">Starting status for the audit</div>
+                        </div>
+
+                        <div class="col-md-6 mb-3">
+                            <label for="date" class="form-label">
+                                <i class="bi bi-calendar-event"></i> Audit Date
+                            </label>
+                            <input type="date" class="form-control" id="date" name="date">
+                            <div class="form-text">Scheduled or target date for the audit</div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-12 mb-3">
+                            <label for="assigned_auditor" class="form-label">
+                                <i class="bi bi-person"></i> Assigned Auditor
+                            </label>
+                            <select class="form-select" id="assigned_auditor" name="assigned_auditor">
+                                <option value="">Select auditor...</option>
+                                <option value="John Smith">John Smith</option>
+                                <option value="Jane Doe">Jane Doe</option>
+                                <option value="Bob Johnson">Bob Johnson</option>
+                                <option value="Sarah Wilson">Sarah Wilson</option>
+                                <option value="Mike Davis">Mike Davis</option>
+                            </select>
+                            <div class="form-text">Person responsible for conducting the audit</div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-12 mb-4">
+                            <label for="description" class="form-label">
+                                <i class="bi bi-file-text"></i> Description
+                            </label>
+                            <textarea class="form-control" id="description" name="description" 
+                                      rows="6" maxlength="2000"
+                                      placeholder="Provide a detailed description of the audit scope, objectives, and any specific requirements..."></textarea>
+                            <div class="form-text">
+                                <span id="charCount">0</span>/2000 characters
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="d-flex justify-content-between">
+                                <a href="{{ url_for('list_audits') }}" class="btn btn-outline-secondary">
+                                    <i class="bi bi-arrow-left"></i> Cancel
+                                </a>
+                                <div>
+                                    <button type="button" class="btn btn-outline-primary me-2" onclick="saveDraft()">
+                                        <i class="bi bi-save"></i> Save Draft
+                                    </button>
+                                    <button type="submit" class="btn btn-primary">
+                                        <i class="bi bi-check-circle"></i> Create Audit
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sidebar with Guidelines -->
+    <div class="col-lg-4">
+        <div class="card mb-4">
+            <div class="card-header">
+                <h5 class="mb-0">
+                    <i class="bi bi-lightbulb"></i> Audit Guidelines
+                </h5>
+            </div>
+            <div class="card-body">
+                <h6 class="text-primary">Best Practices:</h6>
+                <ul class="small">
+                    <li>Use clear, descriptive titles</li>
+                    <li>Include specific scope and objectives</li>
+                    <li>Assign appropriate auditors based on expertise</li>
+                    <li>Set realistic timelines</li>
+                    <li>Document all relevant stakeholders</li>
+                </ul>
+                
+                <h6 class="text-primary mt-3">Title Examples:</h6>
+                <ul class="small text-muted">
+                    <li>Q1 2025 Financial Controls Review</li>
+                    <li>IT Security Compliance Assessment</li>
+                    <li>Vendor Management Process Audit</li>
+                    <li>Data Privacy Impact Assessment</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="card mb-4">
+            <div class="card-header">
+                <h5 class="mb-0">
+                    <i class="bi bi-clock"></i> Quick Actions
+                </h5>
+            </div>
+            <div class="card-body">
+                <div class="d-grid gap-2">
+                    <button type="button" class="btn btn-outline-info btn-sm" onclick="useTemplate('financial')">
+                        <i class="bi bi-calculator"></i> Financial Audit Template
+                    </button>
+                    <button type="button" class="btn btn-outline-info btn-sm" onclick="useTemplate('it')">
+                        <i class="bi bi-shield-check"></i> IT Security Template
+                    </button>
+                    <button type="button" class="btn btn-outline-info btn-sm" onclick="useTemplate('compliance')">
+                        <i class="bi bi-check2-square"></i> Compliance Template
+                    </button>
+                    <button type="button" class="btn btn-outline-info btn-sm" onclick="useTemplate('operational')">
+                        <i class="bi bi-gear"></i> Operational Template
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0">
+                    <i class="bi bi-info-circle"></i> Need Help?
+                </h5>
+            </div>
+            <div class="card-body">
+                <p class="small mb-3">
+                    If you need assistance creating an audit, check out our resources:
+                </p>
+                <div class="d-grid gap-2">
+                    <a href="#" class="btn btn-outline-secondary btn-sm">
+                        <i class="bi bi-book"></i> Audit Guide
+                    </a>
+                    <a href="#" class="btn btn-outline-secondary btn-sm">
+                        <i class="bi bi-question-circle"></i> FAQ
+                    </a>
+                    <a href="#" class="btn btn-outline-secondary btn-sm">
+                        <i class="bi bi-envelope"></i> Contact Support
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Template Modal -->
+<div class="modal fade" id="templateModal" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">
+                    <i class="bi bi-template"></i> Select Audit Template
+                </h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <div class="card h-100 template-card" data-template="financial">
+                            <div class="card-body text-center">
+                                <i class="bi bi-calculator display-4 text-primary"></i>
+                                <h5 class="card-title mt-2">Financial Audit</h5>
+                                <p class="card-text small">
+                                    Review financial controls, procedures, and compliance with accounting standards.
+                                </p>
+                                <button type="button" class="btn btn-primary btn-sm" onclick="applyTemplate('financial')">
+                                    Use Template
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-6 mb-3">
+                        <div class="card h-100 template-card" data-template="it">
+                            <div class="card-body text-center">
+                                <i class="bi bi-shield-check display-4 text-success"></i>
+                                <h5 class="card-title mt-2">IT Security</h5>
+                                <p class="card-text small">
+                                    Assess cybersecurity measures, data protection, and IT infrastructure.
+                                </p>
+                                <button type="button" class="btn btn-success btn-sm" onclick="applyTemplate('it')">
+                                    Use Template
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-6 mb-3">
+                        <div class="card h-100 template-card" data-template="compliance">
+                            <div class="card-body text-center">
+                                <i class="bi bi-check2-square display-4 text-warning"></i>
+                                <h5 class="card-title mt-2">Compliance</h5>
+                                <p class="card-text small">
+                                    Verify adherence to regulatory requirements and internal policies.
+                                </p>
+                                <button type="button" class="btn btn-warning btn-sm" onclick="applyTemplate('compliance')">
+                                    Use Template
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-6 mb-3">
+                        <div class="card h-100 template-card" data-template="operational">
+                            <div class="card-body text-center">
+                                <i class="bi bi-gear display-4 text-info"></i>
+                                <h5 class="card-title mt-2">Operational</h5>
+                                <p class="card-text small">
+                                    Evaluate operational efficiency, processes, and performance metrics.
+                                </p>
+                                <button type="button" class="btn btn-info btn-sm" onclick="applyTemplate('operational')">
+                                    Use Template
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Character counter for description
+    const descriptionField = document.getElementById('description');
+    const charCount = document.getElementById('charCount');
+    
+    if (descriptionField && charCount) {
+        descriptionField.addEventListener('input', function() {
+            charCount.textContent = this.value.length;
+            
+            if (this.value.length > 1800) {
+                charCount.classList.add('text-warning');
+            } else {
+                charCount.classList.remove('text-warning');
+            }
+        });
+    }
+    
+    // Auto-save draft functionality
+    let draftTimeout;
+    const form = document.querySelector('form');
+    
+    if (form) {
+        form.addEventListener('input', function() {
+            clearTimeout(draftTimeout);
+            draftTimeout = setTimeout(saveDraftAuto, 30000); // Auto-save after 30 seconds of inactivity
+        });
+    }
+    
+    // Set default date to today
+    const dateField = document.getElementById('date');
+    if (dateField && !dateField.value) {
+        const today = new Date();
+        const formattedDate = today.toISOString().split('T')[0];
+        dateField.value = formattedDate;
+    }
+});
+
+function saveDraft() {
+    const formData = new FormData(document.querySelector('form'));
+    const draftData = Object.fromEntries(formData);
+    
+    // Save to localStorage
+    localStorage.setItem('auditDraft', JSON.stringify(draftData));
+    
+    // Show success message
+    const alert = document.createElement('div');
+    alert.className = 'alert alert-success alert-dismissible fade show';
+    alert.innerHTML = `
+        <i class="bi bi-check-circle"></i> Draft saved successfully!
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    `;
+    
+    const container = document.querySelector('.container');
+    container.insertBefore(alert, container.firstChild);
+    
+    // Auto-hide after 3 seconds
+    setTimeout(() => {
+        alert.remove();
+    }, 3000);
+}
+
+function saveDraftAuto() {
+    const formData = new FormData(document.querySelector('form'));
+    const draftData = Object.fromEntries(formData);
+    localStorage.setItem('auditDraft', JSON.stringify(draftData));
+    console.log('Draft auto-saved');
+}
+
+function loadDraft() {
+    const draft = localStorage.getItem('auditDraft');
+    if (draft) {
+        const draftData = JSON.parse(draft);
+        
+        Object.keys(draftData).forEach(key => {
+            const field = document.querySelector(`[name="${key}"]`);
+            if (field) {
+                field.value = draftData[key];
+            }
+        });
+        
+        // Update character count
+        const descriptionField = document.getElementById('description');
+        const charCount = document.getElementById('charCount');
+        if (descriptionField && charCount) {
+            charCount.textContent = descriptionField.value.length;
+        }
+    }
+}
+
+function clearDraft() {
+    localStorage.removeItem('auditDraft');
+}
+
+function useTemplate(templateType) {
+    const modal = new bootstrap.Modal(document.getElementById('templateModal'));
+    modal.show();
+}
+
+function applyTemplate(templateType) {
+    const templates = {
+        financial: {
+            title: 'Financial Controls Review Q1 2025',
+            description: `Comprehensive review of financial controls and procedures including:
+
+• Internal controls assessment
+• Financial reporting accuracy
+• Compliance with accounting standards
+• Revenue recognition processes
+• Expense management controls
+• Cash handling procedures
+• Financial statement preparation review
+
+Scope: All financial departments and related processes
+Timeline: 4-6 weeks
+Key stakeholders: CFO, Finance team, External auditors`,
+            assigned_auditor: 'John Smith'
+        },
+        it: {
+            title: 'IT Security and Compliance Assessment',
+            description: `Comprehensive IT security audit covering:
+
+• Network security assessment
+• Data protection and privacy compliance
+• Access control and user management
+• Vulnerability management
+• Incident response procedures
+• Backup and disaster recovery
+• Compliance with IT policies
+
+Scope: All IT systems and infrastructure
+Timeline: 3-4 weeks
+Key stakeholders: CTO, IT Security team, Compliance officer`,
+            assigned_auditor: 'Jane Doe'
+        },
+        compliance: {
+            title: 'Regulatory Compliance Review',
+            description: `Annual compliance audit including:
+
+• Regulatory requirements assessment
+• Policy and procedure review
+• Training and awareness evaluation
+• Documentation and record keeping
+• Compliance monitoring effectiveness
+• Risk assessment and mitigation
+• Regulatory reporting accuracy
+
+Scope: All departments subject to regulatory requirements
+Timeline: 5-6 weeks
+Key stakeholders: Compliance officer, Legal team, Department heads`,
+            assigned_auditor: 'Bob Johnson'
+        },
+        operational: {
+            title: 'Operational Efficiency Review',
+            description: `Operational audit focusing on:
+
+• Process efficiency evaluation
+• Resource utilization assessment
+• Performance metrics analysis
+• Quality control procedures
+• Cost management review
+• Workflow optimization opportunities
+• Technology utilization
+
+Scope: Core operational departments
+Timeline: 4-5 weeks
+Key stakeholders: Operations manager, Department heads, Process owners`,
+            assigned_auditor: 'Sarah Wilson'
+        }
+    };
+    
+    const template = templates[templateType];
+    if (template) {
+        document.getElementById('title').value = template.title;
+        document.getElementById('description').value = template.description;
+        document.getElementById('assigned_auditor').value = template.assigned_auditor;
+        
+        // Update character count
+        const charCount = document.getElementById('charCount');
+        if (charCount) {
+            charCount.textContent = template.description.length;
+        }
+    }
+    
+    // Close modal
+    const modal = bootstrap.Modal.getInstance(document.getElementById('templateModal'));
+    modal.hide();
+    
+    // Show success message
+    const alert = document.createElement('div');
+    alert.className = 'alert alert-info alert-dismissible fade show';
+    alert.innerHTML = `
+        <i class="bi bi-template"></i> Template applied successfully! You can modify the details as needed.
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    `;
+    
+    const container = document.querySelector('.container');
+    container.insertBefore(alert, container.firstChild);
+    
+    // Auto-hide after 5 seconds
+    setTimeout(() => {
+        alert.remove();
+    }, 5000);
+}
+
+// Load draft on page load
+window.addEventListener('load', loadDraft);
+
+// Clear draft when form is submitted successfully
+document.querySelector('form').addEventListener('submit', function() {
+    setTimeout(clearDraft, 1000);
+});
+</script>
+
+<style>
+.template-card {
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.template-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.display-4 {
+    font-size: 3rem;
+}
+</style>
+{% endblock %}

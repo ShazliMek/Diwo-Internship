@@ -1,0 +1,48 @@
+COMPREHENSIVE MCP AUDIT MANAGEMENT SYSTEM - SERVER STARTUP COMMANDS
+
+Prerequisites:
+1. Navigate to the project directory:
+   cd "/Users/shazlimekrani/Desktop/MCP NEW DIWO/MCP Audit System"
+
+2. Activate virtual environment:
+   source "../.venv/bin/activate"
+
+Server Commands (with comprehensive logging):
+============================================
+
+Sample Server: python3 servers/sample_server.py --transport stdio
+Secure Audit Server: python3 servers/secure_audit_server.py --transport stdio
+HTTP Server: python3 servers/http_audit_server.py --transport http --host 127.0.0.1 --port 8002
+SSE Server: python3 servers/sse_audit_server.py --transport sse --host 127.0.0.1 --port 8003
+Web Interface: python3 flask_app.py (then visit http://127.0.0.1:5001)
+
+⚠️  PORT CONFIGURATION NOTES:
+- Flask web interface now runs on port 5001 (changed from 5000)
+- Port 5000 is used by macOS AirPlay Receiver service
+- To use port 5000: Disable AirPlay Receiver in System Preferences > General > AirDrop & Handoff
+
+Logging Information:
+===================
+All servers now include comprehensive logging that tracks:
+- Server startup and initialization
+- MCP requests received (tool calls, resource requests)
+- Tool execution with arguments and results
+- Response times and performance metrics
+- Error handling and debugging information
+- Client connections and communication
+
+Log Files Location:
+- logs/sample_server.log - Sample MCP server logs
+- logs/secure_audit_server.log - Secure audit server logs  
+- logs/http_audit_server.log - HTTP server logs
+- logs/sse_audit_server.log - SSE server logs
+- logs/flask_app.log - Flask web application logs
+- mcp_audit_system.log - Combined system logs
+
+Logging Features:
+- Real-time console output with emojis
+- Detailed file logging with timestamps
+- Request/response tracking for MCP communication
+- Performance monitoring with execution times
+- Error tracking with stack traces
+- Server heartbeat monitoring

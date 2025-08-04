@@ -1,0 +1,304 @@
+{% extends "base.html" %}
+
+{% block title %}Update Audit #{{ audit.id }} - MCP Audit Management System{% endblock %}
+
+{% block breadcrumb %}
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb mb-4">
+        <li class="breadcrumb-item">
+            <a href="{{ url_for('index') }}">Dashboard</a>
+        </li>
+        <li class="breadcrumb-item">
+            <a href="{{ url_for('list_audits') }}">Audits</a>
+        </li>
+        <li class="breadcrumb-item">
+            <a href="{{ url_for('audit_detail', audit_id=audit.id) }}">Audit #{{ audit.id }}</a>
+        </li>
+        <li class="breadcrumb-item active">Update</li>
+    </ol>
+</nav>
+{% endblock %}
+
+{% block content %}
+<div class="row mb-4">
+    <div class="col-md-8">
+        <h1 class="h2 mb-0">
+            <i class="bi bi-pencil"></i> Update Audit
+        </h1>
+        <p class="text-muted">Audit ID: #{{ audit.id }} - {{ audit.title }}</p>
+    </div>
+    <div class="col-md-4 text-md-end">
+        <a href="{{ url_for('audit_detail', audit_id=audit.id) }}" class="btn btn-outline-secondary">
+            <i class="bi bi-arrow-left"></i> Back to Audit
+        </a>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-8">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0">
+                    <i class="bi bi-form"></i> Edit Audit Information
+                </h5>
+            </div>
+            <div class="card-body">
+                <form method="POST" action="{{ url_for('update_audit', audit_id=audit.id) }}">
+                    <div class="row">
+                        <div class="col-12 mb-3">
+                            <label for="title" class="form-label">
+                                <i class="bi bi-card-text"></i> Title <span class="text-danger">*</span>
+                            </label>
+                            <input type="text" class="form-control" id="title" name="title" 
+                                   value="{{ audit.title }}" required maxlength="200">
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="status" class="form-label">
+                                <i class="bi bi-flag"></i> Status
+                            </label>
+                            <select class="form-select" id="status" name="status">
+                                <option value="open" {% if audit.status == 'open' %}selected{% endif %}>Open</option>
+                                <option value="in_progress" {% if audit.status == 'in_progress' %}selected{% endif %}>In Progress</option>
+                                <option value="completed" {% if audit.status == 'completed' %}selected{% endif %}>Completed</option>
+                                <option value="closed" {% if audit.status == 'closed' %}selected{% endif %}>Closed</option>
+                                <option value="cancelled" {% if audit.status == 'cancelled' %}selected{% endif %}>Cancelled</option>
+                            </select>
+                        </div>
+
+                        <div class="col-md-6 mb-3">
+                            <label for="date" class="form-label">
+                                <i class="bi bi-calendar-event"></i> Audit Date
+                            </label>
+                            <input type="date" class="form-control" id="date" name="date" 
+                                   value="{{ audit.date }}">
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-12 mb-3">
+                            <label for="assigned_auditor" class="form-label">
+                                <i class="bi bi-person"></i> Assigned Auditor
+                            </label>
+                            <select class="form-select" id="assigned_auditor" name="assigned_auditor">
+                                <option value="">Select auditor...</option>
+                                <option value="John Smith" {% if audit.assigned_auditor == 'John Smith' %}selected{% endif %}>John Smith</option>
+                                <option value="Jane Doe" {% if audit.assigned_auditor == 'Jane Doe' %}selected{% endif %}>Jane Doe</option>
+                                <option value="Bob Johnson" {% if audit.assigned_auditor == 'Bob Johnson' %}selected{% endif %}>Bob Johnson</option>
+                                <option value="Sarah Wilson" {% if audit.assigned_auditor == 'Sarah Wilson' %}selected{% endif %}>Sarah Wilson</option>
+                                <option value="Mike Davis" {% if audit.assigned_auditor == 'Mike Davis' %}selected{% endif %}>Mike Davis</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-12 mb-4">
+                            <label for="description" class="form-label">
+                                <i class="bi bi-file-text"></i> Description
+                            </label>
+                            <textarea class="form-control" id="description" name="description" 
+                                      rows="6" maxlength="2000">{{ audit.description or '' }}</textarea>
+                            <div class="form-text">
+                                <span id="charCount">{{ (audit.description or '')|length }}</span>/2000 characters
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="d-flex justify-content-between">
+                                <a href="{{ url_for('audit_detail', audit_id=audit.id) }}" class="btn btn-outline-secondary">
+                                    <i class="bi bi-x-circle"></i> Cancel
+                                </a>
+                                <button type="submit" class="btn btn-primary">
+                                    <i class="bi bi-check-circle"></i> Update Audit
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sidebar with Current Information -->
+    <div class="col-lg-4">
+        <div class="card mb-4">
+            <div class="card-header">
+                <h5 class="mb-0">
+                    <i class="bi bi-info-circle"></i> Current Information
+                </h5>
+            </div>
+            <div class="card-body">
+                <dl class="row mb-0">
+                    <dt class="col-sm-5">Created:</dt>
+                    <dd class="col-sm-7">{{ audit.created_at[:10] if audit.created_at else 'Unknown' }}</dd>
+                    
+                    <dt class="col-sm-5">Last Updated:</dt>
+                    <dd class="col-sm-7">{{ audit.updated_at[:10] if audit.updated_at else 'Unknown' }}</dd>
+                    
+                    <dt class="col-sm-5">Current Status:</dt>
+                    <dd class="col-sm-7">
+                        <span class="status-badge status-{{ audit.status.replace('_', '-') }}">
+                            {{ audit.status|title|replace('_', ' ') }}
+                        </span>
+                    </dd>
+                    
+                    <dt class="col-sm-5">Auditor:</dt>
+                    <dd class="col-sm-7">{{ audit.assigned_auditor or 'Unassigned' }}</dd>
+                </dl>
+            </div>
+        </div>
+
+        <div class="card mb-4">
+            <div class="card-header">
+                <h5 class="mb-0">
+                    <i class="bi bi-clock-history"></i> Change History
+                </h5>
+            </div>
+            <div class="card-body">
+                <div class="timeline-small">
+                    <div class="timeline-item-small">
+                        <div class="timeline-marker-small bg-success"></div>
+                        <div class="timeline-content-small">
+                            <strong>Audit Created</strong><br>
+                            <small class="text-muted">{{ audit.created_at[:19] if audit.created_at else 'Unknown time' }}</small>
+                        </div>
+                    </div>
+                    
+                    {% if audit.updated_at and audit.updated_at != audit.created_at %}
+                    <div class="timeline-item-small">
+                        <div class="timeline-marker-small bg-warning"></div>
+                        <div class="timeline-content-small">
+                            <strong>Last Modified</strong><br>
+                            <small class="text-muted">{{ audit.updated_at[:19] }}</small>
+                        </div>
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0">
+                    <i class="bi bi-exclamation-triangle"></i> Important Notes
+                </h5>
+            </div>
+            <div class="card-body">
+                <div class="alert alert-warning">
+                    <i class="bi bi-info-circle"></i>
+                    <strong>Status Changes:</strong> 
+                    Changing the status may trigger notifications to stakeholders.
+                </div>
+                
+                <div class="alert alert-info">
+                    <i class="bi bi-clock"></i>
+                    <strong>Activity Tracking:</strong> 
+                    All changes are logged and can be viewed in the audit history.
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Character counter for description
+    const descriptionField = document.getElementById('description');
+    const charCount = document.getElementById('charCount');
+    
+    if (descriptionField && charCount) {
+        descriptionField.addEventListener('input', function() {
+            charCount.textContent = this.value.length;
+            
+            if (this.value.length > 1800) {
+                charCount.classList.add('text-warning');
+            } else {
+                charCount.classList.remove('text-warning');
+            }
+        });
+    }
+    
+    // Confirmation for status changes that might trigger notifications
+    const statusField = document.getElementById('status');
+    let originalStatus = statusField.value;
+    
+    statusField.addEventListener('change', function() {
+        const newStatus = this.value;
+        const notificationStatuses = ['completed', 'closed', 'cancelled'];
+        
+        if (notificationStatuses.includes(newStatus) && newStatus !== originalStatus) {
+            if (!confirm(`Changing status to "${newStatus.replace('_', ' ')}" may send notifications to stakeholders. Continue?`)) {
+                this.value = originalStatus;
+            }
+        }
+    });
+    
+    // Unsaved changes warning
+    let formChanged = false;
+    const form = document.querySelector('form');
+    const inputs = form.querySelectorAll('input, select, textarea');
+    
+    inputs.forEach(input => {
+        input.addEventListener('change', function() {
+            formChanged = true;
+        });
+    });
+    
+    window.addEventListener('beforeunload', function(e) {
+        if (formChanged) {
+            e.preventDefault();
+            e.returnValue = '';
+        }
+    });
+    
+    form.addEventListener('submit', function() {
+        formChanged = false;
+    });
+});
+</script>
+
+<style>
+.timeline-small {
+    position: relative;
+    padding-left: 20px;
+}
+
+.timeline-small::before {
+    content: '';
+    position: absolute;
+    left: 8px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: #dee2e6;
+}
+
+.timeline-item-small {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.timeline-marker-small {
+    position: absolute;
+    left: -16px;
+    top: 2px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: 2px solid white;
+}
+
+.timeline-content-small {
+    background: #f8f9fa;
+    padding: 10px;
+    border-radius: 6px;
+    font-size: 0.875rem;
+}
+</style>
+{% endblock %}

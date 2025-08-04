@@ -1,0 +1,432 @@
+{% extends "base.html" %}
+
+{% block title %}{% if error_code %}Error {{ error_code }}{% else %}System Error{% endif %} - MCP Audit Management System{% endblock %}
+
+{% block content %}
+<div class="container-fluid vh-100 d-flex align-items-center justify-content-center">
+    <div class="row w-100">
+        <div class="col-md-6 mx-auto">
+            <div class="text-center">
+                <!-- Error Icon -->
+                <div class="mb-4">
+                    {% if error_code == '404' %}
+                        <i class="bi bi-search" style="font-size: 8rem; color: #6c757d;"></i>
+                    {% elif error_code == '403' %}
+                        <i class="bi bi-shield-lock" style="font-size: 8rem; color: #dc3545;"></i>
+                    {% elif error_code == '500' %}
+                        <i class="bi bi-exclamation-triangle" style="font-size: 8rem; color: #ffc107;"></i>
+                    {% elif error_code == '503' %}
+                        <i class="bi bi-tools" style="font-size: 8rem; color: #6f42c1;"></i>
+                    {% else %}
+                        <i class="bi bi-bug" style="font-size: 8rem; color: #dc3545;"></i>
+                    {% endif %}
+                </div>
+
+                <!-- Error Code -->
+                {% if error_code %}
+                <h1 class="display-1 fw-bold text-muted mb-0">{{ error_code }}</h1>
+                {% endif %}
+
+                <!-- Error Title -->
+                <h2 class="h3 mb-4">
+                    {% if error_code == '404' %}
+                        Page Not Found
+                    {% elif error_code == '403' %}
+                        Access Forbidden
+                    {% elif error_code == '500' %}
+                        Internal Server Error
+                    {% elif error_code == '503' %}
+                        Service Unavailable
+                    {% else %}
+                        {% if error_title %}{{ error_title }}{% else %}An Error Occurred{% endif %}
+                    {% endif %}
+                </h2>
+
+                <!-- Error Message -->
+                <p class="text-muted mb-5">
+                    {% if error_message %}
+                        {{ error_message }}
+                    {% elif error_code == '404' %}
+                        The page you are looking for might have been removed, had its name changed, or is temporarily unavailable.
+                    {% elif error_code == '403' %}
+                        You don't have permission to access this resource. Please contact your system administrator if you believe this is an error.
+                    {% elif error_code == '500' %}
+                        Something went wrong on our end. We've been notified of this issue and are working to fix it.
+                    {% elif error_code == '503' %}
+                        The service is temporarily unavailable due to maintenance. Please try again later.
+                    {% else %}
+                        An unexpected error has occurred. Please try again or contact support if the problem persists.
+                    {% endif %}
+                </p>
+
+                <!-- Action Buttons -->
+                <div class="d-flex flex-column flex-sm-row gap-3 justify-content-center">
+                    <a href="{{ url_for('index') }}" class="btn btn-primary">
+                        <i class="bi bi-house"></i> Go Home
+                    </a>
+                    
+                    <button type="button" class="btn btn-outline-secondary" onclick="history.back()">
+                        <i class="bi bi-arrow-left"></i> Go Back
+                    </button>
+                    
+                    {% if error_code in ['500', '503'] %}
+                    <button type="button" class="btn btn-outline-info" onclick="location.reload()">
+                        <i class="bi bi-arrow-clockwise"></i> Try Again
+                    </button>
+                    {% endif %}
+                    
+                    <button type="button" class="btn btn-outline-warning" data-bs-toggle="modal" data-bs-target="#reportErrorModal">
+                        <i class="bi bi-flag"></i> Report Issue
+                    </button>
+                </div>
+
+                <!-- Additional Info -->
+                {% if error_code == '404' %}
+                <div class="mt-5">
+                    <h5 class="mb-3">What can you do?</h5>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="card border-0 bg-light">
+                                <div class="card-body text-center">
+                                    <i class="bi bi-search text-primary" style="font-size: 2rem;"></i>
+                                    <h6 class="mt-2">Search</h6>
+                                    <p class="small text-muted">Use the search feature to find what you're looking for</p>
+                                    <a href="{{ url_for('search') }}" class="btn btn-outline-primary btn-sm">
+                                        Search Audits
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card border-0 bg-light">
+                                <div class="card-body text-center">
+                                    <i class="bi bi-list-ul text-success" style="font-size: 2rem;"></i>
+                                    <h6 class="mt-2">Browse</h6>
+                                    <p class="small text-muted">Browse all available audits and resources</p>
+                                    <a href="{{ url_for('audits') }}" class="btn btn-outline-success btn-sm">
+                                        View Audits
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card border-0 bg-light">
+                                <div class="card-body text-center">
+                                    <i class="bi bi-question-circle text-info" style="font-size: 2rem;"></i>
+                                    <h6 class="mt-2">Help</h6>
+                                    <p class="small text-muted">Get help and support from our documentation</p>
+                                    <a href="#" class="btn btn-outline-info btn-sm">
+                                        Help Center
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endif %}
+
+                <!-- System Status -->
+                {% if error_code in ['500', '503'] %}
+                <div class="mt-5">
+                    <div class="alert alert-info" role="alert">
+                        <h6 class="alert-heading">
+                            <i class="bi bi-info-circle"></i> System Status
+                        </h6>
+                        {% if error_code == '503' %}
+                            The system is currently undergoing scheduled maintenance. We expect to be back online shortly.
+                        {% else %}
+                            We're aware of this issue and our technical team is working on a fix. You can check our status page for updates.
+                        {% endif %}
+                        <hr>
+                        <div class="row text-start">
+                            <div class="col-sm-6">
+                                <small><strong>Error ID:</strong> {{ error_id or 'ERR-' + (range(100000, 999999) | random | string) }}</small>
+                            </div>
+                            <div class="col-sm-6">
+                                <small><strong>Timestamp:</strong> {{ moment().format('YYYY-MM-DD HH:mm:ss') }}</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endif %}
+
+                <!-- Contact Information -->
+                <div class="mt-5 pt-4 border-top">
+                    <p class="text-muted small">
+                        Need immediate assistance? Contact our support team at 
+                        <a href="mailto:support@company.com">support@company.com</a> or 
+                        <a href="tel:+1-800-555-0123">+1-800-555-0123</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Report Error Modal -->
+<div class="modal fade" id="reportErrorModal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">
+                    <i class="bi bi-flag"></i> Report an Issue
+                </h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <form id="reportErrorForm">
+                    <div class="mb-3">
+                        <label class="form-label">Issue Type</label>
+                        <select class="form-select" name="issue_type" required>
+                            <option value="">Select issue type...</option>
+                            <option value="broken_link">Broken Link</option>
+                            <option value="page_error">Page Error</option>
+                            <option value="access_issue">Access Issue</option>
+                            <option value="performance">Performance Problem</option>
+                            <option value="feature_request">Feature Request</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label class="form-label">Your Email (Optional)</label>
+                        <input type="email" class="form-control" name="email" 
+                               placeholder="your.email@company.com">
+                        <div class="form-text">We'll use this to follow up on your report</div>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label class="form-label">Description</label>
+                        <textarea class="form-control" name="description" rows="4" 
+                                  placeholder="Please describe the issue you encountered..." required></textarea>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label class="form-label">Steps to Reproduce (Optional)</label>
+                        <textarea class="form-control" name="steps" rows="3" 
+                                  placeholder="1. Go to...&#10;2. Click on...&#10;3. See error..."></textarea>
+                    </div>
+                    
+                    <!-- Technical Details (Auto-populated) -->
+                    <div class="collapse" id="technicalDetails">
+                        <div class="mb-3">
+                            <label class="form-label">Technical Details</label>
+                            <textarea class="form-control" name="technical_details" rows="4" readonly>URL: {{ request.url }}
+Error Code: {{ error_code }}
+User Agent: [Browser Info]
+Timestamp: {{ moment().format('YYYY-MM-DD HH:mm:ss UTC') }}
+Session ID: [Session ID]</textarea>
+                        </div>
+                    </div>
+                    
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="includeTechnicalDetails" checked>
+                        <label class="form-check-label" for="includeTechnicalDetails">
+                            Include technical details to help with diagnosis
+                        </label>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-outline-info" data-bs-toggle="collapse" data-bs-target="#technicalDetails">
+                    <i class="bi bi-gear"></i> Show Technical Details
+                </button>
+                <button type="button" class="btn btn-primary" onclick="submitErrorReport()">
+                    <i class="bi bi-send"></i> Submit Report
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Auto-focus on primary action button after a delay
+    setTimeout(() => {
+        const primaryBtn = document.querySelector('.btn-primary');
+        if (primaryBtn) {
+            primaryBtn.focus();
+        }
+    }, 1000);
+    
+    // Track error for analytics (if enabled)
+    if (typeof gtag !== 'undefined') {
+        gtag('event', 'error_page_view', {
+            'error_code': '{{ error_code }}',
+            'error_title': '{{ error_title }}',
+            'page_location': window.location.href
+        });
+    }
+});
+
+function submitErrorReport() {
+    const form = document.getElementById('reportErrorForm');
+    const formData = new FormData(form);
+    
+    const issueType = formData.get('issue_type');
+    const description = formData.get('description');
+    
+    if (!issueType || !description) {
+        alert('Please fill in the required fields');
+        return;
+    }
+    
+    // Show loading state
+    const submitBtn = event.target;
+    const originalText = submitBtn.innerHTML;
+    submitBtn.innerHTML = '<i class="bi bi-hourglass-split"></i> Submitting...';
+    submitBtn.disabled = true;
+    
+    // Simulate submission
+    setTimeout(() => {
+        alert('Thank you for your report! We\'ll investigate this issue and get back to you if needed.');
+        
+        // Close modal and reset form
+        const modal = bootstrap.Modal.getInstance(document.getElementById('reportErrorModal'));
+        modal.hide();
+        form.reset();
+        
+        // Reset button
+        submitBtn.innerHTML = originalText;
+        submitBtn.disabled = false;
+    }, 2000);
+}
+
+// Keyboard shortcuts
+document.addEventListener('keydown', function(e) {
+    // ESC to go back
+    if (e.key === 'Escape') {
+        history.back();
+    }
+    
+    // H to go home
+    if (e.key === 'h' || e.key === 'H') {
+        if (!e.ctrlKey && !e.metaKey && !e.altKey) {
+            window.location.href = '{{ url_for("index") }}';
+        }
+    }
+    
+    // R to reload (for 500/503 errors)
+    if ((e.key === 'r' || e.key === 'R') && ('{{ error_code }}' === '500' || '{{ error_code }}' === '503')) {
+        if (!e.ctrlKey && !e.metaKey && !e.altKey) {
+            location.reload();
+        }
+    }
+});
+
+// Auto-retry for server errors (with exponential backoff)
+{% if error_code in ['500', '503'] %}
+let retryCount = 0;
+const maxRetries = 3;
+
+function autoRetry() {
+    if (retryCount < maxRetries) {
+        retryCount++;
+        const delay = Math.pow(2, retryCount) * 1000; // Exponential backoff
+        
+        setTimeout(() => {
+            fetch(window.location.href, { method: 'HEAD' })
+                .then(response => {
+                    if (response.ok) {
+                        location.reload();
+                    } else {
+                        autoRetry();
+                    }
+                })
+                .catch(() => {
+                    autoRetry();
+                });
+        }, delay);
+    }
+}
+
+// Start auto-retry after 5 seconds
+setTimeout(autoRetry, 5000);
+{% endif %}
+</script>
+
+<style>
+/* Error page specific styles */
+.vh-100 {
+    min-height: 100vh;
+}
+
+/* Animation for error icon */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+.bi-exclamation-triangle,
+.bi-bug {
+    animation: pulse 2s infinite;
+}
+
+/* Fade in animation */
+.container-fluid {
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { 
+        opacity: 0; 
+        transform: translateY(20px); 
+    }
+    to { 
+        opacity: 1; 
+        transform: translateY(0); 
+    }
+}
+
+/* Button hover effects */
+.btn {
+    transition: all 0.3s ease;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Card hover effects */
+.card {
+    transition: all 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .display-1 {
+        font-size: 4rem;
+    }
+    
+    .bi {
+        font-size: 6rem !important;
+    }
+}
+
+/* Focus styles for accessibility */
+.btn:focus,
+.btn-close:focus {
+    box-shadow: 0 0 0 3px rgba(13, 110, 253, 0.25);
+}
+
+/* Loading animation */
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.bi-hourglass-split {
+    animation: spin 1s linear infinite;
+}
+</style>
+{% endblock %}

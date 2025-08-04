@@ -1,0 +1,302 @@
+{% extends "base.html" %}
+
+{% block title %}Dashboard - MCP Audit Management System{% endblock %}
+
+{% block breadcrumb %}
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb mb-4">
+        <li class="breadcrumb-item active">
+            <i class="bi bi-house"></i> Dashboard
+        </li>
+    </ol>
+</nav>
+{% endblock %}
+
+{% block content %}
+<div class="row mb-4">
+    <div class="col-12">
+        <h1 class="h2 mb-0">
+            <i class="bi bi-speedometer2"></i> Dashboard
+        </h1>
+        <p class="text-muted">Welcome to the MCP Audit Management System</p>
+    </div>
+</div>
+
+<!-- Statistics Cards -->
+<div class="row mb-4">
+    <div class="col-md-3 mb-3">
+        <div class="card stats-card">
+            <div class="card-body">
+                <div class="stats-number text-primary">{{ stats.total_audits or 0 }}</div>
+                <div class="stats-label">Total Audits</div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3 mb-3">
+        <div class="card stats-card">
+            <div class="card-body">
+                <div class="stats-number text-warning">{{ stats.open_audits or 0 }}</div>
+                <div class="stats-label">Open Audits</div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3 mb-3">
+        <div class="card stats-card">
+            <div class="card-body">
+                <div class="stats-number text-info">{{ stats.in_progress or 0 }}</div>
+                <div class="stats-label">In Progress</div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3 mb-3">
+        <div class="card stats-card">
+            <div class="card-body">
+                <div class="stats-number text-success">{{ stats.completed or 0 }}</div>
+                <div class="stats-label">Completed</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <!-- Quick Actions -->
+    <div class="col-lg-6 mb-4">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0">
+                    <i class="bi bi-lightning-charge"></i> Quick Actions
+                </h5>
+            </div>
+            <div class="card-body">
+                <div class="d-grid gap-2">
+                    <a href="{{ url_for('create_audit') }}" class="btn btn-primary">
+                        <i class="bi bi-plus-circle"></i> Create New Audit
+                    </a>
+                    <a href="{{ url_for('list_audits') }}" class="btn btn-outline-primary">
+                        <i class="bi bi-list-ul"></i> View All Audits
+                    </a>
+                    <a href="{{ url_for('search') }}" class="btn btn-outline-secondary">
+                        <i class="bi bi-search"></i> Advanced Search
+                    </a>
+                    <a href="{{ url_for('reports') }}" class="btn btn-outline-info">
+                        <i class="bi bi-graph-up"></i> Generate Reports
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Server Status -->
+    <div class="col-lg-6 mb-4">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0">
+                    <i class="bi bi-server"></i> Server Status
+                </h5>
+            </div>
+            <div class="card-body">
+                {% if servers %}
+                    <div class="list-group list-group-flush">
+                        {% for server_name, server_info in servers.items() %}
+                        <div class="list-group-item d-flex justify-content-between align-items-center">
+                            <div>
+                                <strong>{{ server_name }}</strong>
+                                {% if server_info.is_current %}
+                                    <span class="badge bg-primary ms-2">Current</span>
+                                {% endif %}
+                                <br>
+                                <small class="text-muted">{{ server_info.config.description }}</small>
+                            </div>
+                            <div class="server-status" data-server-status="{{ server_name }}">
+                                {% if server_info.status.running %}
+                                    <i class="bi bi-circle-fill server-running"></i>
+                                    <span class="text-success">Running</span>
+                                {% else %}
+                                    <i class="bi bi-circle server-stopped"></i>
+                                    <span class="text-danger">Stopped</span>
+                                {% endif %}
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                    <div class="mt-3">
+                        <a href="{{ url_for('servers') }}" class="btn btn-outline-primary btn-sm">
+                            <i class="bi bi-gear"></i> Manage Servers
+                        </a>
+                    </div>
+                {% else %}
+                    <div class="text-center text-muted">
+                        <i class="bi bi-server" style="font-size: 3rem; opacity: 0.3;"></i>
+                        <p class="mt-2">No servers configured</p>
+                        <a href="{{ url_for('servers') }}" class="btn btn-primary btn-sm">
+                            Configure Servers
+                        </a>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Recent Activity -->
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0">
+                    <i class="bi bi-clock-history"></i> Recent Activity
+                </h5>
+            </div>
+            <div class="card-body">
+                <div class="list-group list-group-flush">
+                    <div class="list-group-item">
+                        <div class="d-flex w-100 justify-content-between">
+                            <h6 class="mb-1">
+                                <i class="bi bi-plus-circle text-success"></i>
+                                New audit created: "Financial Controls Review"
+                            </h6>
+                            <small class="text-muted">2 hours ago</small>
+                        </div>
+                        <p class="mb-1">Created by John Smith, assigned to Jane Doe</p>
+                    </div>
+                    
+                    <div class="list-group-item">
+                        <div class="d-flex w-100 justify-content-between">
+                            <h6 class="mb-1">
+                                <i class="bi bi-pencil text-warning"></i>
+                                Audit updated: "IT Security Assessment"
+                            </h6>
+                            <small class="text-muted">4 hours ago</small>
+                        </div>
+                        <p class="mb-1">Status changed from "Open" to "In Progress"</p>
+                    </div>
+                    
+                    <div class="list-group-item">
+                        <div class="d-flex w-100 justify-content-between">
+                            <h6 class="mb-1">
+                                <i class="bi bi-check-circle text-success"></i>
+                                Audit completed: "Compliance Review Q4"
+                            </h6>
+                            <small class="text-muted">1 day ago</small>
+                        </div>
+                        <p class="mb-1">Completed by Bob Johnson with recommendations</p>
+                    </div>
+                    
+                    <div class="list-group-item">
+                        <div class="d-flex w-100 justify-content-between">
+                            <h6 class="mb-1">
+                                <i class="bi bi-server text-info"></i>
+                                Server started: "SecureAudit"
+                            </h6>
+                            <small class="text-muted">2 days ago</small>
+                        </div>
+                        <p class="mb-1">MCP server initialized successfully</p>
+                    </div>
+                </div>
+                
+                <div class="text-center mt-3">
+                    <a href="#" class="btn btn-outline-secondary btn-sm">
+                        View Full Activity Log
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- System Information -->
+<div class="row mt-4">
+    <div class="col-lg-6">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0">
+                    <i class="bi bi-info-circle"></i> System Information
+                </h5>
+            </div>
+            <div class="card-body">
+                <table class="table table-sm">
+                    <tbody>
+                        <tr>
+                            <td><strong>Current Server:</strong></td>
+                            <td>{{ current_server or 'None' }}</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Active Servers:</strong></td>
+                            <td>{{ stats.active_servers or 0 }}</td>
+                        </tr>
+                        <tr>
+                            <td><strong>System Status:</strong></td>
+                            <td>
+                                <span class="badge bg-success">Operational</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>Last Backup:</strong></td>
+                            <td class="text-muted">2 hours ago</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-lg-6">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0">
+                    <i class="bi bi-graph-up"></i> Quick Stats
+                </h5>
+            </div>
+            <div class="card-body">
+                <canvas id="quickStatsChart" width="400" height="200"></canvas>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Quick Stats Chart
+    const ctx = document.getElementById('quickStatsChart').getContext('2d');
+    new Chart(ctx, {
+        type: 'doughnut',
+        data: {
+            labels: ['Open', 'In Progress', 'Completed', 'Closed'],
+            datasets: [{
+                data: [{{ stats.open_audits or 0 }}, {{ stats.in_progress or 0 }}, {{ stats.completed or 0 }}, 2],
+                backgroundColor: [
+                    '#ffc107',
+                    '#17a2b8', 
+                    '#28a745',
+                    '#6f42c1'
+                ],
+                borderWidth: 0
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: {
+                    position: 'bottom'
+                }
+            }
+        }
+    });
+    
+    // Auto-refresh statistics every 30 seconds
+    setInterval(function() {
+        fetch('/api/statistics')
+            .then(response => response.json())
+            .then(data => {
+                // Update statistics display
+                console.log('Statistics updated:', data);
+            })
+            .catch(error => console.error('Error fetching statistics:', error));
+    }, 30000);
+});
+</script>
+{% endblock %}

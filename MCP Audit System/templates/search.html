@@ -1,0 +1,650 @@
+{% extends "base.html" %}
+
+{% block title %}Advanced Search - MCP Audit Management System{% endblock %}
+
+{% block breadcrumb %}
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb mb-4">
+        <li class="breadcrumb-item">
+            <a href="{{ url_for('index') }}">Dashboard</a>
+        </li>
+        <li class="breadcrumb-item active">Advanced Search</li>
+    </ol>
+</nav>
+{% endblock %}
+
+{% block content %}
+<div class="row mb-4">
+    <div class="col-12">
+        <h1 class="h2 mb-0">
+            <i class="bi bi-search"></i> Advanced Search
+        </h1>
+        <p class="text-muted">Find audits using advanced filters and search criteria</p>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-4">
+        <!-- Search Form -->
+        <div class="card mb-4">
+            <div class="card-header">
+                <h5 class="mb-0">
+                    <i class="bi bi-funnel"></i> Search Filters
+                </h5>
+            </div>
+            <div class="card-body">
+                <form id="advancedSearchForm">
+                    <!-- Text Search -->
+                    <div class="mb-3">
+                        <label class="form-label">Keywords</label>
+                        <input type="text" class="form-control" name="keywords" 
+                               placeholder="Search in title, description, notes...">
+                    </div>
+                    
+                    <!-- Status Filter -->
+                    <div class="mb-3">
+                        <label class="form-label">Status</label>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="status" value="open" id="status_open">
+                            <label class="form-check-label" for="status_open">Open</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="status" value="in_progress" id="status_progress">
+                            <label class="form-check-label" for="status_progress">In Progress</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="status" value="completed" id="status_completed">
+                            <label class="form-check-label" for="status_completed">Completed</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="status" value="closed" id="status_closed">
+                            <label class="form-check-label" for="status_closed">Closed</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="status" value="cancelled" id="status_cancelled">
+                            <label class="form-check-label" for="status_cancelled">Cancelled</label>
+                        </div>
+                    </div>
+                    
+                    <!-- Auditor Filter -->
+                    <div class="mb-3">
+                        <label class="form-label">Assigned Auditor</label>
+                        <select class="form-select" name="auditor" multiple>
+                            <option value="John Smith">John Smith</option>
+                            <option value="Jane Doe">Jane Doe</option>
+                            <option value="Bob Johnson">Bob Johnson</option>
+                            <option value="Sarah Wilson">Sarah Wilson</option>
+                            <option value="Mike Davis">Mike Davis</option>
+                        </select>
+                        <div class="form-text">Hold Ctrl/Cmd to select multiple</div>
+                    </div>
+                    
+                    <!-- Date Range -->
+                    <div class="mb-3">
+                        <label class="form-label">Date Range</label>
+                        <div class="row">
+                            <div class="col-6">
+                                <input type="date" class="form-control" name="date_from" placeholder="From">
+                            </div>
+                            <div class="col-6">
+                                <input type="date" class="form-control" name="date_to" placeholder="To">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Created Date Range -->
+                    <div class="mb-3">
+                        <label class="form-label">Created Date Range</label>
+                        <div class="row">
+                            <div class="col-6">
+                                <input type="date" class="form-control" name="created_from" placeholder="From">
+                            </div>
+                            <div class="col-6">
+                                <input type="date" class="form-control" name="created_to" placeholder="To">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Priority Filter -->
+                    <div class="mb-3">
+                        <label class="form-label">Priority Level</label>
+                        <select class="form-select" name="priority">
+                            <option value="">Any Priority</option>
+                            <option value="high">High</option>
+                            <option value="medium">Medium</option>
+                            <option value="low">Low</option>
+                        </select>
+                    </div>
+                    
+                    <!-- Department Filter -->
+                    <div class="mb-3">
+                        <label class="form-label">Department</label>
+                        <select class="form-select" name="department">
+                            <option value="">Any Department</option>
+                            <option value="finance">Finance</option>
+                            <option value="it">IT</option>
+                            <option value="hr">Human Resources</option>
+                            <option value="operations">Operations</option>
+                            <option value="legal">Legal</option>
+                            <option value="compliance">Compliance</option>
+                        </select>
+                    </div>
+                    
+                    <!-- Advanced Options -->
+                    <div class="mb-3">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="has_attachments" id="has_attachments">
+                            <label class="form-check-label" for="has_attachments">
+                                Has Attachments
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="has_notes" id="has_notes">
+                            <label class="form-check-label" for="has_notes">
+                                Has Notes
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="overdue" id="overdue">
+                            <label class="form-check-label" for="overdue">
+                                Overdue
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <!-- Sort Options -->
+                    <div class="mb-4">
+                        <label class="form-label">Sort By</label>
+                        <select class="form-select" name="sort_by">
+                            <option value="created_desc">Created Date (Newest)</option>
+                            <option value="created_asc">Created Date (Oldest)</option>
+                            <option value="updated_desc">Last Updated (Newest)</option>
+                            <option value="updated_asc">Last Updated (Oldest)</option>
+                            <option value="title_asc">Title (A-Z)</option>
+                            <option value="title_desc">Title (Z-A)</option>
+                            <option value="status_asc">Status</option>
+                            <option value="auditor_asc">Auditor</option>
+                        </select>
+                    </div>
+                    
+                    <!-- Action Buttons -->
+                    <div class="d-grid gap-2">
+                        <button type="submit" class="btn btn-primary">
+                            <i class="bi bi-search"></i> Search Audits
+                        </button>
+                        <button type="button" class="btn btn-outline-secondary" onclick="clearFilters()">
+                            <i class="bi bi-x-circle"></i> Clear Filters
+                        </button>
+                        <button type="button" class="btn btn-outline-info" onclick="saveSearch()">
+                            <i class="bi bi-bookmark"></i> Save Search
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        
+        <!-- Saved Searches -->
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0">
+                    <i class="bi bi-bookmark"></i> Saved Searches
+                </h5>
+            </div>
+            <div class="card-body">
+                <div class="list-group list-group-flush">
+                    <button type="button" class="list-group-item list-group-item-action" onclick="loadSavedSearch('overdue_audits')">
+                        <i class="bi bi-clock"></i> Overdue Audits
+                        <span class="badge bg-danger ms-auto">3</span>
+                    </button>
+                    <button type="button" class="list-group-item list-group-item-action" onclick="loadSavedSearch('my_audits')">
+                        <i class="bi bi-person"></i> My Audits
+                        <span class="badge bg-primary ms-auto">8</span>
+                    </button>
+                    <button type="button" class="list-group-item list-group-item-action" onclick="loadSavedSearch('completed_this_month')">
+                        <i class="bi bi-check-circle"></i> Completed This Month
+                        <span class="badge bg-success ms-auto">12</span>
+                    </button>
+                    <button type="button" class="list-group-item list-group-item-action" onclick="loadSavedSearch('high_priority')">
+                        <i class="bi bi-exclamation-triangle"></i> High Priority
+                        <span class="badge bg-warning ms-auto">5</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Search Results -->
+    <div class="col-lg-8">
+        <div class="card">
+            <div class="card-header d-flex justify-content-between align-items-center">
+                <h5 class="mb-0">
+                    <i class="bi bi-list-ul"></i> Search Results
+                    <span id="resultCount" class="badge bg-secondary ms-2">0 results</span>
+                </h5>
+                <div class="btn-group btn-group-sm" role="group">
+                    <button type="button" class="btn btn-outline-secondary" onclick="exportResults()">
+                        <i class="bi bi-download"></i> Export
+                    </button>
+                    <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#bulkActionsModal">
+                        <i class="bi bi-check-square"></i> Bulk Actions
+                    </button>
+                </div>
+            </div>
+            <div class="card-body">
+                <!-- Search Instructions -->
+                <div id="searchInstructions" class="text-center py-5">
+                    <i class="bi bi-search" style="font-size: 4rem; color: #dee2e6;"></i>
+                    <h4 class="mt-3">Start Your Search</h4>
+                    <p class="text-muted">
+                        Use the filters on the left to find specific audits. You can search by keywords, 
+                        status, auditor, date ranges, and more.
+                    </p>
+                    <div class="row mt-4">
+                        <div class="col-md-6">
+                            <div class="card border-0 bg-light">
+                                <div class="card-body text-center">
+                                    <i class="bi bi-lightbulb text-warning" style="font-size: 2rem;"></i>
+                                    <h6 class="mt-2">Quick Tips</h6>
+                                    <ul class="list-unstyled small text-start">
+                                        <li>• Use keywords to search across all text fields</li>
+                                        <li>• Combine multiple filters for precise results</li>
+                                        <li>• Save frequent searches for quick access</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="card border-0 bg-light">
+                                <div class="card-body text-center">
+                                    <i class="bi bi-bookmark text-info" style="font-size: 2rem;"></i>
+                                    <h6 class="mt-2">Saved Searches</h6>
+                                    <ul class="list-unstyled small text-start">
+                                        <li>• Use preset searches from the sidebar</li>
+                                        <li>• Create your own saved search filters</li>
+                                        <li>• Get notifications for saved searches</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Results Container -->
+                <div id="searchResults" style="display: none;">
+                    <div class="table-responsive">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        <input type="checkbox" id="selectAll" class="form-check-input">
+                                    </th>
+                                    <th>ID</th>
+                                    <th>Title</th>
+                                    <th>Status</th>
+                                    <th>Auditor</th>
+                                    <th>Date</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="resultsTableBody">
+                                <!-- Results will be populated here -->
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                    <!-- Pagination -->
+                    <nav aria-label="Search results pagination">
+                        <ul class="pagination justify-content-center">
+                            <li class="page-item disabled">
+                                <a class="page-link" href="#" tabindex="-1">Previous</a>
+                            </li>
+                            <li class="page-item active">
+                                <a class="page-link" href="#">1</a>
+                            </li>
+                            <li class="page-item">
+                                <a class="page-link" href="#">Next</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+                
+                <!-- No Results -->
+                <div id="noResults" style="display: none;" class="text-center py-5">
+                    <i class="bi bi-search" style="font-size: 4rem; color: #dee2e6;"></i>
+                    <h4 class="mt-3">No Results Found</h4>
+                    <p class="text-muted">
+                        No audits match your search criteria. Try adjusting your filters or 
+                        using different keywords.
+                    </p>
+                    <button type="button" class="btn btn-outline-primary" onclick="clearFilters()">
+                        <i class="bi bi-x-circle"></i> Clear All Filters
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Save Search Modal -->
+<div class="modal fade" id="saveSearchModal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">
+                    <i class="bi bi-bookmark"></i> Save Search
+                </h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <form id="saveSearchForm">
+                    <div class="mb-3">
+                        <label class="form-label">Search Name</label>
+                        <input type="text" class="form-control" id="searchName" placeholder="Enter a name for this search..." required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Description (Optional)</label>
+                        <textarea class="form-control" id="searchDescription" rows="2" 
+                                  placeholder="Brief description of this search..."></textarea>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="notifyOnResults">
+                        <label class="form-check-label" for="notifyOnResults">
+                            Notify me when new results match this search
+                        </label>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-primary" onclick="confirmSaveSearch()">Save Search</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Bulk Actions Modal -->
+<div class="modal fade" id="bulkActionsModal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">
+                    <i class="bi bi-check-square"></i> Bulk Actions
+                </h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <p>Select an action to perform on the selected audits:</p>
+                <div class="d-grid gap-2">
+                    <button type="button" class="btn btn-outline-primary" onclick="bulkUpdateStatus()">
+                        <i class="bi bi-arrow-clockwise"></i> Update Status
+                    </button>
+                    <button type="button" class="btn btn-outline-warning" onclick="bulkAssignAuditor()">
+                        <i class="bi bi-person-plus"></i> Assign Auditor
+                    </button>
+                    <button type="button" class="btn btn-outline-success" onclick="bulkExport()">
+                        <i class="bi bi-download"></i> Export Selected
+                    </button>
+                    <button type="button" class="btn btn-outline-info" onclick="bulkAddTags()">
+                        <i class="bi bi-tags"></i> Add Tags
+                    </button>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const form = document.getElementById('advancedSearchForm');
+    form.addEventListener('submit', performSearch);
+    
+    // Select all functionality
+    const selectAll = document.getElementById('selectAll');
+    if (selectAll) {
+        selectAll.addEventListener('change', function() {
+            const checkboxes = document.querySelectorAll('#resultsTableBody input[type="checkbox"]');
+            checkboxes.forEach(checkbox => {
+                checkbox.checked = this.checked;
+            });
+        });
+    }
+});
+
+function performSearch(event) {
+    event.preventDefault();
+    
+    // Show loading state
+    const searchInstructions = document.getElementById('searchInstructions');
+    const searchResults = document.getElementById('searchResults');
+    const noResults = document.getElementById('noResults');
+    const resultCount = document.getElementById('resultCount');
+    
+    searchInstructions.style.display = 'none';
+    noResults.style.display = 'none';
+    searchResults.style.display = 'block';
+    
+    // Simulate search
+    setTimeout(() => {
+        const mockResults = [
+            {
+                id: 1,
+                title: 'Financial Controls Review Q1 2025',
+                status: 'in_progress',
+                auditor: 'John Smith',
+                date: '2025-01-15'
+            },
+            {
+                id: 2,
+                title: 'IT Security Assessment',
+                status: 'open',
+                auditor: 'Jane Doe',
+                date: '2025-02-01'
+            },
+            {
+                id: 3,
+                title: 'Compliance Review',
+                status: 'completed',
+                auditor: 'Bob Johnson',
+                date: '2025-01-10'
+            }
+        ];
+        
+        populateResults(mockResults);
+        resultCount.textContent = `${mockResults.length} results`;
+    }, 1000);
+}
+
+function populateResults(results) {
+    const tbody = document.getElementById('resultsTableBody');
+    tbody.innerHTML = '';
+    
+    results.forEach(audit => {
+        const row = document.createElement('tr');
+        row.innerHTML = `
+            <td>
+                <input type="checkbox" class="form-check-input" value="${audit.id}">
+            </td>
+            <td>#${audit.id}</td>
+            <td>
+                <a href="/audit/${audit.id}" class="text-decoration-none">
+                    ${audit.title}
+                </a>
+            </td>
+            <td>
+                <span class="status-badge status-${audit.status.replace('_', '-')}">
+                    ${audit.status.replace('_', ' ').toUpperCase()}
+                </span>
+            </td>
+            <td>${audit.auditor}</td>
+            <td>${audit.date}</td>
+            <td>
+                <div class="btn-group btn-group-sm">
+                    <a href="/audit/${audit.id}" class="btn btn-outline-primary">
+                        <i class="bi bi-eye"></i>
+                    </a>
+                    <a href="/update_audit/${audit.id}" class="btn btn-outline-warning">
+                        <i class="bi bi-pencil"></i>
+                    </a>
+                </div>
+            </td>
+        `;
+        tbody.appendChild(row);
+    });
+}
+
+function clearFilters() {
+    const form = document.getElementById('advancedSearchForm');
+    form.reset();
+    
+    // Hide results and show instructions
+    document.getElementById('searchInstructions').style.display = 'block';
+    document.getElementById('searchResults').style.display = 'none';
+    document.getElementById('noResults').style.display = 'none';
+    document.getElementById('resultCount').textContent = '0 results';
+}
+
+function saveSearch() {
+    const modal = new bootstrap.Modal(document.getElementById('saveSearchModal'));
+    modal.show();
+}
+
+function confirmSaveSearch() {
+    const searchName = document.getElementById('searchName').value;
+    if (!searchName) {
+        alert('Please enter a name for the search');
+        return;
+    }
+    
+    // Here you would save the search to the backend
+    alert(`Search "${searchName}" saved successfully!`);
+    
+    const modal = bootstrap.Modal.getInstance(document.getElementById('saveSearchModal'));
+    modal.hide();
+    
+    // Reset form
+    document.getElementById('saveSearchForm').reset();
+}
+
+function loadSavedSearch(searchId) {
+    const searches = {
+        'overdue_audits': {
+            overdue: true,
+            sort_by: 'created_desc'
+        },
+        'my_audits': {
+            auditor: 'John Smith',
+            sort_by: 'updated_desc'
+        },
+        'completed_this_month': {
+            status: ['completed'],
+            created_from: '2025-01-01',
+            created_to: '2025-01-31'
+        },
+        'high_priority': {
+            priority: 'high',
+            sort_by: 'created_desc'
+        }
+    };
+    
+    const search = searches[searchId];
+    if (search) {
+        // Apply the saved search filters
+        const form = document.getElementById('advancedSearchForm');
+        
+        Object.keys(search).forEach(key => {
+            const element = form.querySelector(`[name="${key}"]`);
+            if (element) {
+                if (element.type === 'checkbox') {
+                    element.checked = search[key];
+                } else if (Array.isArray(search[key])) {
+                    search[key].forEach(value => {
+                        const checkbox = form.querySelector(`[name="${key}"][value="${value}"]`);
+                        if (checkbox) checkbox.checked = true;
+                    });
+                } else {
+                    element.value = search[key];
+                }
+            }
+        });
+        
+        // Perform the search
+        performSearch({ preventDefault: () => {} });
+    }
+}
+
+function exportResults() {
+    alert('Export functionality would be implemented here');
+}
+
+function bulkUpdateStatus() {
+    const selected = getSelectedAudits();
+    if (selected.length === 0) {
+        alert('Please select audits to update');
+        return;
+    }
+    
+    const newStatus = prompt('Enter new status:', 'in_progress');
+    if (newStatus) {
+        alert(`Status updated for ${selected.length} audits`);
+    }
+    
+    const modal = bootstrap.Modal.getInstance(document.getElementById('bulkActionsModal'));
+    modal.hide();
+}
+
+function bulkAssignAuditor() {
+    const selected = getSelectedAudits();
+    if (selected.length === 0) {
+        alert('Please select audits to assign');
+        return;
+    }
+    
+    const auditor = prompt('Enter auditor name:', 'John Smith');
+    if (auditor) {
+        alert(`Auditor assigned to ${selected.length} audits`);
+    }
+    
+    const modal = bootstrap.Modal.getInstance(document.getElementById('bulkActionsModal'));
+    modal.hide();
+}
+
+function bulkExport() {
+    const selected = getSelectedAudits();
+    if (selected.length === 0) {
+        alert('Please select audits to export');
+        return;
+    }
+    
+    alert(`Exporting ${selected.length} audits...`);
+    
+    const modal = bootstrap.Modal.getInstance(document.getElementById('bulkActionsModal'));
+    modal.hide();
+}
+
+function bulkAddTags() {
+    const selected = getSelectedAudits();
+    if (selected.length === 0) {
+        alert('Please select audits to tag');
+        return;
+    }
+    
+    const tags = prompt('Enter tags (comma-separated):', 'urgent, review-needed');
+    if (tags) {
+        alert(`Tags added to ${selected.length} audits`);
+    }
+    
+    const modal = bootstrap.Modal.getInstance(document.getElementById('bulkActionsModal'));
+    modal.hide();
+}
+
+function getSelectedAudits() {
+    const checkboxes = document.querySelectorAll('#resultsTableBody input[type="checkbox"]:checked');
+    return Array.from(checkboxes).map(cb => cb.value);
+}
+</script>
+{% endblock %}
